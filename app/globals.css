@@ -118,13 +118,11 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   position: sticky;
   top: 0;
   z-index: 50;
-  backdrop-filter: blur(14px) saturate(1.2);
-  -webkit-backdrop-filter: blur(14px) saturate(1.2);
-  background: color-mix(in oklab, var(--bg) 78%, transparent);
-  border-bottom: 1px solid transparent;
-  transition: border-color 200ms, background 200ms;
+  background: var(--bg);
+  border-bottom: 1px solid var(--rule);
+  transition: box-shadow 200ms;
 }
-.nav.scrolled { border-bottom-color: var(--rule); }
+.nav.scrolled { box-shadow: 0 2px 16px -4px rgba(21,20,15,0.08); }
 .nav-inner {
   display: flex;
   align-items: center;
