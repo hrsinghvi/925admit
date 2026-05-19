@@ -28,7 +28,13 @@ interface WrapperProps {
 
 export function StaggerContainer({ children, className = '' }: WrapperProps) {
   return (
-    <motion.div variants={container} initial="hidden" animate="show" className={className}>
+    <motion.div
+      variants={container}
+      initial="hidden"
+      whileInView="show"
+      viewport={{ once: true }}
+      className={className}
+    >
       {children}
     </motion.div>
   )

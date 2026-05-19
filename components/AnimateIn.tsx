@@ -13,7 +13,8 @@ export default function AnimateIn({ children, delay = 0, className = '' }: Anima
   return (
     <motion.div
       initial={{ opacity: 0, y: 24 }}
-      animate={{ opacity: 1, y: 0 }}
+      whileInView={{ opacity: 1, y: 0 }}
+      viewport={{ once: true }}
       transition={{ duration: 0.5, ease: 'easeOut', delay }}
       className={className}
     >

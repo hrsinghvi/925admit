@@ -6,6 +6,7 @@ type Variant = 'primary' | 'ghost' | 'outlined' | 'white'
 interface ButtonProps {
   href?: string
   onClick?: () => void
+  type?: 'button' | 'submit' | 'reset'
   variant?: Variant
   children: ReactNode
   className?: string
@@ -22,6 +23,7 @@ const variantClasses: Record<Variant, string> = {
 export default function Button({
   href,
   onClick,
+  type = 'button',
   variant = 'primary',
   children,
   className = '',
@@ -44,7 +46,7 @@ export default function Button({
   }
 
   return (
-    <button onClick={onClick} className={classes}>
+    <button type={type} onClick={onClick} className={classes}>
       {children}
     </button>
   )
