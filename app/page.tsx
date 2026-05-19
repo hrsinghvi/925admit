@@ -1,310 +1,452 @@
 import type { Metadata } from 'next'
 import Link from 'next/link'
-import Image from 'next/image'
-import { ChevronRight, CheckCircle2 } from 'lucide-react'
 import Button from '@/components/Button'
-import AnimateIn from '@/components/AnimateIn'
-import SchoolMarquee from '@/components/SchoolMarquee'
-import { CALENDLY_URL, TESTIMONIALS } from '@/lib/constants'
+import EssayDemo from '@/components/EssayDemo'
+import FAQAccordion from '@/components/FAQAccordion'
+import {
+  CALENDLY_URL,
+  TESTIMONIALS,
+  SUCCESS_SCHOOLS,
+  PRICING_TIERS,
+  FAQ_ITEMS,
+} from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'BayAdmit | Bay Area College Essay Coaching',
   description:
-    "Bay Area's premier college essay coaching. Expert 1-on-1 guidance, unlimited revisions, 48-hour turnaround.",
+    "Bay Area's premier college essay coaching service. We help students find their voice, craft compelling narratives, and stand out in the admissions process.",
 }
 
 export default function HomePage() {
   return (
     <>
-      {/* SECTION 1: Hero */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-10">
-        {/* Pill badge row */}
-        <AnimateIn>
-          <div className="inline-flex items-center gap-0 rounded-full bg-black/5 text-sm mb-10 overflow-hidden">
-            <span className="px-4 py-1.5 text-brand-neutral">Bay Area College Essay Coaching</span>
-            <a
-              href="/testimonials"
-              className="flex items-center gap-1 bg-brand-dark text-[#F4F4F0] px-3 py-1.5 font-medium"
-            >
-              Read stories <ChevronRight size={14} />
-            </a>
+      {/* ===== HERO ===== */}
+      <section className="hero">
+        <div className="shell">
+          {/* Eyebrow pill */}
+          <div
+            style={{
+              display: 'inline-flex',
+              alignItems: 'center',
+              gap: 6,
+              border: '1px solid var(--rule)',
+              borderRadius: 999,
+              background: 'var(--paper)',
+              padding: '6px 14px',
+              marginBottom: 40,
+            }}
+          >
+            <span className="eyebrow" style={{ letterSpacing: '0.1em' }}>
+              Bay Area College Essay Coaching ·{' '}
+              <Link href="/testimonials" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
+                Read stories →
+              </Link>
+            </span>
           </div>
-        </AnimateIn>
 
-        {/* Headline */}
-        <AnimateIn delay={0.1}>
-          <h1 className="font-serif text-6xl sm:text-7xl md:text-8xl text-brand-dark leading-[1.0] tracking-tight max-w-4xl mb-6">
-            Your Story<br />
-            Deserves to<br />
-            Get In.
+          {/* Headline */}
+          <h1 className="display" style={{ fontSize: 'clamp(56px, 9vw, 128px)', marginBottom: 32 }}>
+            Your story<br />
+            deserves to<br />
+            get <span className="italic" style={{ color: 'var(--accent)' }}>in</span>.
           </h1>
-        </AnimateIn>
 
-        {/* Sub-headline */}
-        <AnimateIn delay={0.2}>
-          <p className="text-brand-neutral text-lg max-w-lg mb-10 leading-relaxed">
-            Bay Area&apos;s premier college essay coaching. Expert 1-on-1 guidance, unlimited
-            revisions, results in 48 hours.
+          {/* Lede */}
+          <p className="lede">
+            Bay Area&apos;s premier college essay coaching service. We help students find their voice,
+            craft compelling narratives, and stand out in the admissions process.
           </p>
-        </AnimateIn>
 
-        {/* CTAs */}
-        <AnimateIn delay={0.3}>
-          <div className="flex items-center gap-8">
+          {/* CTAs */}
+          <div className="hero-ctas">
             <Button href={CALENDLY_URL} external variant="primary">
-              Book Consultation
+              Book Free Consult →
             </Button>
-            <Link
-              href="/testimonials"
-              className="text-brand-neutral hover:text-brand-dark text-sm flex items-center gap-1.5 transition-colors"
-            >
-              See what others say about BayAdmit <span aria-hidden>→</span>
-            </Link>
+            <Button href="/testimonials" variant="ghost">
+              See what others say →
+            </Button>
           </div>
-        </AnimateIn>
-      </div>
 
-      {/* SECTION 2: Hero Image Card */}
-      <div className="max-w-7xl mx-auto px-6 sm:px-8 mt-16">
-        <div
-          className="relative rounded-2xl overflow-hidden bg-[#4A6B60]"
-          style={{ height: '520px' }}
-        >
-          <Image
-            src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?q=80&w=1600&auto=format&fit=crop"
-            alt="College counseling session — student and mentor collaborating"
-            fill
-            className="object-cover object-center"
-            priority
-          />
-          {/* Subtle overlay to blend with bg */}
-          <div className="absolute inset-0 bg-[#4A6B60]/20" />
+          {/* Meta strip */}
+          <div className="hero-meta">
+            <div className="hero-meta-block">
+              <div className="num">500<span className="accent">+</span></div>
+              <div className="label">essays coached</div>
+            </div>
+            <div className="hero-meta-block">
+              <div className="num">1 : 1</div>
+              <div className="label">dedicated counselor, not a chatbot</div>
+            </div>
+            <div className="hero-meta-block">
+              <div className="num">48<span className="accent">hr</span></div>
+              <div className="label">guaranteed feedback turnaround</div>
+            </div>
+            <div className="hero-meta-block">
+              <div className="num">3</div>
+              <div className="label">steps from first draft to final essay</div>
+            </div>
+          </div>
         </div>
-      </div>
-
-      {/* SECTION 3: School Marquee */}
-      <section className="py-20 overflow-hidden">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8 mb-12 text-center">
-          <p className="font-serif text-3xl sm:text-4xl text-brand-dark">
-            Our students have been admitted to these schools.
-          </p>
-        </div>
-        <SchoolMarquee />
       </section>
 
-      {/* SECTION 4: Feature section */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 py-20">
-        {/* Header — left aligned */}
-        <div className="mb-16">
-          <p className="text-sm font-medium text-brand-neutral/60 uppercase tracking-widest mb-4">
-            What we do
-          </p>
-          <h2 className="font-serif text-4xl sm:text-5xl text-brand-dark max-w-xl leading-tight">
-            We coach the essays<br />that get you in.
-          </h2>
-          <p className="mt-4 text-brand-neutral max-w-lg">
-            Expert feedback on every paragraph. Your voice, your story — polished to perfection.
-          </p>
+      {/* ===== LOGOS ===== */}
+      <section className="logos">
+        <div className="shell">
+          <div className="logos-label">
+            <span className="eyebrow">Our students have been admitted to these schools.</span>
+          </div>
+          <div className="logo-row">
+            {SUCCESS_SCHOOLS.map((school) => (
+              <span key={school} className="logo-item">
+                <span className="dot" />
+                {school}
+              </span>
+            ))}
+          </div>
         </div>
+      </section>
 
-        {/* 2×3 feature card grid */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {/* Card 1 — Annotated coaching */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#4A6B60] p-8 h-52 flex flex-col justify-between">
-              <div className="bg-white/90 rounded-xl p-4 text-xs text-brand-dark/80 space-y-2">
-                <div className="font-medium text-brand-dark">Personal Statement Draft</div>
-                <div className="text-brand-neutral/70 leading-relaxed">
-                  Growing up between two cultures taught me...
-                </div>
-                <div className="flex gap-2">
-                  <span className="bg-primary/20 text-primary px-2 py-0.5 rounded-full text-[10px]">
-                    Strong hook ✓
-                  </span>
-                  <span className="bg-accent/20 text-accent px-2 py-0.5 rounded-full text-[10px]">
-                    Voice clear ✓
-                  </span>
-                </div>
-              </div>
+      {/* ===== ESSAY DEMO ===== */}
+      <section className="section" id="demo">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Essay Coaching · Live</span>
+              <h2>
+                Click any <em className="it">underlined</em> phrase — the coach note moves with you.
+              </h2>
             </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Annotated coaching</h3>
-              <p className="text-sm text-brand-neutral">
-                Line-by-line feedback. What&apos;s working, what to fix.
-              </p>
+            <p>
+              This is what a BayAdmit coaching session looks like. Real essay excerpt, real feedback
+              notes — the kind of close read that gets essays noticed.
+            </p>
+          </div>
+          <EssayDemo />
+        </div>
+      </section>
+
+      {/* ===== SHOWCASE ===== */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">What we do</span>
+              <h2>
+                Every tool a <em className="it">serious</em> applicant needs.
+              </h2>
             </div>
+            <p>
+              From your first draft to your last supplement — BayAdmit coaches the full application.
+            </p>
           </div>
 
-          {/* Card 2 — Fast feedback */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#6B6080] p-8 h-52 flex flex-col justify-center items-center">
-              <div className="text-center">
-                <div className="text-7xl font-serif font-bold text-white/90">48</div>
-                <div className="text-white/70 text-sm mt-1">hour turnaround</div>
-                <div className="mt-3 text-white/50 text-xs">Guaranteed on every package</div>
-              </div>
-            </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Fast feedback</h3>
-              <p className="text-sm text-brand-neutral">
-                Detailed review returned within 48 hours, every time.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 3 — Unlimited revisions */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#7D6B5A] p-8 h-52 flex flex-col justify-center">
-              <div className="space-y-3">
-                {(['Original draft', 'After session 1', 'After session 2', 'Final essay'] as const).map(
-                  (label, i) => (
-                    <div key={label} className="flex items-center gap-3">
-                      <div
-                        className={`w-2 h-2 rounded-full ${i === 3 ? 'bg-white' : 'bg-white/40'}`}
-                      />
-                      <span
-                        className={`text-sm ${i === 3 ? 'text-white font-medium' : 'text-white/60'}`}
-                      >
-                        {label}
-                      </span>
-                      {i === 3 && (
-                        <span className="ml-auto text-[10px] bg-white/20 text-white px-2 py-0.5 rounded-full">
-                          Best ✓
-                        </span>
-                      )}
-                    </div>
-                  )
-                )}
-              </div>
-            </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Unlimited revisions</h3>
-              <p className="text-sm text-brand-neutral">
-                We work until it&apos;s perfect. No round limits, ever.
-              </p>
-            </div>
-          </div>
-
-          {/* Card 4 — Full application coverage */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#5A6B7D] p-8 h-52 flex flex-col justify-center">
-              <div className="space-y-2">
-                {[
-                  'Common App Personal Statement',
-                  'UC Personal Insight Questions',
-                  'Why School? Essays',
-                  'Roommate Essays',
-                  'Short Answers',
-                ].map((item) => (
-                  <div key={item} className="flex items-center gap-2 text-sm text-white/80">
-                    <CheckCircle2 size={14} className="text-white/60 shrink-0" />
-                    {item}
+          <div className="showcase">
+            {/* Card 1 — Annotated Coaching */}
+            <div className="show-card">
+              <div className="show-tile slate">
+                <div className="mini">
+                  <div className="mini-essay">
+                    <p style={{ margin: '0 0 8px' }}>
+                      Growing up between two <span className="hi-y">cultures taught</span> me that
+                      identity isn&apos;t fixed — it&apos;s{' '}
+                      <span className="hi-g">something you build</span>.
+                    </p>
                   </div>
-                ))}
+                  <div className="mini-row">
+                    <span className="tag-y" />
+                    <span style={{ fontSize: 11, color: 'var(--ink-2)' }}>Voice · Rephrase</span>
+                    <span className="meta">¶1</span>
+                  </div>
+                  <div className="mini-row">
+                    <span className="tag-g" />
+                    <span style={{ fontSize: 11, color: 'var(--ink-2)' }}>Strong image</span>
+                    <span className="meta">¶1</span>
+                  </div>
+                </div>
               </div>
+              <h3>Annotated Coaching</h3>
+              <p>Line-by-line feedback on every paragraph</p>
             </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Full application coverage</h3>
-              <p className="text-sm text-brand-neutral">
-                Personal statement, supplements, and every short answer.
-              </p>
-            </div>
-          </div>
 
-          {/* Card 5 — Real results */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#7A8C7A] p-8 h-52 flex flex-col justify-between">
-              <div className="bg-white/90 rounded-xl p-4">
-                <div className="text-[11px] text-brand-neutral mb-2 font-medium">
-                  Student result
-                </div>
-                <div className="text-lg font-serif font-medium text-brand-dark">Admitted ✓</div>
-                <div className="text-sm text-brand-neutral">UC Berkeley · Class of 2028</div>
-                <div className="mt-2 text-[11px] text-brand-neutral/70 italic">
-                  &ldquo;BayAdmit helped me find words I didn&apos;t know I had.&rdquo;
+            {/* Card 2 — Score & Strengths */}
+            <div className="show-card">
+              <div className="show-tile plum">
+                <div className="mini">
+                  <div className="mini-score">
+                    92 <small>/ 100</small>
+                  </div>
+                  <div className="mini-hist">
+                    <span style={{ height: '30%' }} />
+                    <span style={{ height: '45%' }} />
+                    <span style={{ height: '60%' }} />
+                    <span style={{ height: '50%' }} />
+                    <span className="peak" style={{ height: '92%' }} />
+                    <span style={{ height: '75%' }} />
+                    <span style={{ height: '80%' }} />
+                  </div>
                 </div>
               </div>
-              <div className="text-white/60 text-xs">— Sarah L., Fremont CA</div>
+              <h3>Score &amp; Strengths</h3>
+              <p>Six dimensions, scored like an admissions reader</p>
             </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Real results</h3>
-              <p className="text-sm text-brand-neutral">
-                Students admitted to top schools across the country.
-              </p>
-            </div>
-          </div>
 
-          {/* Card 6 — Bay Area roots */}
-          <div className="rounded-2xl overflow-hidden">
-            <div className="bg-[#6B7A55] p-8 h-52 flex items-center justify-center">
-              <div className="text-center">
-                <div className="w-16 h-16 rounded-full bg-white/20 flex items-center justify-center mx-auto mb-4">
-                  <span className="text-3xl">🎓</span>
+            {/* Card 3 — Voice Rewrite */}
+            <div className="show-card">
+              <div className="show-tile sienna">
+                <div className="mini">
+                  <div className="mini-rewrite">
+                    <div className="col">
+                      <div className="col-label">Before</div>
+                      <p>
+                        <span className="strike">I have always been passionate about science.</span>
+                      </p>
+                    </div>
+                    <div className="col fresh">
+                      <div className="col-label">After</div>
+                      <p>
+                        The frog did not survive my first dissection. I went back the next day anyway.
+                      </p>
+                    </div>
+                  </div>
                 </div>
-                <div className="text-white font-serif text-xl">Submit with confidence.</div>
-                <div className="text-white/60 text-sm mt-2">Bay Area → Nationwide</div>
               </div>
+              <h3>Voice Rewrite</h3>
+              <p>When a sentence isn&apos;t you, we show what it could be</p>
             </div>
-            <div className="p-6 bg-white border border-black/5">
-              <h3 className="font-semibold text-brand-dark mb-1">Bay Area roots, national reach</h3>
-              <p className="text-sm text-brand-neutral">
-                Based in the Bay Area, serving students everywhere.
-              </p>
+
+            {/* Card 4 — Final Checklist */}
+            <div className="show-card">
+              <div className="show-tile sage">
+                <div className="mini">
+                  <div className="mini-list">
+                    <div className="mini-list-row">
+                      <span>Word count</span>
+                      <span className="mini-pill">Done</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Hook clarity</span>
+                      <span className="mini-pill">Done</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Transition flow</span>
+                      <span className="mini-pill warn">Review</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Voice consistency</span>
+                      <span className="mini-pill">Done</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Closing line</span>
+                      <span className="mini-pill warn">Review</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3>Final Checklist</h3>
+              <p>Nothing slips through before submit day</p>
+            </div>
+
+            {/* Card 5 — Strategy Brief */}
+            <div className="show-card">
+              <div className="show-tile ink">
+                <div className="mini">
+                  <div className="mini-brief lead">
+                    <span className="verb">Lead</span>
+                    <span>Open with the moment in the garden, not the thesis statement.</span>
+                  </div>
+                  <div className="mini-brief tighten">
+                    <span className="verb">Tighten</span>
+                    <span>Cut ¶3 — restates what ¶2 already shows.</span>
+                  </div>
+                  <div className="mini-brief cut">
+                    <span className="verb">Cut</span>
+                    <span>Remove &ldquo;I have always been&rdquo; openers throughout.</span>
+                  </div>
+                </div>
+              </div>
+              <h3>Strategy Brief</h3>
+              <p>School-specific supplement guidance</p>
+            </div>
+
+            {/* Card 6 — Closest Match */}
+            <div className="show-card">
+              <div className="show-tile clay">
+                <div className="mini">
+                  <div className="mini-match">
+                    <div>
+                      <div className="col-head">
+                        Your Essay <span className="pct">87%</span>
+                      </div>
+                      <p>
+                        The summer before junior year, I rewrote my personal statement eleven times.
+                      </p>
+                    </div>
+                    <div>
+                      <div className="col-head">
+                        Admitted Essay
+                      </div>
+                      <p>
+                        My grandmother never planted anything she couldn&apos;t eat. I took notes.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <h3>Closest Match</h3>
+              <p>Essays that worked at your target schools</p>
             </div>
           </div>
         </div>
       </section>
 
-      {/* SECTION 5: Testimonials Preview */}
-      <section className="bg-white py-20">
-        <div className="max-w-7xl mx-auto px-6 sm:px-8">
-          <h2 className="font-serif text-4xl text-brand-dark mb-12 text-center">
-            What students say.
-          </h2>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-            {TESTIMONIALS.slice(0, 3).map((t) => (
-              <div key={t.name} className="bg-[#F4F4F0] rounded-2xl p-6">
-                <div className="text-accent text-lg mb-3">{'★'.repeat(t.stars)}</div>
-                <blockquote className="font-serif text-lg text-brand-dark leading-relaxed mb-4">
-                  &ldquo;{t.quote}&rdquo;
-                </blockquote>
-                <div>
-                  <div className="text-sm font-medium text-brand-dark">{t.name}</div>
-                  <div className="text-xs text-brand-neutral">{t.result}</div>
+      {/* ===== HOW IT WORKS ===== */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">The process</span>
+              <h2>
+                Simple. Personalized. <em className="it">Effective.</em>
+              </h2>
+            </div>
+            <p></p>
+          </div>
+          <div className="steps">
+            <div className="step">
+              <div className="step-num">1</div>
+              <h4>Book a Free Consult</h4>
+              <p>We learn about you, your goals, and your story. No commitment.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">2</div>
+              <h4>Draft Together</h4>
+              <p>Your counselor guides every draft with close, specific feedback.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">3</div>
+              <h4>Refine &amp; Polish</h4>
+              <p>Unlimited revisions until every sentence sounds like you.</p>
+            </div>
+            <div className="step">
+              <div className="step-num">4</div>
+              <h4>Submit with Confidence</h4>
+              <p>Walk into application season ready.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Stories</span>
+              <h2>
+                Students who found <em className="it">their voice.</em>
+              </h2>
+            </div>
+            <p></p>
+          </div>
+          <div className="testimonials">
+            {TESTIMONIALS.slice(0, 3).map((t) => {
+              const initial = t.name.charAt(0)
+              return (
+                <div key={t.name} className="testimonial">
+                  <div className="quote">&ldquo;{t.quote}&rdquo;</div>
+                  <div className="author">
+                    <div className="avatar">{initial}</div>
+                    <div>
+                      <div className="meta-name">{t.name}</div>
+                      <div className="meta-school">{t.result}</div>
+                    </div>
+                  </div>
                 </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
+      {/* ===== PRICING ===== */}
+      <section className="section" id="pricing">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Pricing</span>
+              <h2>
+                Simple, transparent <em className="it">pricing.</em>
+              </h2>
+            </div>
+            <p>All packages include unlimited revisions. No hidden fees.</p>
+          </div>
+          <div className="pricing">
+            {PRICING_TIERS.map((tier) => (
+              <div key={tier.name} className={`plan${tier.highlighted ? ' featured' : ''}`}>
+                <div className="plan-name">
+                  <span className="italic">{tier.name}</span>
+                  {tier.badge && <span className="badge">{tier.badge}</span>}
+                </div>
+                <div className="price">
+                  {tier.price}
+                  <small>/package</small>
+                </div>
+                <div className="plan-desc">
+                  {tier.highlighted
+                    ? 'Our most popular package for serious applicants.'
+                    : tier.name === 'Single Essay'
+                    ? 'Perfect for students who need help with one key essay.'
+                    : 'Comprehensive support for your entire application.'}
+                </div>
+                <ul className="feature-list">
+                  {tier.features.map((f) => (
+                    <li key={f}>{f}</li>
+                  ))}
+                </ul>
+                <Button href={CALENDLY_URL} external variant="primary">
+                  Book Free Consult
+                </Button>
               </div>
             ))}
           </div>
-          <div className="text-center mt-10">
-            <Link
-              href="/testimonials"
-              className="text-sm text-brand-neutral hover:text-brand-dark flex items-center gap-1.5 justify-center transition-colors"
-            >
-              Read more stories →
-            </Link>
-          </div>
         </div>
       </section>
 
-      {/* SECTION 6: Final CTA */}
-      <section className="py-32 px-6 text-center">
-        <div className="max-w-2xl mx-auto">
-          <h2 className="font-serif text-5xl sm:text-6xl text-brand-dark mb-6">
-            Ready to write<br />your best essay?
+      {/* ===== FAQ ===== */}
+      <section className="section" id="faq">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <span className="eyebrow">Questions</span>
+              <h2>
+                Common <em className="it">questions.</em>
+              </h2>
+            </div>
+            <p></p>
+          </div>
+          <FAQAccordion items={FAQ_ITEMS} />
+        </div>
+      </section>
+
+      {/* ===== CTA BAND ===== */}
+      <section className="cta-band">
+        <div className="shell">
+          <div className="eyebrow" style={{ marginBottom: 24 }}>
+            Ready when you are, writer.
+          </div>
+          <h2>
+            Ready to write your <span className="accent">best</span> essay?
           </h2>
-          <p className="text-brand-neutral mb-10 text-lg">
+          <p className="lede">
             Book a free 30-minute consultation — no commitment, no pressure.
           </p>
-          <div className="flex items-center justify-center gap-8">
+          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
             <Button href={CALENDLY_URL} external variant="primary">
-              Book Consultation
+              Book Free Consult →
             </Button>
-            <Link
-              href="/pricing"
-              className="text-brand-neutral hover:text-brand-dark text-sm flex items-center gap-1.5 transition-colors"
-            >
+            <Button href="#pricing" variant="ghost">
               See pricing →
-            </Link>
+            </Button>
           </div>
         </div>
       </section>
