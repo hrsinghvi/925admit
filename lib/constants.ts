@@ -155,10 +155,10 @@ export const PRICING_TIERS: {
     badge: 'Most Popular',
     features: [
       'Up to 5 essays',
-      'Unlimited revisions on all',
-      'Priority 24-hour turnaround',
+      'Unlimited revisions',
+      '48-hour feedback',
       '3 coaching sessions',
-      'Personal statement + supplementals',
+      'Priority support',
     ],
   },
   {
@@ -168,11 +168,10 @@ export const PRICING_TIERS: {
     badge: null,
     features: [
       'Unlimited essays',
-      'Unlimited revisions',
-      'Unlimited coaching sessions',
-      'Full Common App support',
-      'College list guidance (basic)',
-      'Dedicated counselor',
+      'Everything in Bundle',
+      '5 coaching sessions',
+      'Application timeline support',
+      'School-specific supplement strategy',
     ],
   },
 ]
@@ -186,7 +185,7 @@ export const FAQ_ITEMS = [
   {
     question: 'How many sessions will I need?',
     answer:
-      'It depends on your package. The Single Essay package includes 1 coaching session, the Bundle includes 3, and the Full Package includes unlimited sessions. Most students complete their personal statement in 2–4 sessions.',
+      'It depends on your package. The Single Essay package includes 1 coaching session, the Bundle includes 3, and the Full Package includes 5 coaching sessions. Most students complete their personal statement in 2–4 sessions.',
   },
   {
     question: 'Do you offer unlimited revisions?',
