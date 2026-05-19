@@ -132,6 +132,7 @@ export const TESTIMONIALS = [
 export const PRICING_TIERS: {
   name: string
   price: string
+  desc: string
   highlighted: boolean
   badge: string | null
   features: string[]
@@ -139,6 +140,7 @@ export const PRICING_TIERS: {
   {
     name: 'Single Essay',
     price: '$[TBD]',
+    desc: 'Perfect for students who need help with one key essay.',
     highlighted: false,
     badge: null,
     features: [
@@ -151,6 +153,7 @@ export const PRICING_TIERS: {
   {
     name: 'Essay Bundle',
     price: '$[TBD]',
+    desc: 'Our most popular package for serious applicants.',
     highlighted: true,
     badge: 'Most Popular',
     features: [
@@ -164,6 +167,7 @@ export const PRICING_TIERS: {
   {
     name: 'Full Application Package',
     price: '$[TBD]',
+    desc: 'Comprehensive support for your entire application.',
     highlighted: false,
     badge: null,
     features: [

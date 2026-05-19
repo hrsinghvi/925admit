@@ -309,7 +309,6 @@ export default function HomePage() {
                 Simple. Personalized. <em className="it">Effective.</em>
               </h2>
             </div>
-            <p></p>
           </div>
           <div className="steps">
             <div className="step">
@@ -346,7 +345,6 @@ export default function HomePage() {
                 Students who found <em className="it">their voice.</em>
               </h2>
             </div>
-            <p></p>
           </div>
           <div className="testimonials">
             {TESTIMONIALS.slice(0, 3).map((t) => {
@@ -391,13 +389,7 @@ export default function HomePage() {
                   {tier.price}
                   <small>/package</small>
                 </div>
-                <div className="plan-desc">
-                  {tier.highlighted
-                    ? 'Our most popular package for serious applicants.'
-                    : tier.name === 'Single Essay'
-                    ? 'Perfect for students who need help with one key essay.'
-                    : 'Comprehensive support for your entire application.'}
-                </div>
+                <div className="plan-desc">{tier.desc}</div>
                 <ul className="feature-list">
                   {tier.features.map((f) => (
                     <li key={f}>{f}</li>
@@ -422,7 +414,6 @@ export default function HomePage() {
                 Common <em className="it">questions.</em>
               </h2>
             </div>
-            <p></p>
           </div>
           <FAQAccordion items={FAQ_ITEMS} />
         </div>

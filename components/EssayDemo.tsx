@@ -51,6 +51,7 @@ export default function EssayDemo() {
   }, [])
 
   const allNotes = ESSAY_PARAGRAPHS.map((p) => p.highlight)
+  const activeNoteData = activeNote ? allNotes.find((n) => n.id === activeNote) ?? null : null
 
   return (
     <div className="demo-wrap">
@@ -112,30 +113,24 @@ export default function EssayDemo() {
 
         {tab === 'review' && (
           <div style={{ flex: 1 }}>
-            {activeNote ? (
-              (() => {
-                const note = allNotes.find((n) => n.id === activeNote)
-                if (!note) return null
-                return (
-                  <div
-                    className={`feedback-item active`}
-                    style={{ flexDirection: 'column', gap: 8, cursor: 'default' }}
-                  >
-                    <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                      <span className="tag">{note.tag}</span>
-                      <span style={{ fontSize: 12, color: 'var(--muted)' }}>
-                        {note.kind === 'strong' ? 'Strength' : 'Needs work'}
-                      </span>
-                    </div>
-                    <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)' }}>
-                      {note.body}
-                    </p>
-                    <p style={{ margin: 0, fontSize: 12, color: 'var(--accent)', fontStyle: 'italic' }}>
-                      &ldquo;{note.word}&rdquo;
-                    </p>
-                  </div>
-                )
-              })()
+            {activeNoteData ? (
+              <div
+                className="feedback-item active"
+                style={{ flexDirection: 'column', gap: 8, cursor: 'default' }}
+              >
+                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
+                  <span className="tag">{activeNoteData.tag}</span>
+                  <span style={{ fontSize: 12, color: 'var(--muted)' }}>
+                    {activeNoteData.kind === 'strong' ? 'Strength' : 'Needs work'}
+                  </span>
+                </div>
+                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)' }}>
+                  {activeNoteData.body}
+                </p>
+                <p style={{ margin: 0, fontSize: 12, color: 'var(--accent)', fontStyle: 'italic' }}>
+                  &ldquo;{activeNoteData.word}&rdquo;
+                </p>
+              </div>
             ) : (
               <div style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>
                 <p style={{ margin: '0 0 12px' }}>Click any <span style={{ borderBottom: '1.5px solid var(--accent)', paddingBottom: 1 }}>underlined phrase</span> in the essay to see the coach note for that passage.</p>
