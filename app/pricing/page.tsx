@@ -88,7 +88,7 @@ export default function PricingPage() {
         <div className="max-w-3xl mx-auto">
           <SectionHeading title="Frequently Asked Questions" />
           <div className="mt-12">
-            <FAQAccordion />
+            <FAQAccordion items={FAQ_ITEMS} />
           </div>
         </div>
       </section>

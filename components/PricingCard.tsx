@@ -6,11 +6,11 @@ interface PricingCardProps {
   name: string
   price: string
   features: string[]
-  highlighted: boolean
+  highlighted?: boolean
   badge: string | null
 }
 
-export default function PricingCard({ name, price, features, highlighted, badge }: PricingCardProps) {
+export default function PricingCard({ name, price, features, highlighted = false, badge }: PricingCardProps) {
   return (
     <div
       className={`rounded-2xl p-8 flex flex-col ${
