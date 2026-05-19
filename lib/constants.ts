@@ -219,4 +219,4 @@ export const FAQ_ITEMS = [
   },
 ]
 
-export const GRADE_OPTIONS = ['9th', '10th', '11th', '12th', 'Transfer/Other']
+export const GRADE_OPTIONS = ['9th Grade', '10th Grade', '11th Grade', '12th Grade', 'Gap Year']

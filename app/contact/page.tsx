@@ -10,8 +10,6 @@ export const metadata: Metadata = {
     'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
 }
 
-const gradeOptions = ['9th Grade', '10th Grade', '11th Grade', '12th Grade', 'Gap Year']
-
 export default function ContactPage() {
   return (
     <>
@@ -104,7 +102,7 @@ export default function ContactPage() {
                     <option value="" disabled>
                       Select your grade
                     </option>
-                    {gradeOptions.map((grade) => (
+                    {GRADE_OPTIONS.map((grade) => (
                       <option key={grade} value={grade}>
                         {grade}
                       </option>
