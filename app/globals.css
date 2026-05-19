@@ -7,5 +7,16 @@
   --color-accent: #4a9a9e;
   --color-brand-dark: #1a2e2f;
   --color-brand-neutral: #4a5e5f;
-  --color-brand-bg: #f4f8f8;
+  --color-brand-bg: #F4F4F0;
+  --color-cream: #F4F4F0;
+
+  /* Font families — Next.js font vars applied on <html> */
+  --font-sans: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+  --font-serif: var(--font-newsreader), ui-serif, Georgia, Cambria, serif;
+}
+
+/* Marquee animation for infinite scroll */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
 }

@@ -11,18 +11,18 @@ export default function Nav() {
   const [open, setOpen] = useState(false)
 
   return (
-    <header className="sticky top-0 z-50 backdrop-blur-md bg-white/80 border-b border-primary-light">
-      <nav className="max-w-6xl mx-auto px-4 sm:px-6 flex items-center justify-between h-16">
-        <Link href="/" className="text-xl font-bold text-primary tracking-tight">
+    <header className="sticky top-0 z-50 bg-[#F4F4F0]/80 backdrop-blur-md border-b border-black/5">
+      <nav className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+        <Link href="/" className="font-serif font-medium text-xl text-brand-dark">
           BayAdmit
         </Link>
 
-        <ul className="hidden md:flex items-center gap-6">
+        <ul className="hidden md:flex items-center gap-8">
           {NAV_LINKS.map((link) => (
             <li key={link.href}>
               <Link
                 href={link.href}
-                className="text-sm font-medium text-brand-neutral hover:text-primary transition-colors"
+                className="text-sm text-brand-neutral/70 hover:text-brand-dark transition-colors"
               >
                 {link.label}
               </Link>
@@ -52,14 +52,14 @@ export default function Nav() {
             animate={{ height: 'auto', opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.25, ease: 'easeOut' }}
-            className="md:hidden overflow-hidden bg-white border-b border-primary-light"
+            className="md:hidden overflow-hidden bg-[#F4F4F0] border-b border-black/5"
           >
-            <ul className="flex flex-col px-4 py-4 gap-4">
+            <ul className="flex flex-col px-6 py-4 gap-4">
               {NAV_LINKS.map((link) => (
                 <li key={link.href}>
                   <Link
                     href={link.href}
-                    className="text-base font-medium text-brand-neutral hover:text-primary transition-colors"
+                    className="text-base text-brand-neutral/70 hover:text-brand-dark transition-colors"
                     onClick={() => setOpen(false)}
                   >
                     {link.label}

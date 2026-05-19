@@ -1,10 +1,22 @@
 import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
+import { Inter, Newsreader } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const inter = Inter({ subsets: ['latin'] })
+const inter = Inter({
+  subsets: ['latin'],
+  variable: '--font-inter',
+  display: 'swap',
+})
+
+const newsreader = Newsreader({
+  subsets: ['latin'],
+  variable: '--font-newsreader',
+  display: 'swap',
+  weight: ['300', '400', '500'],
+  style: ['normal', 'italic'],
+})
 
 export const metadata: Metadata = {
   title: {
@@ -22,8 +34,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en">
-      <body className={`${inter.className} bg-white text-brand-neutral antialiased`}>
+    <html lang="en" className={`${inter.variable} ${newsreader.variable} font-sans`}>
+      <body className="bg-[#F4F4F0] text-brand-neutral antialiased">
         <Nav />
         <main>{children}</main>
         <Footer />
