@@ -8,6 +8,12 @@ export const metadata: Metadata = {
   title: 'Contact BayAdmit | Book a Free Consultation',
   description:
     'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
+  openGraph: {
+    title: 'Contact BayAdmit | Book a Free Consultation',
+    description:
+      'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
+    url: 'https://bayadmit.com/contact',
+  },
 }
 
 export default function ContactPage() {
@@ -48,6 +54,7 @@ export default function ContactPage() {
                     id="name"
                     name="name"
                     required
+                    autoComplete="name"
                     className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                   />
                 </div>
@@ -65,6 +72,7 @@ export default function ContactPage() {
                     id="email"
                     name="email"
                     required
+                    autoComplete="email"
                     className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                   />
                 </div>
@@ -81,17 +89,18 @@ export default function ContactPage() {
                     type="tel"
                     id="phone"
                     name="phone"
+                    autoComplete="tel"
                     className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
                   />
                 </div>
 
-                {/* Current Grade */}
+                {/* Current Grade (optional) */}
                 <div className="mb-5">
                   <label
                     htmlFor="grade"
                     className="block text-sm font-medium text-brand-dark mb-1"
                   >
-                    Current Grade
+                    Current Grade (optional)
                   </label>
                   <select
                     id="grade"
@@ -156,7 +165,6 @@ export default function ContactPage() {
 
               {/* Info items */}
               <div className="space-y-5">
-                {/* Email */}
                 <div className="flex items-start gap-3">
                   <Mail size={20} className="text-primary mt-0.5 shrink-0" aria-hidden="true" />
                   <a
@@ -167,7 +175,6 @@ export default function ContactPage() {
                   </a>
                 </div>
 
-                {/* Location */}
                 <div className="flex items-start gap-3">
                   <MapPin size={20} className="text-primary mt-0.5 shrink-0" aria-hidden="true" />
                   <span className="text-brand-neutral text-sm">
@@ -175,7 +182,6 @@ export default function ContactPage() {
                   </span>
                 </div>
 
-                {/* Response time */}
                 <div className="flex items-start gap-3">
                   <MessageCircle
                     size={20}
