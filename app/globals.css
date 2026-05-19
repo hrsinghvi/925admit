@@ -36,8 +36,8 @@
   --font-sans-var: var(--font-dm-sans), "DM Sans", system-ui, sans-serif;
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 
-  --shell: 1240px;
-  --gutter: clamp(20px, 4vw, 56px);
+  --shell: 1480px;
+  --gutter: clamp(16px, 2.5vw, 40px);
   --density: 1;
 }
 
@@ -809,6 +809,10 @@ footer {
 @keyframes marquee {
   0% { transform: translateX(0); }
   100% { transform: translateX(-50%); }
+}
+@keyframes marquee-smooth {
+  0%   { transform: translate3d(0, 0, 0); }
+  100% { transform: translate3d(-50%, 0, 0); }
 }
 
 /* ===== Micro-animations ===== */

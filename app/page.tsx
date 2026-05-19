@@ -28,8 +28,8 @@ export default function HomePage() {
           <div
             style={{
               display: 'grid',
-              gridTemplateColumns: '1fr 1fr',
-              gap: 48,
+              gridTemplateColumns: '0.8fr 1.2fr',
+              gap: 56,
               alignItems: 'center',
             }}
             className="hero-grid-2col"
@@ -91,7 +91,7 @@ export default function HomePage() {
               style={{
                 borderRadius: 20,
                 overflow: 'hidden',
-                height: 500,
+                height: 580,
                 position: 'relative',
                 background: 'var(--bg-elev)',
               }}

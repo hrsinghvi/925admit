@@ -3,8 +3,8 @@
 const COLLEGE_LOGOS: { name: string; url: string }[] = [
   { name: 'Harvard', url: 'https://upload.wikimedia.org/wikipedia/commons/7/70/Harvard_University_logo.svg' },
   { name: 'Yale', url: 'https://upload.wikimedia.org/wikipedia/commons/6/6e/Yale_University_logo.svg' },
-  { name: 'MIT', url: 'https://upload.wikimedia.org/wikipedia/commons/0/0c/MIT_logo.svg' },
-  { name: 'Stanford', url: 'https://upload.wikimedia.org/wikipedia/commons/b/b8/Stanford_wordmark_2012.svg' },
+  { name: 'MIT', url: 'https://upload.wikimedia.org/wikipedia/commons/5/5d/MIT_logo_2003-2023.svg' },
+  { name: 'Stanford', url: 'https://upload.wikimedia.org/wikipedia/commons/a/a9/Stanford_wordmark_%282012%29.svg' },
   { name: 'Princeton', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d0/Princeton_text_logo.svg' },
   { name: 'Columbia', url: 'https://upload.wikimedia.org/wikipedia/commons/d/d9/Columbia_University_Logo.png' },
   { name: 'Penn', url: 'https://upload.wikimedia.org/wikipedia/commons/9/92/University_of_Pennsylvania_wordmark.svg' },
@@ -35,41 +35,6 @@ const COLLEGE_LOGOS: { name: string; url: string }[] = [
   { name: 'Rice', url: 'https://upload.wikimedia.org/wikipedia/commons/9/95/Rice_University_seal.svg' },
 ]
 
-function LogoImg({ school }: { school: { name: string; url: string } }) {
-  return (
-    <span
-      style={{
-        display: 'inline-flex',
-        alignItems: 'center',
-        flexShrink: 0,
-        flexDirection: 'column',
-        gap: 6,
-      }}
-    >
-      <img
-        src={school.url}
-        alt={school.name}
-        style={{
-          height: 44,
-          width: 'auto',
-          maxWidth: 140,
-          objectFit: 'contain',
-          opacity: 0.75,
-          filter: 'grayscale(15%) contrast(1.1)',
-          transition: 'opacity 200ms',
-        }}
-        loading="lazy"
-        onError={(e) => {
-          const el = e.currentTarget.parentElement
-          if (el) {
-            el.style.display = 'none'
-          }
-        }}
-      />
-    </span>
-  )
-}
-
 export default function CollegeMarquee() {
   return (
     <section
@@ -86,22 +51,88 @@ export default function CollegeMarquee() {
         </div>
       </div>
 
-      {/* Full-width marquee */}
-      <div style={{ overflow: 'hidden', whiteSpace: 'nowrap' }}>
+      {/* Full-width marquee track — outside shell so logos bleed to edges */}
+      <div
+        style={{
+          overflow: 'hidden',
+          maskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
+          WebkitMaskImage: 'linear-gradient(to right, transparent 0%, black 6%, black 94%, transparent 100%)',
+        }}
+      >
         <div
           style={{
-            display: 'inline-flex',
-            gap: 64,
-            alignItems: 'center',
-            animation: 'marquee 50s linear infinite',
-            paddingLeft: 32,
+            display: 'flex',
+            width: 'max-content',
+            willChange: 'transform',
+            animation: 'marquee-smooth 55s linear infinite',
           }}
         >
+          {/* First copy */}
           {COLLEGE_LOGOS.map((school) => (
-            <LogoImg key={`a-${school.name}`} school={school} />
+            <span
+              key={`a-${school.name}`}
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                padding: '0 40px',
+              }}
+            >
+              <img
+                src={school.url}
+                alt={school.name}
+                height={42}
+                style={{
+                  height: 42,
+                  width: 'auto',
+                  maxWidth: 150,
+                  objectFit: 'contain',
+                  opacity: 0.72,
+                  filter: 'grayscale(10%) contrast(1.05)',
+                  display: 'block',
+                }}
+                loading="eager"
+                onError={(e) => {
+                  const el = e.currentTarget.parentElement
+                  if (el) el.style.display = 'none'
+                }}
+              />
+            </span>
           ))}
+          {/* Exact duplicate for seamless loop */}
           {COLLEGE_LOGOS.map((school) => (
-            <LogoImg key={`b-${school.name}`} school={school} />
+            <span
+              key={`b-${school.name}`}
+              aria-hidden="true"
+              style={{
+                display: 'inline-flex',
+                alignItems: 'center',
+                justifyContent: 'center',
+                flexShrink: 0,
+                padding: '0 40px',
+              }}
+            >
+              <img
+                src={school.url}
+                alt=""
+                height={42}
+                style={{
+                  height: 42,
+                  width: 'auto',
+                  maxWidth: 150,
+                  objectFit: 'contain',
+                  opacity: 0.72,
+                  filter: 'grayscale(10%) contrast(1.05)',
+                  display: 'block',
+                }}
+                loading="eager"
+                onError={(e) => {
+                  const el = e.currentTarget.parentElement
+                  if (el) el.style.display = 'none'
+                }}
+              />
+            </span>
           ))}
         </div>
       </div>
