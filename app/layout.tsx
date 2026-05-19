@@ -1,21 +1,29 @@
 import type { Metadata } from 'next'
-import { Inter, Newsreader } from 'next/font/google'
+import { DM_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
 
-const inter = Inter({
+const dm_sans = DM_Sans({
   subsets: ['latin'],
-  variable: '--font-inter',
+  variable: '--font-dm-sans',
   display: 'swap',
+  weight: ['300', '400', '500', '600', '700'],
 })
 
-const newsreader = Newsreader({
+const instrument_serif = Instrument_Serif({
   subsets: ['latin'],
-  variable: '--font-newsreader',
+  variable: '--font-instrument-serif',
   display: 'swap',
-  weight: ['300', '400', '500'],
+  weight: '400',
   style: ['normal', 'italic'],
+})
+
+const jetbrains_mono = JetBrains_Mono({
+  subsets: ['latin'],
+  variable: '--font-jetbrains-mono',
+  display: 'swap',
+  weight: ['400', '500'],
 })
 
 export const metadata: Metadata = {
@@ -34,8 +42,8 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${inter.variable} ${newsreader.variable} font-sans`}>
-      <body className="bg-[#F4F4F0] text-brand-neutral antialiased">
+    <html lang="en" className={`${dm_sans.variable} ${instrument_serif.variable} ${jetbrains_mono.variable}`}>
+      <body>
         <Nav />
         <main>{children}</main>
         <Footer />
