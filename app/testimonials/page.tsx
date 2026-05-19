@@ -22,24 +22,22 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-light to-white py-20 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimateIn>
-            <h1 className="text-5xl font-bold tracking-tight text-brand-dark">
-              Real Students. Real Results.
-            </h1>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="mt-6 text-lg text-brand-neutral">
-              Hear from the students and families we've worked with.
-            </p>
-          </AnimateIn>
-        </div>
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
+        <AnimateIn>
+          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
+            Real Students.<br />Real Results.
+          </h1>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p className="text-brand-neutral text-lg max-w-lg">
+            Hear from the students and families we&apos;ve worked with.
+          </p>
+        </AnimateIn>
       </section>
 
       {/* Testimonials Grid */}
       {/* TODO: Replace with real student testimonials */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
             {TESTIMONIALS.map((t) => (
@@ -52,14 +50,14 @@ export default function TestimonialsPage() {
       </section>
 
       {/* Success Schools */}
-      <section className="bg-primary-light py-20 px-4 sm:px-6">
+      <section className="py-20 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto text-center">
           <SectionHeading title="Our Students Have Been Admitted To" />
           <div className="mt-8 flex flex-wrap justify-center gap-3">
             {SUCCESS_SCHOOLS.map((school) => (
               <span
                 key={school}
-                className="bg-primary-light text-primary-dark font-medium px-4 py-1 rounded-full text-sm border border-primary/20"
+                className="bg-white border border-black/10 text-brand-dark rounded-full px-4 py-1.5 text-sm"
               >
                 {school}
               </span>
@@ -72,8 +70,8 @@ export default function TestimonialsPage() {
       </section>
 
       {/* CTA */}
-      <section className="bg-white py-16 px-4 sm:px-6 text-center">
-        <h2 className="text-2xl font-semibold text-brand-dark mb-6">
+      <section className="bg-white py-16 px-6 sm:px-8 text-center">
+        <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark leading-tight tracking-tight mb-6">
           Want to be our next success story?
         </h2>
         <Button href={CALENDLY_URL} external variant="primary">

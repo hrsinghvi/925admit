@@ -40,23 +40,21 @@ export default function PricingPage() {
       />
 
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-light to-white py-20 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimateIn>
-            <h1 className="text-5xl font-bold tracking-tight text-brand-dark">
-              Simple, Transparent Pricing
-            </h1>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="mt-6 text-lg text-brand-neutral">
-              Choose what works for you. All essay packages include unlimited revisions.
-            </p>
-          </AnimateIn>
-        </div>
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
+        <AnimateIn>
+          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
+            Simple, Transparent<br />Pricing
+          </h1>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p className="text-brand-neutral text-lg max-w-xl">
+            Choose what works for you. All essay packages include unlimited revisions.
+          </p>
+        </AnimateIn>
       </section>
 
       {/* Pricing Cards */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <StaggerContainer className="grid grid-cols-1 md:grid-cols-3 gap-6 items-center">
             {PRICING_TIERS.map((tier) => (
@@ -69,10 +67,10 @@ export default function PricingPage() {
       </section>
 
       {/* Coming Soon */}
-      <section className="bg-primary-light py-12 px-4 sm:px-6">
+      <section className="py-12 px-6 sm:px-8">
         <div className="max-w-3xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 text-center shadow-sm">
-            <h2 className="text-xl font-semibold text-brand-dark mb-2">
+          <div className="bg-white rounded-2xl p-8 text-center shadow-sm border border-black/5">
+            <h2 className="font-serif text-2xl text-brand-dark mb-2">
               College Counseling Packages — Coming Soon
             </h2>
             <p className="text-brand-neutral text-sm">
@@ -84,7 +82,7 @@ export default function PricingPage() {
       </section>
 
       {/* FAQ */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-3xl mx-auto">
           <SectionHeading title="Frequently Asked Questions" />
           <div className="mt-12">

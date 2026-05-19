@@ -16,7 +16,7 @@ export default function PricingCard({ name, price, features, highlighted = false
       className={`rounded-2xl p-8 flex flex-col ${
         highlighted
           ? 'bg-primary text-white shadow-lg scale-105'
-          : 'bg-white border border-primary-light'
+          : 'bg-white border border-black/10'
       }`}
     >
       {badge && (

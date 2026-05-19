@@ -28,26 +28,24 @@ export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-light to-white py-20 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimateIn>
-            <h1 className="text-5xl font-bold tracking-tight text-brand-dark">
-              Expert Guidance, Every Step of the Way
-            </h1>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="mt-6 text-lg text-brand-neutral">
-              From your first draft to your final submission, BayAdmit is in your corner.
-            </p>
-          </AnimateIn>
-        </div>
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
+        <AnimateIn>
+          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
+            Expert Guidance,<br />Every Step of the Way
+          </h1>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p className="text-brand-neutral text-lg max-w-xl">
+            From your first draft to your final submission, BayAdmit is in your corner.
+          </p>
+        </AnimateIn>
       </section>
 
       {/* Essay Coaching — Featured */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-brand-bg rounded-2xl p-8 md:p-12">
-            <h2 className="text-3xl font-semibold tracking-tight text-brand-dark">
+          <div className="bg-white rounded-2xl p-10 border border-black/5 shadow-sm">
+            <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark leading-tight tracking-tight">
               College Essay Coaching
             </h2>
             <p className="mt-4 text-brand-neutral text-lg leading-relaxed">
@@ -59,7 +57,7 @@ export default function ServicesPage() {
               {ESSAY_COACHING_FEATURES.map((feature) => (
                 <li key={feature} className="flex items-start gap-3">
                   <CheckCircle2
-                    className="text-accent mt-0.5 shrink-0"
+                    className="text-primary mt-0.5 shrink-0"
                     size={18}
                     aria-hidden="true"
                   />
@@ -80,17 +78,17 @@ export default function ServicesPage() {
       </section>
 
       {/* College List Building — Coming Soon */}
-      <section className="bg-primary-light py-12 px-4 sm:px-6">
+      <section className="py-12 px-6 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 opacity-80">
+          <div className="bg-white rounded-2xl p-8 border border-black/5 opacity-70">
             <div className="flex items-center gap-3 mb-3">
-              <h2 className="text-2xl font-semibold text-brand-dark">College List Building</h2>
-              <span className="text-xs font-medium bg-accent/20 text-accent px-3 py-1 rounded-full">
+              <h2 className="font-serif text-2xl text-brand-dark">College List Building</h2>
+              <span className="bg-brand-dark/10 text-brand-dark text-xs font-medium px-3 py-1 rounded-full">
                 Coming Soon
               </span>
             </div>
             <p className="text-brand-neutral">
-              We'll help you build a balanced, strategic college list tailored to your academics,
+              We&apos;ll help you build a balanced, strategic college list tailored to your academics,
               interests, and goals.
             </p>
           </div>
@@ -98,12 +96,12 @@ export default function ServicesPage() {
       </section>
 
       {/* Application Strategy — Coming Soon */}
-      <section className="bg-white py-12 px-4 sm:px-6">
+      <section className="py-12 px-6 sm:px-8">
         <div className="max-w-4xl mx-auto">
-          <div className="bg-brand-bg rounded-2xl p-8 opacity-80">
+          <div className="bg-white rounded-2xl p-8 border border-black/5 opacity-70">
             <div className="flex items-center gap-3 mb-3">
-              <h2 className="text-2xl font-semibold text-brand-dark">Application Strategy</h2>
-              <span className="text-xs font-medium bg-accent/20 text-accent px-3 py-1 rounded-full">
+              <h2 className="font-serif text-2xl text-brand-dark">Application Strategy</h2>
+              <span className="bg-brand-dark/10 text-brand-dark text-xs font-medium px-3 py-1 rounded-full">
                 Coming Soon
               </span>
             </div>
@@ -116,14 +114,14 @@ export default function ServicesPage() {
       </section>
 
       {/* Why BayAdmit */}
-      <section className="bg-primary-light py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto">
           <SectionHeading title="Why BayAdmit" />
           <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {WHY_BAYADMIT.map(({ title, icon }) => {
               const Icon = iconMap[icon]
               return (
-                <div key={title} className="bg-white rounded-2xl p-6 text-center shadow-sm">
+                <div key={title} className="bg-white rounded-2xl p-6 text-center shadow-sm border border-black/5">
                   <Icon className="mx-auto mb-3 text-primary" size={28} aria-hidden="true" />
                   <p className="font-semibold text-brand-dark text-sm">{title}</p>
                 </div>

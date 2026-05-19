@@ -20,26 +20,26 @@ export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="bg-gradient-to-b from-primary-light to-white py-20 px-4 sm:px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <AnimateIn>
-            <h1 className="text-5xl font-bold tracking-tight text-brand-dark">Let&apos;s Talk</h1>
-          </AnimateIn>
-          <AnimateIn delay={0.1}>
-            <p className="mt-6 text-lg text-brand-neutral">
-              Book a free consultation or send us a message — we&apos;d love to hear from you.
-            </p>
-          </AnimateIn>
-        </div>
+      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
+        <AnimateIn>
+          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
+            Let&apos;s Talk.
+          </h1>
+        </AnimateIn>
+        <AnimateIn delay={0.1}>
+          <p className="text-brand-neutral text-lg max-w-lg">
+            Book a free consultation or send us a message — we&apos;d love to hear from you.
+          </p>
+        </AnimateIn>
       </section>
 
       {/* Two-column layout */}
-      <section className="bg-white py-20 px-4 sm:px-6">
+      <section className="bg-white py-20 px-6 sm:px-8">
         <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
           {/* Left column — Contact Form */}
           <AnimateIn>
             <div>
-              <h2 className="text-2xl font-semibold text-brand-dark mb-6">Send Us a Message</h2>
+              <h2 className="font-serif text-3xl text-brand-dark mb-6">Send Us a Message</h2>
               <form action="#">
                 {/* Full Name */}
                 <div className="mb-5">
@@ -55,7 +55,7 @@ export default function ContactPage() {
                     name="name"
                     required
                     autoComplete="name"
-                    className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
                   />
                 </div>
 
@@ -73,7 +73,7 @@ export default function ContactPage() {
                     name="email"
                     required
                     autoComplete="email"
-                    className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
                   />
                 </div>
 
@@ -90,7 +90,7 @@ export default function ContactPage() {
                     id="phone"
                     name="phone"
                     autoComplete="tel"
-                    className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition"
+                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
                   />
                 </div>
 
@@ -106,7 +106,7 @@ export default function ContactPage() {
                     id="grade"
                     name="grade"
                     defaultValue=""
-                    className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition bg-white"
+                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition bg-white"
                   >
                     <option value="" disabled>
                       Select your grade
@@ -132,7 +132,7 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     required
-                    className="w-full border border-primary-light rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-primary/30 focus:border-primary transition resize-none"
+                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition resize-none"
                   />
                 </div>
 
