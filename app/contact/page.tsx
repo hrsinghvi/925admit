@@ -1,7 +1,5 @@
 import type { Metadata } from 'next'
-import { Calendar, Mail, MapPin, MessageCircle } from 'lucide-react'
 import Button from '@/components/Button'
-import AnimateIn from '@/components/AnimateIn'
 import { CALENDLY_URL, CONTACT_EMAIL, GRADE_OPTIONS } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -16,36 +14,51 @@ export const metadata: Metadata = {
   },
 }
 
+const inputStyle = {
+  width: '100%',
+  border: '1px solid var(--rule)',
+  borderRadius: 10,
+  padding: '12px 16px',
+  fontSize: 15,
+  background: 'var(--paper)',
+  color: 'var(--ink)',
+  fontFamily: 'var(--font-sans-var)',
+  outline: 'none',
+} as const
+
 export default function ContactPage() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
-        <AnimateIn>
-          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
-            Let&apos;s Talk.
-          </h1>
-        </AnimateIn>
-        <AnimateIn delay={0.1}>
-          <p className="text-brand-neutral text-lg max-w-lg">
-            Book a free consultation or send us a message — we&apos;d love to hear from you.
-          </p>
-        </AnimateIn>
-      </section>
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+        <p className="eyebrow" style={{ marginBottom: 24 }}>Contact</p>
+        <h1
+          className="display"
+          style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
+        >
+          Let&apos;s <em className="italic" style={{ color: 'var(--accent)' }}>talk.</em>
+        </h1>
+        <p className="lede">
+          Book a free consultation or send us a message — we&apos;d love to hear from you.
+        </p>
+      </div>
 
-      {/* Two-column layout */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
-          {/* Left column — Contact Form */}
-          <AnimateIn>
+      {/* Section 1 — Contact Layout */}
+      <section className="section">
+        <div className="shell">
+          <div style={{ display: 'grid', gridTemplateColumns: '1.1fr 1fr', gap: 48 }}>
+
+            {/* Left col — Form */}
             <div>
-              <h2 className="font-serif text-3xl text-brand-dark mb-6">Send Us a Message</h2>
+              <h2 className="display" style={{ fontSize: 32, marginBottom: 32 }}>
+                Send a message.
+              </h2>
               <form action="#">
                 {/* Full Name */}
-                <div className="mb-5">
+                <div style={{ marginBottom: 20 }}>
                   <label
                     htmlFor="name"
-                    className="block text-sm font-medium text-brand-dark mb-1"
+                    style={{ display: 'block', fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}
                   >
                     Full Name
                   </label>
@@ -55,15 +68,15 @@ export default function ContactPage() {
                     name="name"
                     required
                     autoComplete="name"
-                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
+                    style={inputStyle}
                   />
                 </div>
 
                 {/* Email Address */}
-                <div className="mb-5">
+                <div style={{ marginBottom: 20 }}>
                   <label
                     htmlFor="email"
-                    className="block text-sm font-medium text-brand-dark mb-1"
+                    style={{ display: 'block', fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}
                   >
                     Email Address
                   </label>
@@ -73,57 +86,53 @@ export default function ContactPage() {
                     name="email"
                     required
                     autoComplete="email"
-                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
+                    style={inputStyle}
                   />
                 </div>
 
-                {/* Phone Number (optional) */}
-                <div className="mb-5">
+                {/* Phone (optional) */}
+                <div style={{ marginBottom: 20 }}>
                   <label
                     htmlFor="phone"
-                    className="block text-sm font-medium text-brand-dark mb-1"
+                    style={{ display: 'block', fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}
                   >
-                    Phone Number (optional)
+                    Phone Number <span style={{ color: 'var(--muted)' }}>(optional)</span>
                   </label>
                   <input
                     type="tel"
                     id="phone"
                     name="phone"
                     autoComplete="tel"
-                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition"
+                    style={inputStyle}
                   />
                 </div>
 
-                {/* Current Grade (optional) */}
-                <div className="mb-5">
+                {/* Grade (optional) */}
+                <div style={{ marginBottom: 20 }}>
                   <label
                     htmlFor="grade"
-                    className="block text-sm font-medium text-brand-dark mb-1"
+                    style={{ display: 'block', fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}
                   >
-                    Current Grade (optional)
+                    Current Grade <span style={{ color: 'var(--muted)' }}>(optional)</span>
                   </label>
                   <select
                     id="grade"
                     name="grade"
                     defaultValue=""
-                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition bg-white"
+                    style={{ ...inputStyle, appearance: 'auto' }}
                   >
-                    <option value="" disabled>
-                      Select your grade
-                    </option>
+                    <option value="" disabled>Select your grade</option>
                     {GRADE_OPTIONS.map((grade) => (
-                      <option key={grade} value={grade}>
-                        {grade}
-                      </option>
+                      <option key={grade} value={grade}>{grade}</option>
                     ))}
                   </select>
                 </div>
 
                 {/* Message */}
-                <div className="mb-6">
+                <div style={{ marginBottom: 24 }}>
                   <label
                     htmlFor="message"
-                    className="block text-sm font-medium text-brand-dark mb-1"
+                    style={{ display: 'block', fontSize: 14, color: 'var(--ink)', marginBottom: 6 }}
                   >
                     Message
                   </label>
@@ -132,69 +141,86 @@ export default function ContactPage() {
                     name="message"
                     rows={4}
                     required
-                    className="w-full border border-black/10 rounded-xl px-4 py-3 text-brand-dark focus:outline-none focus:ring-2 focus:ring-brand-dark/20 focus:border-brand-dark transition resize-none"
+                    style={{ ...inputStyle, resize: 'none' }}
                   />
                 </div>
 
-                {/* TODO: wire up form submission */}
                 <Button type="submit" variant="primary" className="w-full justify-center">
                   Send Message
                 </Button>
-                <p className="mt-3 text-sm text-brand-neutral text-center">
+                <p style={{ fontSize: 13, color: 'var(--muted)', marginTop: 12, textAlign: 'center' }}>
                   We&apos;ll get back to you within 24 hours.
                 </p>
               </form>
             </div>
-          </AnimateIn>
 
-          {/* Right column — Contact Info */}
-          <AnimateIn delay={0.1}>
+            {/* Right col — Info */}
             <div>
               {/* Booking card */}
-              <div className="bg-primary text-white rounded-2xl p-8 mb-8">
-                <Calendar size={24} className="text-white/80 mb-4" aria-hidden="true" />
-                <h2 className="text-xl font-semibold mb-3">Book a Free Consult</h2>
-                <p className="text-white/80 text-sm leading-relaxed mb-6">
+              <div style={{
+                background: 'var(--ink)',
+                color: 'var(--paper)',
+                borderRadius: 18,
+                padding: 40,
+                marginBottom: 32,
+              }}>
+                <p className="eyebrow" style={{ color: 'var(--muted-2)', marginBottom: 12 }}>
+                  Free Consultation
+                </p>
+                <h2 className="display" style={{ fontSize: 28, color: 'var(--bg)', marginBottom: 16 }}>
+                  Book a free 30-min call
+                </h2>
+                <p style={{ color: 'var(--muted-2)', fontSize: 14, marginBottom: 24, lineHeight: 1.6 }}>
                   Schedule a free 30-minute call to discuss your goals, timeline, and how we can
                   help.
                 </p>
-                <Button href={CALENDLY_URL} external variant="white">
+                <a
+                  href={CALENDLY_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="btn btn-primary"
+                  style={{ background: 'var(--accent)', color: 'var(--bg)' }}
+                >
                   Schedule on Calendly
-                </Button>
+                </a>
               </div>
 
-              {/* Info items */}
-              <div className="space-y-5">
-                <div className="flex items-start gap-3">
-                  <Mail size={20} className="text-primary mt-0.5 shrink-0" aria-hidden="true" />
+              {/* Contact info */}
+              <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: '50%',
+                    background: 'var(--accent)', flexShrink: 0, marginTop: 7,
+                  }} />
                   <a
                     href={`mailto:${CONTACT_EMAIL}`}
-                    className="text-primary hover:text-primary-dark text-sm transition-colors"
+                    style={{ fontSize: 14, color: 'var(--ink-2)' }}
                   >
                     {CONTACT_EMAIL}
                   </a>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <MapPin size={20} className="text-primary mt-0.5 shrink-0" aria-hidden="true" />
-                  <span className="text-brand-neutral text-sm">
+                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: '50%',
+                    background: 'var(--accent)', flexShrink: 0, marginTop: 7,
+                  }} />
+                  <span style={{ fontSize: 14, color: 'var(--ink-2)' }}>
                     Bay Area, California · Serving students nationwide
                   </span>
                 </div>
-
-                <div className="flex items-start gap-3">
-                  <MessageCircle
-                    size={20}
-                    className="text-primary mt-0.5 shrink-0"
-                    aria-hidden="true"
-                  />
-                  <span className="text-brand-neutral text-sm">
+                <div style={{ display: 'flex', gap: 12, alignItems: 'flex-start' }}>
+                  <span style={{
+                    width: 6, height: 6, borderRadius: '50%',
+                    background: 'var(--accent)', flexShrink: 0, marginTop: 7,
+                  }} />
+                  <span style={{ fontSize: 14, color: 'var(--ink-2)' }}>
                     We typically respond within 24 hours
                   </span>
                 </div>
               </div>
             </div>
-          </AnimateIn>
+
+          </div>
         </div>
       </section>
     </>

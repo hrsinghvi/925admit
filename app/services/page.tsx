@@ -1,8 +1,5 @@
 import type { Metadata } from 'next'
-import { CheckCircle2, MapPin, Target, RefreshCw, MessageCircle } from 'lucide-react'
 import Button from '@/components/Button'
-import SectionHeading from '@/components/SectionHeading'
-import AnimateIn from '@/components/AnimateIn'
 import { CALENDLY_URL, ESSAY_COACHING_FEATURES, WHY_BAYADMIT } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -17,116 +14,151 @@ export const metadata: Metadata = {
   },
 }
 
-const iconMap: Record<string, React.ElementType> = {
-  MapPin,
-  Target,
-  RefreshCw,
-  MessageCircle,
-}
-
 export default function ServicesPage() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
-        <AnimateIn>
-          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
-            Expert Guidance,<br />Every Step of the Way
-          </h1>
-        </AnimateIn>
-        <AnimateIn delay={0.1}>
-          <p className="text-brand-neutral text-lg max-w-xl">
-            From your first draft to your final submission, BayAdmit is in your corner.
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+        <p className="eyebrow" style={{ marginBottom: 24 }}>Services</p>
+        <h1
+          className="display"
+          style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
+        >
+          Expert guidance,<br />
+          every step of the<br />
+          <em className="italic" style={{ color: 'var(--accent)' }}>way.</em>
+        </h1>
+        <p className="lede">
+          From your first draft to your final submission, BayAdmit is in your corner.
+        </p>
+      </div>
+
+      {/* Section 1 — Essay Coaching */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Essay Coaching</p>
+              <h2>
+                The essay is<br />
+                the one place<br />
+                they hear <em className="it">you.</em>
+              </h2>
+            </div>
+            <p>
+              Your college essay is the one place admissions officers hear you — not your GPA, not
+              your test scores. We help you uncover your story, structure it powerfully, and polish
+              it to perfection.
+            </p>
+          </div>
+
+          <ul style={{ listStyle: 'none', margin: '0 0 40px', padding: 0, display: 'flex', flexDirection: 'column', gap: 14 }}>
+            {ESSAY_COACHING_FEATURES.map((feature) => (
+              <li key={feature} style={{ display: 'flex', alignItems: 'flex-start', gap: 12 }}>
+                <span style={{ color: 'var(--accent)', fontSize: 18, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
+                <span style={{ fontSize: 16, color: 'var(--ink-2)' }}>{feature}</span>
+              </li>
+            ))}
+          </ul>
+
+          <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
+            <Button href="/pricing" variant="ghost">View Pricing</Button>
+            <Button href={CALENDLY_URL} external variant="primary">Book Free Consult</Button>
+          </div>
+        </div>
+      </section>
+
+      {/* Section 2 — College List Building */}
+      <section className="section">
+        <div className="shell">
+          <p className="eyebrow" style={{ marginBottom: 16 }}>Coming Soon</p>
+          <h2
+            className="display"
+            style={{ fontSize: 'clamp(40px, 5vw, 72px)', marginBottom: 24 }}
+          >
+            College List<br />
+            <em className="italic" style={{ color: 'var(--accent)' }}>Building</em>
+          </h2>
+          <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: '48ch', marginBottom: 24 }}>
+            We&apos;ll help you build a balanced, strategic college list tailored to your academics,
+            interests, and goals.
           </p>
-        </AnimateIn>
-      </section>
-
-      {/* Essay Coaching — Featured */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl p-10 border border-black/5 shadow-sm">
-            <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark leading-tight tracking-tight">
-              College Essay Coaching
-            </h2>
-            <p className="mt-4 text-brand-neutral text-lg leading-relaxed">
-              Your college essay is the one place admissions officers hear <em>you</em> — not your
-              GPA, not your test scores. We help you uncover your story, structure it powerfully,
-              and polish it to perfection.
-            </p>
-            <ul className="mt-6 space-y-3">
-              {ESSAY_COACHING_FEATURES.map((feature) => (
-                <li key={feature} className="flex items-start gap-3">
-                  <CheckCircle2
-                    className="text-primary mt-0.5 shrink-0"
-                    size={18}
-                    aria-hidden="true"
-                  />
-                  <span className="text-brand-neutral">{feature}</span>
-                </li>
-              ))}
-            </ul>
-            <div className="mt-8 flex flex-col sm:flex-row gap-4">
-              <Button href="/pricing" variant="primary">
-                View Pricing
-              </Button>
-              <Button href={CALENDLY_URL} external variant="ghost">
-                Book a Free Consult
-              </Button>
-            </div>
-          </div>
+          <span style={{
+            display: 'inline-block',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 11,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            padding: '5px 12px',
+            borderRadius: 999,
+            background: 'var(--bg-elev)',
+            color: 'var(--muted)',
+            border: '1px solid var(--rule)',
+          }}>
+            Coming Soon
+          </span>
         </div>
       </section>
 
-      {/* College List Building — Coming Soon */}
-      <section className="py-12 px-6 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 border border-black/5 opacity-70">
-            <div className="flex items-center gap-3 mb-3">
-              <h2 className="font-serif text-2xl text-brand-dark">College List Building</h2>
-              <span className="bg-brand-dark/10 text-brand-dark text-xs font-medium px-3 py-1 rounded-full">
-                Coming Soon
-              </span>
-            </div>
-            <p className="text-brand-neutral">
-              We&apos;ll help you build a balanced, strategic college list tailored to your academics,
-              interests, and goals.
-            </p>
-          </div>
+      {/* Section 3 — Application Strategy */}
+      <section className="section">
+        <div className="shell">
+          <p className="eyebrow" style={{ marginBottom: 16 }}>Coming Soon</p>
+          <h2
+            className="display"
+            style={{ fontSize: 'clamp(40px, 5vw, 72px)', marginBottom: 24 }}
+          >
+            Application<br />
+            <em className="italic" style={{ color: 'var(--accent)' }}>Strategy</em>
+          </h2>
+          <p style={{ fontSize: 18, color: 'var(--ink-2)', maxWidth: '48ch', marginBottom: 24 }}>
+            Holistic support for the full application — activities list, letters of rec strategy,
+            timeline planning, and more.
+          </p>
+          <span style={{
+            display: 'inline-block',
+            fontFamily: 'var(--font-mono)',
+            fontSize: 11,
+            letterSpacing: '0.1em',
+            textTransform: 'uppercase',
+            padding: '5px 12px',
+            borderRadius: 999,
+            background: 'var(--bg-elev)',
+            color: 'var(--muted)',
+            border: '1px solid var(--rule)',
+          }}>
+            Coming Soon
+          </span>
         </div>
       </section>
 
-      {/* Application Strategy — Coming Soon */}
-      <section className="py-12 px-6 sm:px-8">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-white rounded-2xl p-8 border border-black/5 opacity-70">
-            <div className="flex items-center gap-3 mb-3">
-              <h2 className="font-serif text-2xl text-brand-dark">Application Strategy</h2>
-              <span className="bg-brand-dark/10 text-brand-dark text-xs font-medium px-3 py-1 rounded-full">
-                Coming Soon
-              </span>
+      {/* Section 4 — Why BayAdmit */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Why BayAdmit</p>
+              <h2>
+                What makes us<br />
+                <em className="it">different.</em>
+              </h2>
             </div>
-            <p className="text-brand-neutral">
-              Holistic support for the full application — activities list, letters of rec strategy,
-              timeline planning, and more.
-            </p>
+            <div />
           </div>
-        </div>
-      </section>
 
-      {/* Why BayAdmit */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading title="Why BayAdmit" />
-          <div className="mt-12 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
-            {WHY_BAYADMIT.map(({ title, icon }) => {
-              const Icon = iconMap[icon]
-              return (
-                <div key={title} className="bg-white rounded-2xl p-6 text-center shadow-sm border border-black/5">
-                  <Icon className="mx-auto mb-3 text-primary" size={28} aria-hidden="true" />
-                  <p className="font-semibold text-brand-dark text-sm">{title}</p>
-                </div>
-              )
-            })}
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 20 }}>
+            {WHY_BAYADMIT.map(({ title }) => (
+              <div key={title} style={{ display: 'flex', alignItems: 'center', gap: 16 }}>
+                <span style={{
+                  width: 8,
+                  height: 8,
+                  borderRadius: '50%',
+                  background: 'var(--accent)',
+                  flexShrink: 0,
+                }} />
+                <span style={{ fontSize: 17, color: 'var(--ink-2)' }}>{title}</span>
+              </div>
+            ))}
           </div>
         </div>
       </section>

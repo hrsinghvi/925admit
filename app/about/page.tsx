@@ -1,8 +1,4 @@
 import type { Metadata } from 'next'
-import AnimateIn from '@/components/AnimateIn'
-import SectionHeading from '@/components/SectionHeading'
-import TeamCard from '@/components/TeamCard'
-import { StaggerContainer, StaggerItem } from '@/components/StaggerContainer'
 import { TEAM, VALUES } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -21,70 +17,134 @@ export default function AboutPage() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
-        <AnimateIn>
-          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
-            We&apos;re BayAdmit.
-          </h1>
-        </AnimateIn>
-        <AnimateIn delay={0.1}>
-          <p className="text-brand-neutral text-lg max-w-xl">
-            A small, passionate team of writers, educators, and former applicants who believe
-            every student has a story worth telling.
-          </p>
-        </AnimateIn>
-      </section>
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+        <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
+        <h1
+          className="display"
+          style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
+        >
+          We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>BayAdmit.</em>
+        </h1>
+        <p className="lede">
+          A small, passionate team of writers, educators, and former applicants who believe every
+          student has a story worth telling.
+        </p>
+      </div>
 
-      {/* Our Story */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
-          <div>
-            <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark leading-tight tracking-tight mb-6">
-              Our Story
-            </h2>
-            <p className="text-brand-neutral text-lg leading-relaxed">
-              BayAdmit was founded in the Bay Area with one belief: the college essay shouldn&apos;t be
-              stressful. We&apos;ve helped students from Fremont to San Francisco find the words that got
-              them noticed. We&apos;re not a factory — we&apos;re a small team that genuinely cares.
+      {/* Section 1 — Our Story */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Our Story</p>
+              <h2>
+                Founded in the<br />
+                <em className="it">Bay Area.</em>
+              </h2>
+            </div>
+            <p>
+              BayAdmit was founded with one belief: the college essay shouldn&apos;t be stressful.
+              We&apos;ve helped students from Fremont to San Francisco find the words that got them
+              noticed. We&apos;re not a factory — we&apos;re a small team that genuinely cares.
             </p>
           </div>
-          <div className="bg-[#4A6B60] rounded-2xl p-10 text-white flex items-center">
-            <blockquote className="font-serif text-2xl leading-relaxed">
-              &ldquo;Every student has a story worth telling. We help them find it.&rdquo;
-            </blockquote>
+
+          <div style={{
+            background: 'var(--bg-elev)',
+            border: '1px solid var(--rule)',
+            borderRadius: 16,
+            padding: 48,
+            textAlign: 'center',
+          }}>
+            <p style={{
+              fontFamily: 'var(--font-display)',
+              fontSize: 28,
+              fontStyle: 'italic',
+              color: 'var(--ink)',
+              margin: 0,
+              lineHeight: 1.3,
+              letterSpacing: '-0.015em',
+            }}>
+              Every student has a story worth telling.
+            </p>
           </div>
         </div>
       </section>
 
-      {/* Meet the Team */}
-      {/* TODO: Replace with real team photos and bios */}
-      <section className="py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading title="The People Behind Your Essays" />
-          <StaggerContainer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Section 2 — Team */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">The Team</p>
+              <h2>
+                The people behind<br />
+                your <em className="it">essays.</em>
+              </h2>
+            </div>
+            <div />
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
             {TEAM.map((member) => (
-              <StaggerItem key={member.name}>
-                <TeamCard {...member} />
-              </StaggerItem>
+              <div key={member.name} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
+                <div style={{
+                  width: 64,
+                  height: 64,
+                  borderRadius: '50%',
+                  background: 'linear-gradient(135deg, var(--accent), #4a9a9e)',
+                  color: 'white',
+                  fontFamily: 'var(--font-display)',
+                  fontSize: 24,
+                  fontStyle: 'italic',
+                  display: 'flex',
+                  alignItems: 'center',
+                  justifyContent: 'center',
+                }}>
+                  {member.initials}
+                </div>
+                <div>
+                  <p
+                    className="display"
+                    style={{ fontSize: 22, margin: '0 0 4px' }}
+                  >
+                    {member.name}
+                  </p>
+                  <p className="eyebrow" style={{ marginBottom: 8 }}>{member.role}</p>
+                  <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>{member.bio}</p>
+                </div>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
-      {/* Values */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto">
-          <SectionHeading title="What We Believe" />
-          <StaggerContainer className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-6">
+      {/* Section 3 — Values */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Values</p>
+              <h2>
+                What we <em className="it">believe.</em>
+              </h2>
+            </div>
+            <div />
+          </div>
+
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
             {VALUES.map(({ title, description }) => (
-              <StaggerItem key={title}>
-                <div className="bg-white rounded-2xl p-6 border border-black/5 shadow-sm">
-                  <h3 className="font-serif text-xl text-brand-dark mb-2">{title}</h3>
-                  <p className="text-brand-neutral text-sm">{description}</p>
-                </div>
-              </StaggerItem>
+              <div key={title} style={{
+                background: 'var(--paper)',
+                border: '1px solid var(--rule)',
+                borderRadius: 16,
+                padding: 32,
+              }}>
+                <h3 className="display" style={{ fontSize: 22, margin: '0 0 12px' }}>{title}</h3>
+                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>{description}</p>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
     </>

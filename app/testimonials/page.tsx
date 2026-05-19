@@ -1,9 +1,5 @@
 import type { Metadata } from 'next'
-import AnimateIn from '@/components/AnimateIn'
-import SectionHeading from '@/components/SectionHeading'
-import TestimonialCard from '@/components/TestimonialCard'
 import Button from '@/components/Button'
-import { StaggerContainer, StaggerItem } from '@/components/StaggerContainer'
 import { TESTIMONIALS, SUCCESS_SCHOOLS, CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -22,61 +18,92 @@ export default function TestimonialsPage() {
   return (
     <>
       {/* Hero */}
-      <section className="max-w-7xl mx-auto px-6 sm:px-8 pt-20 pb-16">
-        <AnimateIn>
-          <h1 className="font-serif text-5xl sm:text-6xl text-brand-dark leading-[1.05] mb-6">
-            Real Students.<br />Real Results.
-          </h1>
-        </AnimateIn>
-        <AnimateIn delay={0.1}>
-          <p className="text-brand-neutral text-lg max-w-lg">
-            Hear from the students and families we&apos;ve worked with.
-          </p>
-        </AnimateIn>
-      </section>
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+        <p className="eyebrow" style={{ marginBottom: 24 }}>Testimonials</p>
+        <h1
+          className="display"
+          style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
+        >
+          Real students.<br />
+          <em className="italic" style={{ color: 'var(--accent)' }}>Real results.</em>
+        </h1>
+        <p className="lede">
+          Hear from the students and families we&apos;ve worked with.
+        </p>
+      </div>
 
-      {/* Testimonials Grid */}
-      {/* TODO: Replace with real student testimonials */}
-      <section className="bg-white py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto">
-          <StaggerContainer className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      {/* Section 1 — Testimonials Grid */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Stories</p>
+              <h2>
+                Students who found<br />
+                their <em className="it">voice.</em>
+              </h2>
+            </div>
+            <div />
+          </div>
+
+          <div className="testimonials">
             {TESTIMONIALS.map((t) => (
-              <StaggerItem key={t.name}>
-                <TestimonialCard {...t} />
-              </StaggerItem>
+              <div key={t.name} className="testimonial">
+                <p className="quote">{t.quote}</p>
+                <div className="author">
+                  <div className="avatar">{t.name[0]}</div>
+                  <div>
+                    <p className="meta-name">{t.name}</p>
+                    <p className="meta-school">{t.result}</p>
+                  </div>
+                </div>
+              </div>
             ))}
-          </StaggerContainer>
+          </div>
         </div>
       </section>
 
-      {/* Success Schools */}
-      <section className="py-20 px-6 sm:px-8">
-        <div className="max-w-6xl mx-auto text-center">
-          <SectionHeading title="Our Students Have Been Admitted To" />
-          <div className="mt-8 flex flex-wrap justify-center gap-3">
+      {/* Section 2 — Schools */}
+      <section className="section">
+        <div className="shell">
+          <div className="section-head">
+            <div>
+              <p className="eyebrow">Admitted To</p>
+              <h2>
+                Schools our students<br />
+                <em className="it">got into.</em>
+              </h2>
+            </div>
+            <div />
+          </div>
+
+          <div className="logo-row">
             {SUCCESS_SCHOOLS.map((school) => (
-              <span
-                key={school}
-                className="bg-white border border-black/10 text-brand-dark rounded-full px-4 py-1.5 text-sm"
-              >
+              <span key={school} className="logo-item">
+                <span className="dot" />
                 {school}
               </span>
             ))}
           </div>
-          <p className="mt-6 text-xs text-brand-neutral italic">
+
+          <p style={{ fontSize: 13, color: 'var(--muted)', fontStyle: 'italic', marginTop: 32 }}>
             *Results vary. School names used for illustrative purposes only.
           </p>
         </div>
       </section>
 
-      {/* CTA */}
-      <section className="bg-white py-16 px-6 sm:px-8 text-center">
-        <h2 className="font-serif text-3xl sm:text-4xl text-brand-dark leading-tight tracking-tight mb-6">
-          Want to be our next success story?
-        </h2>
-        <Button href={CALENDLY_URL} external variant="primary">
-          Book Free Consult
-        </Button>
+      {/* Section 3 — CTA Band */}
+      <section className="cta-band">
+        <div className="shell">
+          <h2>
+            Want to be our next<br />
+            <span className="accent">success story?</span>
+          </h2>
+          <p className="lede">
+            Book a free consultation — no commitment, no pressure.
+          </p>
+          <Button href={CALENDLY_URL} external variant="primary">Book Free Consult</Button>
+        </div>
       </section>
     </>
   )
