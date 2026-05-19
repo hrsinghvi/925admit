@@ -102,7 +102,7 @@ export default function TestimonialsPage() {
           <p className="lede">
             Book a free consultation — no commitment, no pressure.
           </p>
-          <Button href={CALENDLY_URL} external variant="primary">Book Free Consult</Button>
+          <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
         </div>
       </section>
     </>

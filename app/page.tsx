@@ -3,10 +3,11 @@ import Link from 'next/link'
 import Button from '@/components/Button'
 import EssayDemo from '@/components/EssayDemo'
 import FAQAccordion from '@/components/FAQAccordion'
+import CollegeMarquee from '@/components/CollegeMarquee'
+import RevealOnScroll from '@/components/RevealOnScroll'
 import {
   CALENDLY_URL,
   TESTIMONIALS,
-  SUCCESS_SCHOOLS,
   PRICING_TIERS,
   FAQ_ITEMS,
 } from '@/lib/constants'
@@ -23,104 +24,113 @@ export default function HomePage() {
       {/* ===== HERO ===== */}
       <section className="hero">
         <div className="shell">
-          {/* Eyebrow pill */}
+          {/* 2-column grid */}
           <div
             style={{
-              display: 'inline-flex',
+              display: 'grid',
+              gridTemplateColumns: '1fr 1fr',
+              gap: 48,
               alignItems: 'center',
-              gap: 6,
-              border: '1px solid var(--rule)',
-              borderRadius: 999,
-              background: 'var(--paper)',
-              padding: '6px 14px',
-              marginBottom: 40,
             }}
+            className="hero-grid-2col"
           >
-            <span className="eyebrow" style={{ letterSpacing: '0.1em' }}>
-              Bay Area College Essay Coaching ·{' '}
-              <Link href="/testimonials" style={{ color: 'var(--accent)', textDecoration: 'underline' }}>
-                Read stories →
-              </Link>
-            </span>
-          </div>
+            {/* Left column */}
+            <div>
+              {/* Headline */}
+              <h1 className="display" style={{ fontSize: 'clamp(56px, 9vw, 128px)', marginBottom: 32 }}>
+                Your story<br />
+                deserves to<br />
+                get <span className="italic" style={{ color: 'var(--accent)' }}>in</span>.
+              </h1>
 
-          {/* Headline */}
-          <h1 className="display" style={{ fontSize: 'clamp(56px, 9vw, 128px)', marginBottom: 32 }}>
-            Your story<br />
-            deserves to<br />
-            get <span className="italic" style={{ color: 'var(--accent)' }}>in</span>.
-          </h1>
+              {/* Lede */}
+              <RevealOnScroll delay={0.1}>
+                <p className="lede">
+                  Bay Area&apos;s premier college essay coaching service. We help students find their voice,
+                  craft compelling narratives, and stand out in the admissions process.
+                </p>
+              </RevealOnScroll>
 
-          {/* Lede */}
-          <p className="lede">
-            Bay Area&apos;s premier college essay coaching service. We help students find their voice,
-            craft compelling narratives, and stand out in the admissions process.
-          </p>
+              {/* CTAs */}
+              <RevealOnScroll delay={0.2}>
+                <div className="hero-ctas">
+                  <Button href={CALENDLY_URL} external variant="primary">
+                    Book Free Consultation →
+                  </Button>
+                  <Button href="/testimonials" variant="ghost">
+                    See what others say →
+                  </Button>
+                </div>
+              </RevealOnScroll>
 
-          {/* CTAs */}
-          <div className="hero-ctas">
-            <Button href={CALENDLY_URL} external variant="primary">
-              Book Free Consult →
-            </Button>
-            <Button href="/testimonials" variant="ghost">
-              See what others say →
-            </Button>
-          </div>
-
-          {/* Meta strip */}
-          <div className="hero-meta">
-            <div className="hero-meta-block">
-              <div className="num">500<span className="accent">+</span></div>
-              <div className="label">essays coached</div>
+              {/* Meta strip */}
+              <RevealOnScroll delay={0.3}>
+                <div className="hero-meta">
+                  <div className="hero-meta-block">
+                    <div className="num">500<span className="accent">+</span></div>
+                    <div className="label">essays coached</div>
+                  </div>
+                  <div className="hero-meta-block">
+                    <div className="num">1 : 1</div>
+                    <div className="label">dedicated counselor, not a chatbot</div>
+                  </div>
+                  <div className="hero-meta-block">
+                    <div className="num">48<span className="accent">hr</span></div>
+                    <div className="label">guaranteed feedback turnaround</div>
+                  </div>
+                  <div className="hero-meta-block">
+                    <div className="num">3</div>
+                    <div className="label">steps from first draft to final essay</div>
+                  </div>
+                </div>
+              </RevealOnScroll>
             </div>
-            <div className="hero-meta-block">
-              <div className="num">1 : 1</div>
-              <div className="label">dedicated counselor, not a chatbot</div>
-            </div>
-            <div className="hero-meta-block">
-              <div className="num">48<span className="accent">hr</span></div>
-              <div className="label">guaranteed feedback turnaround</div>
-            </div>
-            <div className="hero-meta-block">
-              <div className="num">3</div>
-              <div className="label">steps from first draft to final essay</div>
+
+            {/* Right column — image card */}
+            <div
+              style={{
+                borderRadius: 20,
+                overflow: 'hidden',
+                height: 500,
+                position: 'relative',
+                background: 'var(--bg-elev)',
+              }}
+            >
+              <img
+                src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?q=80&w=1400&auto=format&fit=crop"
+                alt="Student studying and writing college essays"
+                style={{
+                  width: '100%',
+                  height: '100%',
+                  objectFit: 'cover',
+                  objectPosition: 'center',
+                }}
+              />
             </div>
           </div>
         </div>
       </section>
 
-      {/* ===== LOGOS ===== */}
-      <section className="logos">
-        <div className="shell">
-          <div className="logos-label">
-            <span className="eyebrow">Our students have been admitted to these schools.</span>
-          </div>
-          <div className="logo-row">
-            {SUCCESS_SCHOOLS.map((school) => (
-              <span key={school} className="logo-item">
-                <span className="dot" />
-                {school}
-              </span>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* ===== COLLEGE MARQUEE ===== */}
+      <CollegeMarquee />
 
       {/* ===== ESSAY DEMO ===== */}
       <section className="section" id="demo">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Essay Coaching · Live</span>
-              <h2>
-                Click any <em className="it">underlined</em> phrase — the coach note moves with you.
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Essay Coaching · Live</span>
+                <h2>
+                  Click any <em className="it">underlined</em> phrase — the coach note moves with you.
+                </h2>
+              </div>
+              <p>
+                This is what a BayAdmit coaching session looks like. Real essay excerpt, real feedback
+                notes — the kind of close read that gets essays noticed.
+              </p>
             </div>
-            <p>
-              This is what a BayAdmit coaching session looks like. Real essay excerpt, real feedback
-              notes — the kind of close read that gets essays noticed.
-            </p>
-          </div>
+          </RevealOnScroll>
           <EssayDemo />
         </div>
       </section>
@@ -128,17 +138,19 @@ export default function HomePage() {
       {/* ===== SHOWCASE ===== */}
       <section className="section">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">What we do</span>
-              <h2>
-                Every tool a <em className="it">serious</em> applicant needs.
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">What we do</span>
+                <h2>
+                  Every tool a <em className="it">serious</em> applicant needs.
+                </h2>
+              </div>
+              <p>
+                From your first draft to your last supplement — BayAdmit coaches the full application.
+              </p>
             </div>
-            <p>
-              From your first draft to your last supplement — BayAdmit coaches the full application.
-            </p>
-          </div>
+          </RevealOnScroll>
 
           <div className="showcase">
             {/* Card 1 — Annotated Coaching */}
@@ -302,18 +314,20 @@ export default function HomePage() {
       {/* ===== HOW IT WORKS ===== */}
       <section className="section">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">The process</span>
-              <h2>
-                Simple. Personalized. <em className="it">Effective.</em>
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">The process</span>
+                <h2>
+                  Simple. Personalized. <em className="it">Effective.</em>
+                </h2>
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
           <div className="steps">
             <div className="step">
               <div className="step-num">1</div>
-              <h4>Book a Free Consult</h4>
+              <h4>Book a Free Consultation</h4>
               <p>We learn about you, your goals, and your story. No commitment.</p>
             </div>
             <div className="step">
@@ -338,14 +352,16 @@ export default function HomePage() {
       {/* ===== TESTIMONIALS ===== */}
       <section className="section">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Stories</span>
-              <h2>
-                Students who found <em className="it">their voice.</em>
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Stories</span>
+                <h2>
+                  Students who found <em className="it">their voice.</em>
+                </h2>
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
           <div className="testimonials">
             {TESTIMONIALS.slice(0, 3).map((t) => {
               const initial = t.name.charAt(0)
@@ -369,15 +385,17 @@ export default function HomePage() {
       {/* ===== PRICING ===== */}
       <section className="section" id="pricing">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Pricing</span>
-              <h2>
-                Simple, transparent <em className="it">pricing.</em>
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Pricing</span>
+                <h2>
+                  Simple, transparent <em className="it">pricing.</em>
+                </h2>
+              </div>
+              <p>All packages include unlimited revisions. No hidden fees.</p>
             </div>
-            <p>All packages include unlimited revisions. No hidden fees.</p>
-          </div>
+          </RevealOnScroll>
           <div className="pricing">
             {PRICING_TIERS.map((tier) => (
               <div key={tier.name} className={`plan${tier.highlighted ? ' featured' : ''}`}>
@@ -396,7 +414,7 @@ export default function HomePage() {
                   ))}
                 </ul>
                 <Button href={CALENDLY_URL} external variant="primary">
-                  Book Free Consult
+                  Book Free Consultation
                 </Button>
               </div>
             ))}
@@ -407,14 +425,16 @@ export default function HomePage() {
       {/* ===== FAQ ===== */}
       <section className="section" id="faq">
         <div className="shell">
-          <div className="section-head">
-            <div>
-              <span className="eyebrow">Questions</span>
-              <h2>
-                Common <em className="it">questions.</em>
-              </h2>
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Questions</span>
+                <h2>
+                  Common <em className="it">questions.</em>
+                </h2>
+              </div>
             </div>
-          </div>
+          </RevealOnScroll>
           <FAQAccordion items={FAQ_ITEMS} />
         </div>
       </section>
@@ -433,7 +453,7 @@ export default function HomePage() {
           </p>
           <div className="hero-ctas" style={{ justifyContent: 'center' }}>
             <Button href={CALENDLY_URL} external variant="primary">
-              Book Free Consult →
+              Book Free Consultation →
             </Button>
             <Button href="#pricing" variant="ghost">
               See pricing →

@@ -4,7 +4,6 @@ export const CONTACT_EMAIL = 'hello@bayadmit.com'
 export const SITE_URL = 'https://bayadmit.com'
 
 export const NAV_LINKS = [
-  { label: 'Home', href: '/' },
   { label: 'Services', href: '/services' },
   { label: 'About', href: '/about' },
   { label: 'Testimonials', href: '/testimonials' },

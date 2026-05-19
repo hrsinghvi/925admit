@@ -35,7 +35,7 @@ export default function Nav() {
         {/* CTA + Mobile hamburger */}
         <div className="nav-actions">
           <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
-            Book Free Consult
+            Book Free Consultation
           </a>
           <button
             className="nav-mobile-toggle"
@@ -83,7 +83,7 @@ export default function Nav() {
             className="btn btn-primary"
             style={{ width: 'fit-content' }}
           >
-            Book Free Consult
+            Book Free Consultation
           </a>
         </div>
       )}

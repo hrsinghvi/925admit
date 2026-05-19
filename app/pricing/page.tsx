@@ -105,7 +105,7 @@ export default function PricingPage() {
             essay?
           </h2>
           <p className="lede">Book a free 30-minute consultation.</p>
-          <Button href={CALENDLY_URL} external variant="primary">Book Free Consult</Button>
+          <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
         </div>
       </section>
     </>

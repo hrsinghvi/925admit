@@ -63,7 +63,7 @@ export default function ServicesPage() {
 
           <div style={{ display: 'flex', gap: 12, flexWrap: 'wrap' }}>
             <Button href="/pricing" variant="ghost">View Pricing</Button>
-            <Button href={CALENDLY_URL} external variant="primary">Book Free Consult</Button>
+            <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
           </div>
         </div>
       </section>
