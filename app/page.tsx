@@ -30,7 +30,7 @@ export default function HomePage() {
               display: 'grid',
               gridTemplateColumns: '0.8fr 1.2fr',
               gap: 56,
-              alignItems: 'center',
+              alignItems: 'flex-start',
             }}
             className="hero-grid-2col"
           >
@@ -63,27 +63,6 @@ export default function HomePage() {
                 </div>
               </RevealOnScroll>
 
-              {/* Meta strip */}
-              <RevealOnScroll delay={0.3}>
-                <div className="hero-meta">
-                  <div className="hero-meta-block">
-                    <div className="num">500<span className="accent">+</span></div>
-                    <div className="label">essays coached</div>
-                  </div>
-                  <div className="hero-meta-block">
-                    <div className="num">1 : 1</div>
-                    <div className="label">dedicated counselor, not a chatbot</div>
-                  </div>
-                  <div className="hero-meta-block">
-                    <div className="num">48<span className="accent">hr</span></div>
-                    <div className="label">guaranteed feedback turnaround</div>
-                  </div>
-                  <div className="hero-meta-block">
-                    <div className="num">3</div>
-                    <div className="label">steps from first draft to final essay</div>
-                  </div>
-                </div>
-              </RevealOnScroll>
             </div>
 
             {/* Right column — image card */}

@@ -37,7 +37,7 @@
   --font-mono: var(--font-jetbrains-mono), "JetBrains Mono", monospace;
 
   --shell: 1480px;
-  --gutter: clamp(16px, 2.5vw, 40px);
+  --gutter: clamp(32px, 4vw, 80px);
   --density: 1;
 }
 
