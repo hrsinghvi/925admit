@@ -5,37 +5,37 @@ import { useState, useEffect } from 'react'
 const ESSAY_PARAGRAPHS = [
   {
     id: 'p1',
-    text: 'The summer before junior year, I rewrote my personal statement eleven times. Not because I was bad at writing — I had straight A\'s in AP English — but because every draft sounded like someone else. Polished, careful, ',
-    highlight: { id: 'p1-a', kind: 'weak' as const, word: 'college-essay shaped', tag: 'Voice · Fix', body: 'This is the insight. Lead with it — flip the opening so the first sentence is this observation. The eleven rewrites are evidence, not the hook.' },
-    after: '.',
+    text: 'My mother makes chai the wrong way. Too much ginger, cardamom so strong it numbs your tongue, and she never uses a timer — just instinct and the particular shade of brown she learned from her mother in Jaipur. For years I was ',
+    highlight: { id: 'p1-a', kind: 'weak' as const, word: 'embarrassed by this chai', tag: 'Voice · Dig Deeper', body: 'The word "embarrassed" is doing heavy lifting but not earning it. What did that embarrassment look like in practice? Did you hide the thermos? Refuse when friends came over? The specific behavior is stronger than the label.' },
+    after: '. I wanted the Starbucks cup my friends carried like a passport.',
   },
   {
     id: 'p2',
-    text: 'My counselor asked me one question in our second session: \'',
-    highlight: { id: 'p2-a', kind: 'strong' as const, word: 'What would you write if no one was going to read it', tag: 'Thesis', body: 'This question IS the essay. Everything else is setup for this moment. Consider starting here, then flashing back to the eleven drafts.' },
-    after: '\' I didn\'t have an answer. That bothered me more than the blank page.',
+    text: 'When I left for debate camp the summer before junior year, she packed a thermos of it. I didn\'t open it for three days. On the fourth — homesick in a way I hadn\'t expected — I did. And ',
+    highlight: { id: 'p2-a', kind: 'strong' as const, word: 'the smell arrived before the taste', tag: 'Voice · Sensory', body: 'This is exactly right. Smell as memory-trigger earns its place here because of the specificity that follows. Don\'t cut it — make sure the next sentence pays it off with equal precision.' },
+    after: '. For a moment I wasn\'t in a dorm room in Ohio. I was in her kitchen.',
   },
   {
     id: 'p3',
-    text: 'The essay I finally submitted was about my grandmother\'s garden — the way she never planted anything she couldn\'t eat, and what that taught me about ',
-    highlight: { id: 'p3-a', kind: 'strong' as const, word: 'utility and beauty existing in the same space', tag: 'Voice', body: 'Strong thematic landing. Make sure the body of the garden section earns this abstraction with specific sensory detail first.' },
-    after: '.',
+    text: 'I had spent years ',
+    highlight: { id: 'p3-a', kind: 'weak' as const, word: 'trying to translate myself into something easier to explain', tag: 'Voice · Too Abstract', body: 'This is the essay\'s emotional core, but it\'s stated too generally. "Translate myself" is evocative but stays on the surface. Give us one scene — a moment you made this choice. The reader needs to see the decision, not just hear the conclusion.' },
+    after: ' — the kid who was good at debate, not the one who still took off his shoes at the door and touched his grandparents\' feet at every visit.',
   },
   {
     id: 'p4',
-    text: 'I got into my first choice school. But what I remember most isn\'t the acceptance. It\'s the moment I ',
-    highlight: { id: 'p4-a', kind: 'strong' as const, word: 'stopped trying to write what I thought they wanted to read', tag: 'Insight', body: 'Perfect closer. Honest, earned, not over-explained. This is the voice admissions readers remember.' },
+    text: 'My coach asked me to write about what I couldn\'t put on a résumé. I wrote about chai. Somewhere in the writing, I understood: I had been ',
+    highlight: { id: 'p4-a', kind: 'strong' as const, word: 'editing myself for the wrong audience my entire life', tag: 'Insight · Closer', body: 'Perfect. This is the sentence the whole essay builds to. The "editing" metaphor connects to writing, to the essay itself, to the translation theme — it earns its abstraction because everything before it was concrete. Don\'t over-explain. Let it land.' },
     after: '.',
   },
 ]
 
 const COACH_SCORES = [
-  { label: 'Authenticity', value: 4.8, max: 5 },
-  { label: 'Voice', value: 4.5, max: 5 },
-  { label: 'Specificity', value: 3.8, max: 5 },
-  { label: 'Structure', value: 4.2, max: 5 },
-  { label: 'Hook', value: 4.0, max: 5 },
-  { label: 'Reflection', value: 4.6, max: 5 },
+  { label: 'Authenticity', value: 4.9, max: 5 },
+  { label: 'Voice', value: 4.6, max: 5 },
+  { label: 'Specificity', value: 4.1, max: 5 },
+  { label: 'Structure', value: 4.3, max: 5 },
+  { label: 'Hook', value: 4.7, max: 5 },
+  { label: 'Reflection', value: 4.8, max: 5 },
 ]
 
 type Tab = 'review' | 'scores' | 'notes'
