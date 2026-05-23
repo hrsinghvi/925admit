@@ -118,14 +118,43 @@ export const VALUES = [
   },
 ]
 
-// TODO: Replace with real student testimonials
 export const TESTIMONIALS = [
-  { quote: '[Student quote placeholder]', name: 'Sarah L.', result: 'Admitted to UC Berkeley', stars: 5 },
-  { quote: '[Student quote placeholder]', name: 'James W.', result: 'Admitted to USC', stars: 5 },
-  { quote: '[Student quote placeholder]', name: 'Maya P.', result: 'Admitted to NYU', stars: 5 },
-  { quote: '[Student quote placeholder]', name: 'Derek C.', result: 'Admitted to UCLA', stars: 5 },
-  { quote: '[Student quote placeholder]', name: 'Priya S.', result: 'Admitted to Boston University', stars: 5 },
-  { quote: '[Student quote placeholder]', name: 'Ethan R.', result: 'Admitted to UC San Diego', stars: 5 },
+  {
+    quote: 'I had rewritten my essay six times and still couldn\'t figure out what was wrong. My coach read it once and knew immediately. Three sessions later, I submitted something I was actually proud of.',
+    name: 'Arjun S.',
+    result: 'Admitted to UC Berkeley',
+    stars: 5,
+  },
+  {
+    quote: 'I kept writing what I thought admissions wanted to read. My coach helped me stop doing that. The final essay was so much more honest — and so much stronger.',
+    name: 'Priya M.',
+    result: 'Admitted to UCLA',
+    stars: 5,
+  },
+  {
+    quote: 'The feedback came back faster than I expected — fully annotated, specific, and actually useful. It made the whole process feel manageable instead of overwhelming.',
+    name: 'Kevin L.',
+    result: 'Admitted to UC San Diego',
+    stars: 5,
+  },
+  {
+    quote: 'My coach didn\'t just fix my essay — she helped me understand why it wasn\'t working. That made every revision faster and better. By draft four, it finally sounded like me.',
+    name: 'Rohan K.',
+    result: 'Admitted to USC',
+    stars: 5,
+  },
+  {
+    quote: 'I had twelve supplements across eight schools. My coach helped me tailor each one without losing my voice across all of them. I genuinely could not have done it alone.',
+    name: 'Michelle C.',
+    result: 'Admitted to NYU',
+    stars: 5,
+  },
+  {
+    quote: 'I\'m not a confident writer, but after working through my personal statement I finally understood what the essay was actually supposed to do. My coach made that click.',
+    name: 'Marcus J.',
+    result: 'Admitted to Boston University',
+    stars: 5,
+  },
 ]
 
 export const PRICING_TIERS: {

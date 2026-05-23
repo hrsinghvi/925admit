@@ -1,6 +1,7 @@
 import type { Metadata } from 'next'
 import Button from '@/components/Button'
-import { TESTIMONIALS, SUCCESS_SCHOOLS, CALENDLY_URL } from '@/lib/constants'
+import CollegeMarquee from '@/components/CollegeMarquee'
+import { TESTIMONIALS, CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Student Success Stories',
@@ -63,34 +64,8 @@ export default function TestimonialsPage() {
         </div>
       </section>
 
-      {/* Section 2 — Schools */}
-      <section className="section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Admitted To</p>
-              <h2>
-                Schools our students<br />
-                <em className="it">got into.</em>
-              </h2>
-            </div>
-            <div />
-          </div>
-
-          <div className="logo-row">
-            {SUCCESS_SCHOOLS.map((school) => (
-              <span key={school} className="logo-item">
-                <span className="dot" />
-                {school}
-              </span>
-            ))}
-          </div>
-
-          <p style={{ fontSize: 13, color: 'var(--muted)', fontStyle: 'italic', marginTop: 32 }}>
-            *Results vary. School names used for illustrative purposes only.
-          </p>
-        </div>
-      </section>
+      {/* Section 2 — Schools marquee */}
+      <CollegeMarquee />
 
       {/* Section 3 — CTA Band */}
       <section className="cta-band">
