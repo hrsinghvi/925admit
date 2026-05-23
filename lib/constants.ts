@@ -86,31 +86,31 @@ export const TEAM = [
     name: 'Hritvik Singhvi',
     role: 'Lead Essay Coach',
     initials: 'HS',
-    bio: 'Studying Computer Science at UIUC\'s Grainger College of Engineering, a top-5 CS program. Also admitted to UCSD, UCSB, NYU, UCI, UMD, and Purdue.',
+    bio: 'Studying Computer Science at UIUC\'s Grainger College of Engineering, a top-5 CS program. Also admitted to UCSD, UCSB, NYU, UCI, UMD, and Purdue. Specializes in narrative structure and making technical experiences feel human.',
   },
   {
     name: 'Krishang Singhvi',
     role: 'Activities List Specialist',
     initials: 'KS',
-    bio: 'Studying Finance at Indiana University\'s Kelley School of Business, one of the top business programs in the world. Also admitted to UCSB, Emory, Cal Poly SLO, BU, UIUC Gies, UCSD, and UC Irvine.',
+    bio: 'Studying Finance at Indiana University\'s Kelley School of Business, one of the top business programs in the world. Also admitted to UCSB, Emory University, BU, UIUC Gies, and UCSD. Expert at crafting compelling activity descriptions and positioning.',
   },
   {
     name: 'Sriram Karthik',
     role: 'Lead Essay Coach',
     initials: 'SR',
-    bio: 'Studying Applied Mathematics and Data Science at UC Berkeley. Also admitted to UIUC, UC Davis, UCSB, Purdue, and UMD.',
+    bio: 'Studying Data Science at UC Berkeley. Also admitted to UIUC, UC Davis, UCSB, Purdue, and UMD. Specializes in helping students translate analytical thinking into compelling narratives — particularly strong with STEM essays, structuring complex ideas accessibly, and finding the human story within technical experiences.',
   },
   {
     name: 'Skandhan Karthik',
     role: 'Writing Specialist',
     initials: 'SK',
-    bio: 'Studying Data Science at UC Berkeley. Got into every school he applied to, including UCLA, UCSD, NYU, Cornell, and UW Seattle.',
+    bio: 'Studying Data Science at UC Berkeley. Got into every school he applied to, including UCLA, UCSD, NYU, Cornell, and the University of Washington. Known for his instinct for voice and authenticity, Skandhan excels at helping students find the specific moment that transforms a generic draft into something only they could have written — his own admissions results speak to the power of that approach.',
   },
   {
     name: 'Tej Bussannagari',
     role: 'College Counselor',
     initials: 'TB',
-    bio: 'Studying Computer Science and Machine Learning at UC San Diego. Also admitted to UCSB, UC Davis, UC Irvine, University of Florida, and UT Austin.',
+    bio: 'Studying Computer Science and Machine Learning at UC San Diego. Also admitted to UCSB, UC Davis, UC Irvine, University of Florida, and UT Austin. Specializes in supplement strategy and school-specific essay positioning.',
   },
 ]
 
