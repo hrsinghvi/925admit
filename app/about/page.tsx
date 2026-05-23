@@ -33,7 +33,7 @@ function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: member.name === 'Tej Bussannagari' ? 'center 25%' : 'center top',
+            objectPosition: member.name === 'Tej Bussannagari' ? 'center 5%' : 'center top',
           }}
         />
       </div>
@@ -102,10 +102,10 @@ export default function AboutPage() {
               <TeamCard key={member.name} member={member} />
             ))}
           </div>
-          {/* Row 2 — 2 cards, same width as top-row cards */}
-          <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
+          {/* Row 2 — 2 cards spanning full row width */}
+          <div style={{ display: 'flex', gap: 24 }}>
             {TEAM.slice(3).map((member) => (
-              <TeamCard key={member.name} member={member} style={{ flex: '0 0 calc((100% - 48px) / 3)' }} />
+              <TeamCard key={member.name} member={member} />
             ))}
           </div>
         </div>
