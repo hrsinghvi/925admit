@@ -159,7 +159,7 @@ export default function EssayDemo() {
 
         {tab === 'notes' && (
           <div className="feedback-list" style={{ flex: 1, marginTop: 0 }}>
-            {allNotes.map((note) => (
+            {allNotes.slice(0, 3).map((note) => (
               <div
                 key={note.id}
                 className={`feedback-item${activeNote === note.id ? ' active' : ''}`}
