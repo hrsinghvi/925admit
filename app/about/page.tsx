@@ -1,5 +1,5 @@
 import type { Metadata } from 'next'
-import { TEAM, VALUES } from '@/lib/constants'
+import { TEAM } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'About 925 Admit',
@@ -66,7 +66,7 @@ export default function AboutPage() {
             <div />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 32 }}>
+          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 32 }}>
             {TEAM.map((member) => (
               <div key={member.name} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div style={{
@@ -100,34 +100,6 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Section 3 — Values */}
-      <section className="section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Values</p>
-              <h2>
-                What we <em className="it">believe.</em>
-              </h2>
-            </div>
-            <div />
-          </div>
-
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 24 }}>
-            {VALUES.map(({ title, description }) => (
-              <div key={title} style={{
-                background: 'var(--paper)',
-                border: '1px solid var(--rule)',
-                borderRadius: 16,
-                padding: 32,
-              }}>
-                <h3 className="display" style={{ fontSize: 22, margin: '0 0 12px' }}>{title}</h3>
-                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>{description}</p>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
     </>
   )
 }

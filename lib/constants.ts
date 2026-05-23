@@ -81,25 +81,36 @@ export const WHY_BAYADMIT = [
   { title: 'Fast turnaround feedback', icon: 'MessageCircle' },
 ]
 
-// TODO: Replace with real team photos and bios
 export const TEAM = [
   {
-    name: 'Alex M.',
+    name: 'Hritvik Singhvi',
     role: 'Lead Essay Coach',
-    initials: 'AM',
-    bio: 'Former admissions reader turned writing coach. Helped hundreds of students find their voice.',
+    initials: 'HS',
+    bio: 'Studying Computer Science at UIUC\'s Grainger College of Engineering, a top-5 CS program. Also admitted to UCSD, UCSB, NYU, UCI, UMD, and Purdue.',
   },
   {
-    name: 'Jordan T.',
-    role: 'College Counselor',
-    initials: 'JT',
-    bio: 'Expertise in building balanced college lists and full application strategy.',
+    name: 'Krishang Singhvi',
+    role: 'Activities List Specialist',
+    initials: 'KS',
+    bio: 'Studying Finance at Indiana University\'s Kelley School of Business, one of the top business programs in the world. Also admitted to UCSB, Emory, Cal Poly SLO, BU, UIUC Gies, UCSD, and UC Irvine.',
   },
   {
-    name: 'Sam K.',
+    name: 'Sriram Karthik',
+    role: 'Lead Essay Coach',
+    initials: 'SR',
+    bio: 'Studying Applied Mathematics and Data Science at UC Berkeley. Also admitted to UIUC, UC Davis, UCSB, Purdue, and UMD.',
+  },
+  {
+    name: 'Skandhan Karthik',
     role: 'Writing Specialist',
     initials: 'SK',
-    bio: 'Published writer and editor with a passion for authentic student storytelling.',
+    bio: 'Studying Data Science at UC Berkeley. Got into every school he applied to, including UCLA, UCSD, NYU, Cornell, and UW Seattle.',
+  },
+  {
+    name: 'Tej Bussannagari',
+    role: 'College Counselor',
+    initials: 'TB',
+    bio: 'Studying Computer Science and Machine Learning at UC San Diego. Also admitted to UCSB, UC Davis, UC Irvine, University of Florida, and UT Austin.',
   },
 ]
 
