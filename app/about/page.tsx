@@ -49,25 +49,6 @@ export default function AboutPage() {
             </p>
           </div>
 
-          <div style={{
-            background: 'var(--bg-elev)',
-            border: '1px solid var(--rule)',
-            borderRadius: 16,
-            padding: 48,
-            textAlign: 'center',
-          }}>
-            <p style={{
-              fontFamily: 'var(--font-display)',
-              fontSize: 28,
-              fontStyle: 'italic',
-              color: 'var(--ink)',
-              margin: 0,
-              lineHeight: 1.3,
-              letterSpacing: '-0.015em',
-            }}>
-              Every student has a story worth telling.
-            </p>
-          </div>
         </div>
       </section>
 
