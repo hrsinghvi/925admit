@@ -8,7 +8,6 @@ import RevealOnScroll from '@/components/RevealOnScroll'
 import {
   CALENDLY_URL,
   TESTIMONIALS,
-  PRICING_TIERS,
   FAQ_ITEMS,
 } from '@/lib/constants'
 
@@ -361,46 +360,6 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== PRICING ===== */}
-      <section className="section" id="pricing">
-        <div className="shell">
-          <RevealOnScroll>
-            <div className="section-head">
-              <div>
-                <span className="eyebrow">Pricing</span>
-                <h2>
-                  Simple, transparent <em className="it">pricing.</em>
-                </h2>
-              </div>
-              <p>All packages include unlimited revisions. No hidden fees.</p>
-            </div>
-          </RevealOnScroll>
-          <div className="pricing">
-            {PRICING_TIERS.map((tier) => (
-              <div key={tier.name} className={`plan${tier.highlighted ? ' featured' : ''}`}>
-                <div className="plan-name">
-                  <span className="italic">{tier.name}</span>
-                  {tier.badge && <span className="badge">{tier.badge}</span>}
-                </div>
-                <div className="price">
-                  {tier.price}
-                  <small>/package</small>
-                </div>
-                <div className="plan-desc">{tier.desc}</div>
-                <ul className="feature-list">
-                  {tier.features.map((f) => (
-                    <li key={f}>{f}</li>
-                  ))}
-                </ul>
-                <Button href={CALENDLY_URL} external variant="primary">
-                  Book Free Consultation
-                </Button>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
       {/* ===== FAQ ===== */}
       <section className="section" id="faq">
         <div className="shell">
@@ -430,12 +389,9 @@ export default function HomePage() {
           <p className="lede">
             Book a free 30-minute consultation — no commitment, no pressure.
           </p>
-          <div className="hero-ctas" style={{ justifyContent: 'center' }}>
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button href={CALENDLY_URL} external variant="primary">
               Book Free Consultation →
-            </Button>
-            <Button href="#pricing" variant="ghost">
-              See pricing →
             </Button>
           </div>
         </div>
