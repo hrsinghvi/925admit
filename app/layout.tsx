@@ -28,13 +28,13 @@ const jetbrains_mono = JetBrains_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: 'BayAdmit | Bay Area College Essay Coaching & Admissions Counseling',
-    template: '%s | BayAdmit',
+    default: '925 Admit | Bay Area College Essay Coaching & Admissions Counseling',
+    template: '%s | 925 Admit',
   },
   description:
     "Bay Area's premier college essay coaching service. We help students find their voice, craft compelling narratives, and stand out in the admissions process.",
   openGraph: {
-    siteName: 'BayAdmit',
+    siteName: '925 Admit',
     type: 'website',
     locale: 'en_US',
   },

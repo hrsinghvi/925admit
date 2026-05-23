@@ -13,7 +13,7 @@ import {
 } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'BayAdmit | Bay Area College Essay Coaching',
+  title: '925 Admit | Bay Area College Essay Coaching',
   description:
     "Bay Area's premier college essay coaching service. We help students find their voice, craft compelling narratives, and stand out in the admissions process.",
 }
@@ -122,17 +122,17 @@ export default function HomePage() {
               <div>
                 <span className="eyebrow">What we do</span>
                 <h2>
-                  Every tool a <em className="it">serious</em> applicant needs.
+                  Every service a <em className="it">serious</em> applicant needs.
                 </h2>
               </div>
               <p>
-                From your first draft to your last supplement — BayAdmit coaches the full application.
+                Real coaches. Real feedback. From your first draft to your final submission — 925 Admit is in your corner.
               </p>
             </div>
           </RevealOnScroll>
 
           <div className="showcase">
-            {/* Card 1 — Annotated Coaching */}
+            {/* Card 1 — Annotated Feedback */}
             <div className="show-card">
               <div className="show-tile slate">
                 <div className="mini">
@@ -155,30 +155,36 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3>Annotated Coaching</h3>
-              <p>Line-by-line feedback on every paragraph</p>
+              <h3>Annotated Feedback</h3>
+              <p>Detailed coach notes on every paragraph, back within 48 hours</p>
             </div>
 
-            {/* Card 2 — Score & Strengths */}
+            {/* Card 2 — Personal Statement */}
             <div className="show-card">
               <div className="show-tile plum">
                 <div className="mini">
-                  <div className="mini-score">
-                    92 <small>/ 100</small>
-                  </div>
-                  <div className="mini-hist">
-                    <span style={{ height: '30%' }} />
-                    <span style={{ height: '45%' }} />
-                    <span style={{ height: '60%' }} />
-                    <span style={{ height: '50%' }} />
-                    <span className="peak" style={{ height: '92%' }} />
-                    <span style={{ height: '75%' }} />
-                    <span style={{ height: '80%' }} />
+                  <div className="mini-list">
+                    <div className="mini-list-row">
+                      <span>Draft 1 — rough ideas</span>
+                      <span className="mini-pill">Done</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Draft 2 — structure</span>
+                      <span className="mini-pill">Done</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Draft 3 — voice</span>
+                      <span className="mini-pill warn">In review</span>
+                    </div>
+                    <div className="mini-list-row">
+                      <span>Final — polish</span>
+                      <span className="mini-pill" style={{ opacity: 0.4 }}>Pending</span>
+                    </div>
                   </div>
                 </div>
               </div>
-              <h3>Score &amp; Strengths</h3>
-              <p>Six dimensions, scored like an admissions reader</p>
+              <h3>Personal Statement</h3>
+              <p>Your story, built draft by draft until it sounds like you</p>
             </div>
 
             {/* Card 3 — Voice Rewrite */}
@@ -201,11 +207,11 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3>Voice Rewrite</h3>
-              <p>When a sentence isn&apos;t you, we show what it could be</p>
+              <h3>Voice Coaching</h3>
+              <p>When it sounds like an essay instead of you, we show what it could be</p>
             </div>
 
-            {/* Card 4 — Final Checklist */}
+            {/* Card 4 — Pre-Submit Review */}
             <div className="show-card">
               <div className="show-tile sage">
                 <div className="mini">
@@ -233,58 +239,52 @@ export default function HomePage() {
                   </div>
                 </div>
               </div>
-              <h3>Final Checklist</h3>
-              <p>Nothing slips through before submit day</p>
+              <h3>Pre-Submit Review</h3>
+              <p>One final coach pass before you hit submit</p>
             </div>
 
-            {/* Card 5 — Strategy Brief */}
+            {/* Card 5 — Supplement Essays */}
             <div className="show-card">
               <div className="show-tile ink">
                 <div className="mini">
                   <div className="mini-brief lead">
-                    <span className="verb">Lead</span>
-                    <span>Open with the moment in the garden, not the thesis statement.</span>
+                    <span className="verb">Why Us</span>
+                    <span>Stanford · 250 words — lead with the specific course, not the ranking.</span>
                   </div>
                   <div className="mini-brief tighten">
-                    <span className="verb">Tighten</span>
-                    <span>Cut ¶3 — restates what ¶2 already shows.</span>
+                    <span className="verb">Activity</span>
+                    <span>Cut the backstory. Start with what you actually did.</span>
                   </div>
                   <div className="mini-brief cut">
-                    <span className="verb">Cut</span>
-                    <span>Remove &ldquo;I have always been&rdquo; openers throughout.</span>
+                    <span className="verb">Short Q</span>
+                    <span>One specific detail lands harder than three general ones.</span>
                   </div>
                 </div>
               </div>
-              <h3>Strategy Brief</h3>
-              <p>School-specific supplement guidance</p>
+              <h3>Supplement Essays</h3>
+              <p>Every &ldquo;Why us?&rdquo; and short answer, coached to stand out</p>
             </div>
 
-            {/* Card 6 — Closest Match */}
+            {/* Card 6 — Brainstorming */}
             <div className="show-card">
               <div className="show-tile clay">
                 <div className="mini">
-                  <div className="mini-match">
-                    <div>
-                      <div className="col-head">
-                        Your Essay <span className="pct">87%</span>
-                      </div>
-                      <p>
-                        The summer before junior year, I rewrote my personal statement eleven times.
-                      </p>
-                    </div>
-                    <div>
-                      <div className="col-head">
-                        Admitted Essay
-                      </div>
-                      <p>
-                        My grandmother never planted anything she couldn&apos;t eat. I took notes.
-                      </p>
-                    </div>
+                  <div className="mini-brief lead">
+                    <span className="verb">Idea</span>
+                    <span>The time you translated for your parents at the doctor&apos;s office.</span>
+                  </div>
+                  <div className="mini-brief tighten">
+                    <span className="verb">Idea</span>
+                    <span>Why you stayed late to debug the code no one asked you to fix.</span>
+                  </div>
+                  <div className="mini-brief cut">
+                    <span className="verb">Pick</span>
+                    <span>The second one. It&apos;s specific, surprising, and only yours.</span>
                   </div>
                 </div>
               </div>
-              <h3>Closest Match</h3>
-              <p>Essays that worked at your target schools</p>
+              <h3>Brainstorming</h3>
+              <p>Can&apos;t find your story? Your coach helps you dig it out</p>
             </div>
           </div>
         </div>

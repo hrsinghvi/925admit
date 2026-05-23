@@ -5,11 +5,11 @@ import { TESTIMONIALS, SUCCESS_SCHOOLS, CALENDLY_URL } from '@/lib/constants'
 export const metadata: Metadata = {
   title: 'Student Success Stories',
   description:
-    'Hear from students and families who worked with BayAdmit. Admitted to UC Berkeley, UCLA, USC, NYU, and more.',
+    'Hear from students and families who worked with 925 Admit. Admitted to UC Berkeley, UCLA, USC, NYU, and more.',
   openGraph: {
-    title: 'Student Success Stories | BayAdmit',
+    title: 'Student Success Stories | 925 Admit',
     description:
-      'Hear from students and families who worked with BayAdmit. Admitted to UC Berkeley, UCLA, USC, NYU, and more.',
+      'Hear from students and families who worked with 925 Admit. Admitted to UC Berkeley, UCLA, USC, NYU, and more.',
     url: 'https://bayadmit.com/testimonials',
   },
 }

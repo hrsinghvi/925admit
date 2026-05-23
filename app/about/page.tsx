@@ -2,13 +2,13 @@ import type { Metadata } from 'next'
 import { TEAM, VALUES } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'About BayAdmit',
+  title: 'About 925 Admit',
   description:
-    'Meet the BayAdmit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+    'Meet the 925 Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
   openGraph: {
-    title: 'About BayAdmit | Bay Area College Admissions Coaches',
+    title: 'About 925 Admit | Bay Area College Admissions Coaches',
     description:
-      'Meet the BayAdmit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+      'Meet the 925 Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
     url: 'https://bayadmit.com/about',
   },
 }
@@ -23,7 +23,7 @@ export default function AboutPage() {
           className="display"
           style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
         >
-          We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>BayAdmit.</em>
+          We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925 Admit.</em>
         </h1>
         <p className="lede">
           A small, passionate team of writers, educators, and former applicants who believe every
@@ -43,7 +43,7 @@ export default function AboutPage() {
               </h2>
             </div>
             <p>
-              BayAdmit was founded with one belief: the college essay shouldn&apos;t be stressful.
+              925 Admit was founded with one belief: the college essay shouldn&apos;t be stressful.
               We&apos;ve helped students from Fremont to San Francisco find the words that got them
               noticed. We&apos;re not a factory — we&apos;re a small team that genuinely cares.
             </p>

@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="brand" style={{ marginBottom: 16 }}>
               <span className="brand-mark" aria-hidden="true" />
-              BayAdmit
+              925 Admit
             </div>
             <p style={{ fontSize: 14, color: 'var(--muted)', maxWidth: '32ch', lineHeight: 1.5, margin: 0 }}>
               Bay Area college essay coaching and admissions counseling. Personal, expert, unlimited revisions.
@@ -54,11 +54,11 @@ export default function Footer() {
 
         {/* Big wordmark */}
         <div className="foot-wordmark" aria-hidden="true">
-          Bay<span className="it">Admit</span>
+          925 <span className="it">Admit</span>
         </div>
 
         <div className="foot-bottom">
-          <div>© 2025 BayAdmit. Bay Area, serving students nationwide.</div>
+          <div>© 2025 925 Admit. Bay Area, serving students nationwide.</div>
           <div><a href={`mailto:${CONTACT_EMAIL}`} style={{ color: 'inherit' }}>{CONTACT_EMAIL}</a></div>
         </div>
       </div>

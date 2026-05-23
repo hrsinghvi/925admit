@@ -1,4 +1,4 @@
-export const SITE_NAME = 'BayAdmit'
+export const SITE_NAME = '925 Admit'
 export const CALENDLY_URL = 'https://calendly.com/bayadmit'
 export const CONTACT_EMAIL = 'hello@bayadmit.com'
 export const SITE_URL = 'https://bayadmit.com'

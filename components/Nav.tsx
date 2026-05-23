@@ -20,7 +20,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="brand">
           <span className="brand-mark" aria-hidden="true" />
-          BayAdmit
+          925 Admit
         </Link>
 
         {/* Desktop links */}
