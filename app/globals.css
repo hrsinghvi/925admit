@@ -171,7 +171,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ===== Hero ===== */
 .hero {
-  padding: calc(80px * var(--density)) 0 calc(110px * var(--density));
+  padding: calc(64px * var(--density)) 0 calc(80px * var(--density));
   position: relative;
 }
 .hero-grid {
@@ -222,7 +222,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
 
 /* ===== Section ===== */
 .section {
-  padding: calc(110px * var(--density)) 0;
+  padding: calc(72px * var(--density)) 0;
   border-top: 1px solid var(--rule);
 }
 .section-head {
