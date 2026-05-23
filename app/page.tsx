@@ -290,6 +290,39 @@ export default function HomePage() {
         </div>
       </section>
 
+      {/* ===== TESTIMONIALS ===== */}
+      <section className="section">
+        <div className="shell">
+          <RevealOnScroll>
+            <div className="section-head">
+              <div>
+                <span className="eyebrow">Stories</span>
+                <h2>
+                  Students who found <em className="it">their voice.</em>
+                </h2>
+              </div>
+            </div>
+          </RevealOnScroll>
+          <div className="testimonials">
+            {TESTIMONIALS.slice(0, 3).map((t) => {
+              const initial = t.name.charAt(0)
+              return (
+                <div key={t.name} className="testimonial">
+                  <div className="quote">&ldquo;{t.quote}&rdquo;</div>
+                  <div className="author">
+                    <div className="avatar">{initial}</div>
+                    <div>
+                      <div className="meta-name">{t.name}</div>
+                      <div className="meta-school">{t.result}</div>
+                    </div>
+                  </div>
+                </div>
+              )
+            })}
+          </div>
+        </div>
+      </section>
+
       {/* ===== HOW IT WORKS ===== */}
       <section className="section">
         <div className="shell">
@@ -324,39 +357,6 @@ export default function HomePage() {
               <h4>Submit with Confidence</h4>
               <p>Walk into application season ready.</p>
             </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ===== TESTIMONIALS ===== */}
-      <section className="section">
-        <div className="shell">
-          <RevealOnScroll>
-            <div className="section-head">
-              <div>
-                <span className="eyebrow">Stories</span>
-                <h2>
-                  Students who found <em className="it">their voice.</em>
-                </h2>
-              </div>
-            </div>
-          </RevealOnScroll>
-          <div className="testimonials">
-            {TESTIMONIALS.slice(0, 3).map((t) => {
-              const initial = t.name.charAt(0)
-              return (
-                <div key={t.name} className="testimonial">
-                  <div className="quote">&ldquo;{t.quote}&rdquo;</div>
-                  <div className="author">
-                    <div className="avatar">{initial}</div>
-                    <div>
-                      <div className="meta-name">{t.name}</div>
-                      <div className="meta-school">{t.result}</div>
-                    </div>
-                  </div>
-                </div>
-              )
-            })}
           </div>
         </div>
       </section>
