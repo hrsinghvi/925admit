@@ -70,19 +70,17 @@ export default function AboutPage() {
             {TEAM.map((member) => (
               <div key={member.name} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
                 <div style={{
-                  width: 64,
-                  height: 64,
+                  width: 80,
+                  height: 80,
                   borderRadius: '50%',
-                  background: 'linear-gradient(135deg, var(--accent), #4a9a9e)',
-                  color: 'white',
-                  fontFamily: 'var(--font-display)',
-                  fontSize: 24,
-                  fontStyle: 'italic',
-                  display: 'flex',
-                  alignItems: 'center',
-                  justifyContent: 'center',
+                  overflow: 'hidden',
+                  flexShrink: 0,
                 }}>
-                  {member.initials}
+                  <img
+                    src={member.image}
+                    alt={member.name}
+                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+                  />
                 </div>
                 <div>
                   <p
