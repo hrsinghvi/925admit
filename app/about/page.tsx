@@ -9,7 +9,7 @@ export const metadata: Metadata = {
     title: 'About 925 Admit | Bay Area College Admissions Coaches',
     description:
       'Meet the 925 Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
-    url: 'https://bayadmit.com/about',
+    url: 'https://925admit.com/about',
   },
 }
 

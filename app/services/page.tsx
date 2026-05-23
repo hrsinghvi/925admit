@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'College Essay Coaching Services | 925 Admit',
     description:
       'Expert college essay coaching, college list building, and application strategy — personalized, 1-on-1, with unlimited revisions.',
-    url: 'https://bayadmit.com/services',
+    url: 'https://925admit.com/services',
   },
 }
 

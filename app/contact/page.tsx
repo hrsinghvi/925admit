@@ -10,7 +10,7 @@ export const metadata: Metadata = {
     title: 'Contact 925 Admit | Book a Free Consultation',
     description:
       'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
-    url: 'https://bayadmit.com/contact',
+    url: 'https://925admit.com/contact',
   },
 }
 

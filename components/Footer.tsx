@@ -44,7 +44,6 @@ export default function Footer() {
           <div className="foot-col">
             <h5>Connect</h5>
             <ul>
-              <li><a href={`mailto:${CONTACT_EMAIL}`}>{CONTACT_EMAIL}</a></li>
               <li><a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a consult</a></li>
               <li><a href="#">Instagram</a></li>
               <li><a href="#">LinkedIn</a></li>
@@ -58,8 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="foot-bottom">
-          <div>© 2025 925 Admit. Bay Area, serving students nationwide.</div>
-          <div><a href={`mailto:${CONTACT_EMAIL}`} style={{ color: 'inherit' }}>{CONTACT_EMAIL}</a></div>
+          <div>© 2026 925 Admit. Serving students in the Bay Area.</div>
         </div>
       </div>
     </footer>

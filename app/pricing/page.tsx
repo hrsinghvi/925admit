@@ -11,7 +11,7 @@ export const metadata: Metadata = {
     title: 'Essay Coaching Pricing & Packages | 925 Admit',
     description:
       'Simple, transparent pricing for college essay coaching. All packages include unlimited revisions.',
-    url: 'https://bayadmit.com/pricing',
+    url: 'https://925admit.com/pricing',
   },
 }
 
