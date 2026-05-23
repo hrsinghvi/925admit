@@ -29,7 +29,12 @@ function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties
         <img
           src={member.image}
           alt={member.name}
-          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+          style={{
+            width: '100%',
+            height: '100%',
+            objectFit: 'cover',
+            objectPosition: member.name === 'Tej Bussannagari' ? 'center 25%' : 'center top',
+          }}
         />
       </div>
       <div>
@@ -56,43 +61,28 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero */}
-      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+      {/* Hero + Our Story — combined */}
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 72 }}>
         <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
-        <h1
-          className="display"
-          style={{ fontSize: 'clamp(48px, 6vw, 96px)', marginBottom: 32 }}
-        >
-          We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925 Admit.</em>
-        </h1>
-        <p className="lede">
-          A small, passionate team of writers, educators, and former applicants who believe every
-          student has a story worth telling.
-        </p>
-      </div>
-
-      {/* Section 1 — Our Story */}
-      <section className="section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Our Story</p>
-              <h2>
-                Founded in the<br />
-                <em className="it">Bay Area.</em>
-              </h2>
-            </div>
-            <p>
-              925 Admit was founded with one belief: the college essay shouldn&apos;t be stressful.
-              We&apos;ve helped students from Fremont to San Francisco find the words that got them
-              noticed. We&apos;re not a factory — we&apos;re a small team that genuinely cares.
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end' }}>
+          <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 96px)', margin: 0 }}>
+            We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925 Admit.</em>
+          </h1>
+          <div>
+            <p className="lede" style={{ marginBottom: 20 }}>
+              A small, passionate team of writers, educators, and former applicants who believe every
+              student has a story worth telling.
+            </p>
+            <p style={{ fontSize: 16, color: 'var(--ink-2)', margin: 0, lineHeight: 1.65 }}>
+              925 Admit was founded with one belief: the college essay should not be stressful.
+              We have helped students from Fremont to San Francisco find the words that got them
+              noticed. We are not a factory. We are a small team that genuinely cares.
             </p>
           </div>
-
         </div>
-      </section>
+      </div>
 
-      {/* Section 2 — Team */}
+      {/* Team */}
       <section className="section">
         <div className="shell">
           <div className="section-head">
@@ -112,15 +102,14 @@ export default function AboutPage() {
               <TeamCard key={member.name} member={member} />
             ))}
           </div>
-          {/* Row 2 — 2 cards centered */}
+          {/* Row 2 — 2 cards, same width as top-row cards */}
           <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
             {TEAM.slice(3).map((member) => (
-              <TeamCard key={member.name} member={member} style={{ maxWidth: 'calc(33.333% - 8px)' }} />
+              <TeamCard key={member.name} member={member} style={{ flex: '0 0 calc((100% - 48px) / 3)' }} />
             ))}
           </div>
         </div>
       </section>
-
     </>
   )
 }
