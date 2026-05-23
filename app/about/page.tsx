@@ -1,5 +1,45 @@
 import type { Metadata } from 'next'
+import type { CSSProperties } from 'react'
 import { TEAM } from '@/lib/constants'
+
+type TeamMember = typeof TEAM[number]
+
+function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties }) {
+  return (
+    <div style={{
+      flex: 1,
+      background: 'var(--paper)',
+      border: '1px solid var(--rule)',
+      borderRadius: 20,
+      padding: 28,
+      display: 'flex',
+      flexDirection: 'column',
+      gap: 20,
+      boxShadow: '0 1px 6px -2px rgba(21,20,15,0.06)',
+      ...style,
+    }}>
+      <div style={{
+        width: 88,
+        height: 88,
+        borderRadius: '50%',
+        overflow: 'hidden',
+        border: '3px solid var(--rule)',
+        flexShrink: 0,
+      }}>
+        <img
+          src={member.image}
+          alt={member.name}
+          style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
+        />
+      </div>
+      <div>
+        <p className="display" style={{ fontSize: 22, margin: '0 0 4px' }}>{member.name}</p>
+        <p className="eyebrow" style={{ marginBottom: 12 }}>{member.role}</p>
+        <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0, lineHeight: 1.65 }}>{member.bio}</p>
+      </div>
+    </div>
+  )
+}
 
 export const metadata: Metadata = {
   title: 'About 925 Admit',
@@ -66,33 +106,16 @@ export default function AboutPage() {
             <div />
           </div>
 
-          <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fill, minmax(280px, 1fr))', gap: 32 }}>
-            {TEAM.map((member) => (
-              <div key={member.name} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                <div style={{
-                  width: 80,
-                  height: 80,
-                  borderRadius: '50%',
-                  overflow: 'hidden',
-                  flexShrink: 0,
-                }}>
-                  <img
-                    src={member.image}
-                    alt={member.name}
-                    style={{ width: '100%', height: '100%', objectFit: 'cover', objectPosition: 'center top' }}
-                  />
-                </div>
-                <div>
-                  <p
-                    className="display"
-                    style={{ fontSize: 22, margin: '0 0 4px' }}
-                  >
-                    {member.name}
-                  </p>
-                  <p className="eyebrow" style={{ marginBottom: 8 }}>{member.role}</p>
-                  <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>{member.bio}</p>
-                </div>
-              </div>
+          {/* Row 1 — 3 cards */}
+          <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
+            {TEAM.slice(0, 3).map((member) => (
+              <TeamCard key={member.name} member={member} />
+            ))}
+          </div>
+          {/* Row 2 — 2 cards centered */}
+          <div style={{ display: 'flex', gap: 24, justifyContent: 'center' }}>
+            {TEAM.slice(3).map((member) => (
+              <TeamCard key={member.name} member={member} style={{ maxWidth: 'calc(33.333% - 8px)' }} />
             ))}
           </div>
         </div>
