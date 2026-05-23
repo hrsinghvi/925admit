@@ -83,7 +83,7 @@ export default function EssayDemo() {
           <span>Student essay · 2024</span>
           <span className="pill">
             <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#346b6e', display: 'inline-block' }} />
-            Coach reviewing
+            Feedback delivered · 48 hrs
           </span>
         </div>
       </div>
@@ -133,8 +133,8 @@ export default function EssayDemo() {
               </div>
             ) : (
               <div style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>
-                <p style={{ margin: '0 0 12px' }}>Click any <span style={{ borderBottom: '1.5px solid var(--accent)', paddingBottom: 1 }}>underlined phrase</span> in the essay to see the coach note for that passage.</p>
-                <p style={{ margin: 0, fontSize: 13 }}>Yellow = needs work &nbsp;·&nbsp; Green = strong</p>
+                <p style={{ margin: '0 0 12px' }}>Click any highlighted passage in the essay to read the coach&apos;s note for that section.</p>
+                <p style={{ margin: 0, fontSize: 13 }}>Yellow = coach suggestion &nbsp;·&nbsp; Green = strong passage</p>
               </div>
             )}
           </div>

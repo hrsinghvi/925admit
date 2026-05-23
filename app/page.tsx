@@ -99,14 +99,14 @@ export default function HomePage() {
           <RevealOnScroll>
             <div className="section-head">
               <div>
-                <span className="eyebrow">Essay Coaching · Live</span>
+                <span className="eyebrow">Essay Coaching · Sample Feedback</span>
                 <h2>
-                  Click any <em className="it">underlined</em> phrase — the coach note moves with you.
+                  This is what your coach&apos;s <em className="it">feedback</em> looks like.
                 </h2>
               </div>
               <p>
-                This is what a BayAdmit coaching session looks like. Real essay excerpt, real feedback
-                notes — the kind of close read that gets essays noticed.
+                Real essay, real coach notes — the kind of close, line-by-line read you get back
+                within 48 hours. Click any highlighted passage to explore the annotations.
               </p>
             </div>
           </RevealOnScroll>
