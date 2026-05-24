@@ -69,19 +69,30 @@ const DRAFT2: D2Segment[][] = [
   ],
 ]
 
+interface TooltipState {
+  top: number
+  left: number
+  highlight: Highlight
+}
+
 function HighlightSpan({
   highlight,
   onEnter,
   onLeave,
 }: {
   highlight: Highlight
-  onEnter: (h: Highlight) => void
+  onEnter: (h: Highlight, rect: DOMRect) => void
   onLeave: () => void
 }) {
+  const ref = useRef<HTMLSpanElement>(null)
   const hStyle = HIGHLIGHT_STYLES[highlight.color]
+
   return (
     <span
-      onMouseEnter={() => onEnter(highlight)}
+      ref={ref}
+      onMouseEnter={() => {
+        if (ref.current) onEnter(highlight, ref.current.getBoundingClientRect())
+      }}
       onMouseLeave={onLeave}
       style={{
         background: hStyle.bg,
@@ -98,24 +109,20 @@ function HighlightSpan({
 }
 
 export default function EssayDemo() {
-  const cardRef = useRef<HTMLDivElement>(null)
-  const [active, setActive] = useState<Highlight | null>(null)
+  const [tooltip, setTooltip] = useState<TooltipState | null>(null)
 
-  function handleEnter(h: Highlight) {
-    setActive(h)
+  function handleEnter(h: Highlight, rect: DOMRect) {
+    setTooltip({
+      highlight: h,
+      top: rect.top - 12,
+      left: rect.left + rect.width / 2,
+    })
   }
-  function handleLeave() {
-    setActive(null)
-  }
-
-  const cardRect = cardRef.current?.getBoundingClientRect()
-  const tooltipLeft = cardRect ? cardRect.left + cardRect.width / 2 : 0
-  const tooltipTop = cardRect ? cardRect.top - 12 : 0
 
   return (
     <div className="demo-wrap">
       {/* Left panel — Draft 1 */}
-      <div className="demo-card" ref={cardRef}>
+      <div className="demo-card">
         <div className="demo-essay">
           <h4>Personal Statement — Draft 1</h4>
           <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
@@ -126,7 +133,12 @@ export default function EssayDemo() {
               {para.segments.map((seg, i) =>
                 seg.type === 'text'
                   ? <span key={i}>{seg.text}</span>
-                  : <HighlightSpan key={seg.highlight.id} highlight={seg.highlight} onEnter={handleEnter} onLeave={handleLeave} />
+                  : <HighlightSpan
+                      key={seg.highlight.id}
+                      highlight={seg.highlight}
+                      onEnter={handleEnter}
+                      onLeave={() => setTooltip(null)}
+                    />
               )}
             </p>
           ))}
@@ -136,18 +148,18 @@ export default function EssayDemo() {
         </div>
       </div>
 
-      {/* Tooltip — above the card, via portal */}
-      {active && cardRect && createPortal(
+      {/* Tooltip portal — positioned above the hovered span */}
+      {tooltip && createPortal(
         <div className="tooltip-popup" style={{
           position: 'fixed',
-          top: tooltipTop,
-          left: tooltipLeft,
+          top: tooltip.top,
+          left: tooltip.left,
           transform: 'translate(-50%, -100%)',
           background: '#FBF8F3',
           border: '1px solid #15140F',
           borderRadius: 10,
           padding: '12px 16px',
-          width: 300,
+          width: 280,
           zIndex: 9999,
           boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
           pointerEvents: 'none',
@@ -158,15 +170,15 @@ export default function EssayDemo() {
             fontFamily: 'var(--font-mono)',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            color: active.color === 'red' ? '#dc2626' : active.color === 'yellow' ? '#b45309' : '#346b6e',
+            color: tooltip.highlight.color === 'red' ? '#dc2626' : tooltip.highlight.color === 'yellow' ? '#b45309' : '#346b6e',
             marginBottom: 6,
           }}>
-            {active.tag}
+            {tooltip.highlight.tag}
           </span>
           <span style={{ fontSize: 13, lineHeight: 1.6, color: '#15140F' }}>
-            {active.body}
+            {tooltip.highlight.body}
           </span>
-          {/* Arrow pointing down */}
+          {/* Arrow */}
           <span style={{
             position: 'absolute',
             bottom: -7,
