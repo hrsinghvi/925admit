@@ -1,7 +1,8 @@
 import type { Metadata } from 'next'
+import type { CSSProperties } from 'react'
 import Button from '@/components/Button'
 import FAQAccordion from '@/components/FAQAccordion'
-import { PRICING_TIERS, FAQ_ITEMS, CALENDLY_URL } from '@/lib/constants'
+import { FAQ_ITEMS, CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Essay Coaching Pricing & Packages',
@@ -28,6 +29,32 @@ const faqJsonLd = {
   })),
 }
 
+const cardBase: CSSProperties = {
+  background: 'var(--paper)',
+  border: '1px solid var(--rule)',
+  borderRadius: 16,
+  padding: '24px 28px',
+}
+
+const saveBadge: CSSProperties = {
+  display: 'inline-block',
+  fontFamily: 'var(--font-mono)',
+  fontSize: 10,
+  letterSpacing: '0.08em',
+  textTransform: 'uppercase',
+  padding: '3px 8px',
+  borderRadius: 999,
+  background: 'rgba(52,107,110,0.12)',
+  color: 'var(--accent)',
+  border: '1px solid rgba(52,107,110,0.25)',
+  marginLeft: 10,
+  verticalAlign: 'middle',
+}
+
+const featuredBorder: CSSProperties = {
+  border: '2px solid var(--accent)',
+}
+
 export default function PricingPage() {
   return (
     <>
@@ -47,40 +74,130 @@ export default function PricingPage() {
           <em className="italic" style={{ color: 'var(--accent)' }}>pricing.</em>
         </h1>
         <p className="lede">
-          Choose what works for you. All essay packages include unlimited revisions.
+          Choose what works for you. Every essay includes two rounds of revision.
         </p>
       </div>
 
-      {/* Section 1 — Pricing Grid */}
+      {/* Pricing Sections */}
       <section className="section">
-        <div className="shell">
-          <div className="pricing">
-            {PRICING_TIERS.map((tier) => (
-              <div key={tier.name} className={`plan${tier.highlighted ? ' featured' : ''}`}>
-                <div className="plan-name italic">
-                  {tier.name}
-                  {tier.badge && <span className="badge">{tier.badge}</span>}
-                </div>
-                <div className="price">
-                  {tier.price}
-                  <small> / package</small>
-                </div>
-                <p className="plan-desc">{tier.desc}</p>
-                <ul className="feature-list">
-                  {tier.features.map((f) => (
-                    <li key={f}>{f}</li>
+        <div className="shell" style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
+
+          {/* Supplemental Essays */}
+          <div>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6 }}>Supplemental essays</h3>
+            <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 20 }}>
+              Priced by word count — each includes 2 rounds of revision
+            </p>
+            <div style={{ ...cardBase }}>
+              <table style={{ width: '100%', borderCollapse: 'collapse' }}>
+                <tbody>
+                  {[
+                    ['0 – 75 words', '$10'],
+                    ['76 – 150 words', '$20'],
+                    ['151 – 300 words', '$30'],
+                    ['301 – 450 words', '$40'],
+                    ['451 – 650 words', '$50'],
+                    ['651 – 850 words', '$60'],
+                  ].map(([range, price], i, arr) => (
+                    <tr key={range}>
+                      <td style={{
+                        padding: '14px 0',
+                        fontSize: 15,
+                        color: 'var(--ink)',
+                        borderBottom: i < arr.length - 1 ? '1px solid var(--rule)' : 'none',
+                      }}>
+                        {range}
+                      </td>
+                      <td style={{
+                        padding: '14px 0',
+                        fontSize: 15,
+                        fontWeight: 600,
+                        color: 'var(--ink)',
+                        textAlign: 'right',
+                        borderBottom: i < arr.length - 1 ? '1px solid var(--rule)' : 'none',
+                      }}>
+                        {price}
+                      </td>
+                    </tr>
                   ))}
-                </ul>
-                <Button href={CALENDLY_URL} external variant="primary">
-                  Get Started
-                </Button>
-              </div>
-            ))}
+                </tbody>
+              </table>
+            </div>
           </div>
+
+          {/* UC PIQs + Common App */}
+          <div>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6 }}>UC Personal Insight Questions (PIQ)</h3>
+            <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 20 }}>
+              350 words each — students answer 4 of 8 prompts
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+              <div style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Single PIQ essay</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$40</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>per essay</p>
+              </div>
+              <div style={{ ...cardBase, ...featuredBorder }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
+                  All 4 PIQ bundle<span style={saveBadge}>Save $20</span>
+                </p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$140</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>vs. $160 individually</p>
+              </div>
+              <div style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Common App essay</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$50</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>650 words</p>
+              </div>
+            </div>
+          </div>
+
+          {/* College List & Majors */}
+          <div>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6 }}>College list &amp; majors</h3>
+            <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 20 }}>
+              Curated school and major recommendations
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              <div style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>College list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$20</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>personalized school list</p>
+              </div>
+              <div style={{ ...cardBase, ...featuredBorder }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
+                  College list + majors<span style={saveBadge}>Save $5</span>
+                </p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$35</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>schools &amp; majors to apply to</p>
+              </div>
+            </div>
+          </div>
+
+          {/* Activity Lists */}
+          <div>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6 }}>Activity lists</h3>
+            <p style={{ fontSize: 14, color: 'var(--ink-2)', marginBottom: 20 }}>
+              Crafting descriptions that highlight your involvement
+            </p>
+            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+              <div style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Common App activity list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$35</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>10 activities · 150 chars each</p>
+              </div>
+              <div style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>UC activity list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px' }}>$80</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>20 activities · 350 chars each</p>
+              </div>
+            </div>
+          </div>
+
         </div>
       </section>
 
-      {/* Section 2 — FAQ */}
+      {/* FAQ */}
       <section className="section">
         <div className="shell">
           <div className="section-head">
@@ -96,7 +213,7 @@ export default function PricingPage() {
         </div>
       </section>
 
-      {/* Section 3 — CTA Band */}
+      {/* CTA Band */}
       <section className="cta-band">
         <div className="shell">
           <h2>
