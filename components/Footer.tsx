@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { NAV_LINKS, CONTACT_EMAIL, CALENDLY_URL } from '@/lib/constants'
+import { NAV_LINKS } from '@/lib/constants'
 
 export default function Footer() {
   return (
@@ -29,26 +29,6 @@ export default function Footer() {
             </ul>
           </div>
 
-          {/* Services */}
-          <div className="foot-col">
-            <h5>Services</h5>
-            <ul>
-              <li><Link href="/services">Essay Coaching</Link></li>
-              <li><Link href="/pricing">Pricing</Link></li>
-              <li><Link href="/testimonials">Student Stories</Link></li>
-              <li><Link href="/contact">Contact</Link></li>
-            </ul>
-          </div>
-
-          {/* Connect */}
-          <div className="foot-col">
-            <h5>Connect</h5>
-            <ul>
-              <li><a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer">Book a consult</a></li>
-              <li><a href="#">Instagram</a></li>
-              <li><a href="#">LinkedIn</a></li>
-            </ul>
-          </div>
         </div>
 
         <div className="foot-bottom">
