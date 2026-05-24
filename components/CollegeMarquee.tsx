@@ -94,7 +94,7 @@ export default function CollegeMarquee() {
                     width: 28,
                     height: 28,
                     objectFit: 'contain',
-                    filter: 'grayscale(1) opacity(0.55)',
+                    filter: 'none',
                     flexShrink: 0,
                   }}
                 />
