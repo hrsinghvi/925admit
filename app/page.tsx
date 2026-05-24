@@ -103,10 +103,6 @@ export default function HomePage() {
                   This is what your coach&apos;s <em className="it">feedback</em> looks like.
                 </h2>
               </div>
-              <p>
-                Real essay, real coach notes — the kind of close, line-by-line read you get back
-                within 48 hours. Click any highlighted passage to explore the annotations.
-              </p>
             </div>
           </RevealOnScroll>
           <EssayDemo />
