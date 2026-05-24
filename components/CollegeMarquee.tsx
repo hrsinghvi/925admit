@@ -88,11 +88,11 @@ export default function CollegeMarquee() {
                 <img
                   src={`https://www.google.com/s2/favicons?sz=128&domain=${college.domain}`}
                   alt={college.name}
-                  width={28}
-                  height={28}
+                  width={40}
+                  height={40}
                   style={{
-                    width: 28,
-                    height: 28,
+                    width: 40,
+                    height: 40,
                     objectFit: 'contain',
                     filter: 'none',
                     flexShrink: 0,
