@@ -86,7 +86,7 @@ export default function CollegeMarquee() {
                 gap: 10,
               }}>
                 <img
-                  src={`https://logo.clearbit.com/${college.domain}`}
+                  src={`https://www.google.com/s2/favicons?sz=128&domain=${college.domain}`}
                   alt={college.name}
                   width={28}
                   height={28}
