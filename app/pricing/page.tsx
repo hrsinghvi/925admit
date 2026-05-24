@@ -34,7 +34,6 @@ const cardBase: CSSProperties = {
   border: '1px solid #333',
   borderRadius: 16,
   padding: '24px 28px',
-  color: '#fff',
 }
 
 const saveBadge: CSSProperties = {
@@ -56,13 +55,31 @@ const featuredBorder: CSSProperties = {
   border: '2px solid #3b82f6',
 }
 
-const darkHeading: CSSProperties = {
+const sectionHeading: CSSProperties = {
+  color: 'var(--ink)',
+}
+
+const sectionSub: CSSProperties = {
+  color: 'var(--ink-2)',
+}
+
+const cardLabel: CSSProperties = {
+  color: 'rgba(255,255,255,0.6)',
+}
+
+const cardPrice: CSSProperties = {
   color: '#fff',
 }
 
-const darkSub: CSSProperties = {
-  color: 'rgba(255,255,255,0.55)',
+const cardDesc: CSSProperties = {
+  color: 'rgba(255,255,255,0.5)',
 }
+
+const tableText: CSSProperties = {
+  color: 'rgba(255,255,255,0.85)',
+}
+
+const tableBorder = '1px solid #333'
 
 export default function PricingPage() {
   return (
@@ -88,13 +105,13 @@ export default function PricingPage() {
       </div>
 
       {/* Pricing Sections */}
-      <section style={{ background: '#111', padding: '72px 0' }}>
+      <section className="section">
         <div className="shell" style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
 
           {/* Supplemental Essays */}
           <div>
-            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...darkHeading }}>Supplemental essays</h3>
-            <p style={{ fontSize: 14, marginBottom: 20, ...darkSub }}>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...sectionHeading }}>Supplemental essays</h3>
+            <p style={{ fontSize: 14, marginBottom: 20, ...sectionSub }}>
               Priced by word count — each includes 2 rounds of revision
             </p>
             <div style={{ ...cardBase }}>
@@ -112,8 +129,8 @@ export default function PricingPage() {
                       <td style={{
                         padding: '14px 0',
                         fontSize: 15,
-                        color: 'rgba(255,255,255,0.85)',
-                        borderBottom: i < arr.length - 1 ? '1px solid #333' : 'none',
+                        ...tableText,
+                        borderBottom: i < arr.length - 1 ? tableBorder : 'none',
                       }}>
                         {range}
                       </td>
@@ -121,9 +138,9 @@ export default function PricingPage() {
                         padding: '14px 0',
                         fontSize: 15,
                         fontWeight: 600,
-                        color: '#fff',
+                        ...cardPrice,
                         textAlign: 'right',
-                        borderBottom: i < arr.length - 1 ? '1px solid #333' : 'none',
+                        borderBottom: i < arr.length - 1 ? tableBorder : 'none',
                       }}>
                         {price}
                       </td>
@@ -136,69 +153,69 @@ export default function PricingPage() {
 
           {/* UC PIQs + Common App */}
           <div>
-            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...darkHeading }}>UC Personal Insight Questions (PIQ)</h3>
-            <p style={{ fontSize: 14, marginBottom: 20, ...darkSub }}>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...sectionHeading }}>UC Personal Insight Questions (PIQ)</h3>
+            <p style={{ fontSize: 14, marginBottom: 20, ...sectionSub }}>
               350 words each — students answer 4 of 8 prompts
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
               <div style={{ ...cardBase }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>Single PIQ essay</p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$40</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>per essay</p>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>Single PIQ essay</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$40</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>per essay</p>
               </div>
               <div style={{ ...cardBase, ...featuredBorder }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>
                   All 4 PIQ bundle<span style={saveBadge}>Save $20</span>
                 </p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$140</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>vs. $160 individually</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$140</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>vs. $160 individually</p>
               </div>
               <div style={{ ...cardBase }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>Common App essay</p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$50</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>650 words</p>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>Common App essay</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$50</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>650 words</p>
               </div>
             </div>
           </div>
 
           {/* College List & Majors */}
           <div>
-            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...darkHeading }}>College list &amp; majors</h3>
-            <p style={{ fontSize: 14, marginBottom: 20, ...darkSub }}>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...sectionHeading }}>College list &amp; majors</h3>
+            <p style={{ fontSize: 14, marginBottom: 20, ...sectionSub }}>
               Curated school and major recommendations
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div style={{ ...cardBase }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>College list</p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$20</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>personalized school list</p>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>College list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$20</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>personalized school list</p>
               </div>
               <div style={{ ...cardBase, ...featuredBorder }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>
                   College list + majors<span style={saveBadge}>Save $5</span>
                 </p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$35</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>schools &amp; majors to apply to</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$35</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>schools &amp; majors to apply to</p>
               </div>
             </div>
           </div>
 
           {/* Activity Lists */}
           <div>
-            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...darkHeading }}>Activity lists</h3>
-            <p style={{ fontSize: 14, marginBottom: 20, ...darkSub }}>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, ...sectionHeading }}>Activity lists</h3>
+            <p style={{ fontSize: 14, marginBottom: 20, ...sectionSub }}>
               Crafting descriptions that highlight your involvement
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
               <div style={{ ...cardBase }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>Common App activity list</p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$35</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>10 activities · 150 chars each</p>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>Common App activity list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$35</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>10 activities · 150 chars each</p>
               </div>
               <div style={{ ...cardBase }}>
-                <p style={{ fontSize: 13, ...darkSub, marginBottom: 8 }}>UC activity list</p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: '#fff' }}>$80</p>
-                <p style={{ fontSize: 13, ...darkSub, margin: 0 }}>20 activities · 350 chars each</p>
+                <p style={{ fontSize: 13, ...cardLabel, marginBottom: 8 }}>UC activity list</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', ...cardPrice }}>$80</p>
+                <p style={{ fontSize: 13, ...cardDesc, margin: 0 }}>20 activities · 350 chars each</p>
               </div>
             </div>
           </div>
