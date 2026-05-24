@@ -69,99 +69,53 @@ const DRAFT2: D2Segment[][] = [
   ],
 ]
 
-function TooltipHighlight({ highlight }: { highlight: Highlight }) {
-  const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
-  const ref = useRef<HTMLSpanElement>(null)
+function HighlightSpan({
+  highlight,
+  onEnter,
+  onLeave,
+}: {
+  highlight: Highlight
+  onEnter: (h: Highlight) => void
+  onLeave: () => void
+}) {
   const hStyle = HIGHLIGHT_STYLES[highlight.color]
-
-  function handleEnter() {
-    if (!ref.current) return
-    const rect = ref.current.getBoundingClientRect()
-    setPos({
-      top: rect.top - 10,
-      left: rect.left + rect.width / 2,
-    })
-  }
-
   return (
     <span
-      ref={ref}
-      style={{ display: 'inline' }}
-      onMouseEnter={handleEnter}
-      onMouseLeave={() => setPos(null)}
-    >
-      <span style={{
+      onMouseEnter={() => onEnter(highlight)}
+      onMouseLeave={onLeave}
+      style={{
         background: hStyle.bg,
         borderBottom: `2px solid ${hStyle.border}`,
         borderRadius: 2,
         cursor: 'default',
         padding: '1px 1px 0',
         transition: 'background 150ms',
-      }}>
-        {highlight.word}
-      </span>
-      {pos && createPortal(
-        <span className="tooltip-popup" style={{
-          position: 'fixed',
-          top: pos.top,
-          left: pos.left,
-          transform: 'translate(-50%, -100%)',
-          background: '#FBF8F3',
-          color: '#15140F',
-          border: '1px solid #15140F',
-          borderRadius: 10,
-          padding: '10px 14px',
-          width: 268,
-          zIndex: 9999,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
-          pointerEvents: 'none',
-        }}>
-          <span style={{
-            display: 'block',
-            fontSize: 10,
-            fontFamily: 'var(--font-mono)',
-            letterSpacing: '0.08em',
-            textTransform: 'uppercase',
-            color: highlight.color === 'red' ? '#dc2626' : highlight.color === 'yellow' ? '#b45309' : '#346b6e',
-            marginBottom: 6,
-          }}>
-            {highlight.tag}
-          </span>
-          <span style={{ fontSize: 12.5, lineHeight: 1.55, color: '#15140F' }}>
-            {highlight.body}
-          </span>
-          <span style={{
-            position: 'absolute',
-            bottom: -6,
-            left: '50%',
-            transform: 'translateX(-50%)',
-            width: 12,
-            height: 6,
-            overflow: 'hidden',
-          }}>
-            <span style={{
-              position: 'absolute',
-              width: 10,
-              height: 10,
-              background: '#FBF8F3',
-              border: '1px solid #15140F',
-              transform: 'rotate(45deg)',
-              bottom: 2,
-              left: 1,
-            }} />
-          </span>
-        </span>
-        , document.body
-      )}
+      }}
+    >
+      {highlight.word}
     </span>
   )
 }
 
 export default function EssayDemo() {
+  const cardRef = useRef<HTMLDivElement>(null)
+  const [active, setActive] = useState<Highlight | null>(null)
+
+  function handleEnter(h: Highlight) {
+    setActive(h)
+  }
+  function handleLeave() {
+    setActive(null)
+  }
+
+  const cardRect = cardRef.current?.getBoundingClientRect()
+  const tooltipLeft = cardRect ? cardRect.left + cardRect.width / 2 : 0
+  const tooltipTop = cardRect ? cardRect.top - 12 : 0
+
   return (
     <div className="demo-wrap">
       {/* Left panel — Draft 1 */}
-      <div className="demo-card">
+      <div className="demo-card" ref={cardRef}>
         <div className="demo-essay">
           <h4>Personal Statement — Draft 1</h4>
           <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
@@ -172,7 +126,7 @@ export default function EssayDemo() {
               {para.segments.map((seg, i) =>
                 seg.type === 'text'
                   ? <span key={i}>{seg.text}</span>
-                  : <TooltipHighlight key={seg.highlight.id} highlight={seg.highlight} />
+                  : <HighlightSpan key={seg.highlight.id} highlight={seg.highlight} onEnter={handleEnter} onLeave={handleLeave} />
               )}
             </p>
           ))}
@@ -181,6 +135,61 @@ export default function EssayDemo() {
           <span>Student essay · 2026</span>
         </div>
       </div>
+
+      {/* Tooltip — above the card, via portal */}
+      {active && cardRect && createPortal(
+        <div className="tooltip-popup" style={{
+          position: 'fixed',
+          top: tooltipTop,
+          left: tooltipLeft,
+          transform: 'translate(-50%, -100%)',
+          background: '#FBF8F3',
+          border: '1px solid #15140F',
+          borderRadius: 10,
+          padding: '12px 16px',
+          width: 300,
+          zIndex: 9999,
+          boxShadow: '0 4px 24px rgba(0,0,0,0.12)',
+          pointerEvents: 'none',
+        }}>
+          <span style={{
+            display: 'block',
+            fontSize: 10,
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: active.color === 'red' ? '#dc2626' : active.color === 'yellow' ? '#b45309' : '#346b6e',
+            marginBottom: 6,
+          }}>
+            {active.tag}
+          </span>
+          <span style={{ fontSize: 13, lineHeight: 1.6, color: '#15140F' }}>
+            {active.body}
+          </span>
+          {/* Arrow pointing down */}
+          <span style={{
+            position: 'absolute',
+            bottom: -7,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 13,
+            height: 7,
+            overflow: 'hidden',
+          }}>
+            <span style={{
+              position: 'absolute',
+              width: 10,
+              height: 10,
+              background: '#FBF8F3',
+              border: '1px solid #15140F',
+              transform: 'rotate(45deg)',
+              bottom: 3,
+              left: 1,
+            }} />
+          </span>
+        </div>,
+        document.body
+      )}
 
       {/* Right panel — Draft 2 */}
       <div className="demo-card">
