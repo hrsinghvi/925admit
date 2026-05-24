@@ -51,11 +51,6 @@ export default function Footer() {
           </div>
         </div>
 
-        {/* Big wordmark */}
-        <div className="foot-wordmark" aria-hidden="true">
-          925 <span className="it">Admit</span>
-        </div>
-
         <div className="foot-bottom">
           <div>© 2026 925Admit. Serving students in the Bay Area.</div>
         </div>
