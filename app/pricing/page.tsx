@@ -1,8 +1,7 @@
 import type { Metadata } from 'next'
 import type { CSSProperties } from 'react'
 import Button from '@/components/Button'
-import FAQAccordion from '@/components/FAQAccordion'
-import { FAQ_ITEMS, CALENDLY_URL } from '@/lib/constants'
+import { CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'Essay Coaching Pricing & Packages',
@@ -16,18 +15,6 @@ export const metadata: Metadata = {
   },
 }
 
-const faqJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: FAQ_ITEMS.map(({ question, answer }) => ({
-    '@type': 'Question',
-    name: question,
-    acceptedAnswer: {
-      '@type': 'Answer',
-      text: answer,
-    },
-  })),
-}
 
 const cardBase: CSSProperties = {
   background: 'var(--paper)',
@@ -58,11 +45,6 @@ const featuredBorder: CSSProperties = {
 export default function PricingPage() {
   return (
     <>
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
-      />
-
       {/* Hero */}
       <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
         <p className="eyebrow" style={{ marginBottom: 24 }}>Pricing</p>
@@ -194,22 +176,6 @@ export default function PricingPage() {
             </div>
           </div>
 
-        </div>
-      </section>
-
-      {/* FAQ */}
-      <section className="section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Questions</p>
-              <h2>
-                Common <em className="it">questions.</em>
-              </h2>
-            </div>
-            <div />
-          </div>
-          <FAQAccordion items={FAQ_ITEMS} />
         </div>
       </section>
 
