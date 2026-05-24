@@ -1,11 +1,38 @@
 'use client'
 
-const COLLEGES = [
-  'Harvard', 'Yale', 'MIT', 'Stanford', 'Princeton', 'Columbia', 'Penn', 'Cornell',
-  'Brown', 'Dartmouth', 'UC Berkeley', 'UCLA', 'UC San Diego', 'UC Santa Barbara',
-  'UC Irvine', 'Michigan', 'UIUC', 'Georgia Tech', 'UNC', 'UT Austin', 'UW Seattle',
-  'Purdue', 'Carnegie Mellon', 'Duke', 'USC', 'Boston University', 'NYU',
-  'Notre Dame', 'Georgetown', 'Vanderbilt', 'Cal Poly SLO', 'Rice',
+const COLLEGES: { name: string; domain: string }[] = [
+  { name: 'Harvard',          domain: 'harvard.edu' },
+  { name: 'Yale',             domain: 'yale.edu' },
+  { name: 'MIT',              domain: 'mit.edu' },
+  { name: 'Stanford',         domain: 'stanford.edu' },
+  { name: 'Princeton',        domain: 'princeton.edu' },
+  { name: 'Columbia',         domain: 'columbia.edu' },
+  { name: 'Penn',             domain: 'upenn.edu' },
+  { name: 'Cornell',          domain: 'cornell.edu' },
+  { name: 'Brown',            domain: 'brown.edu' },
+  { name: 'Dartmouth',        domain: 'dartmouth.edu' },
+  { name: 'UC Berkeley',      domain: 'berkeley.edu' },
+  { name: 'UCLA',             domain: 'ucla.edu' },
+  { name: 'UC San Diego',     domain: 'ucsd.edu' },
+  { name: 'UC Santa Barbara', domain: 'ucsb.edu' },
+  { name: 'UC Irvine',        domain: 'uci.edu' },
+  { name: 'Michigan',         domain: 'umich.edu' },
+  { name: 'UIUC',             domain: 'illinois.edu' },
+  { name: 'Georgia Tech',     domain: 'gatech.edu' },
+  { name: 'UNC',              domain: 'unc.edu' },
+  { name: 'UT Austin',        domain: 'utexas.edu' },
+  { name: 'UW Seattle',       domain: 'uw.edu' },
+  { name: 'Purdue',           domain: 'purdue.edu' },
+  { name: 'Carnegie Mellon',  domain: 'cmu.edu' },
+  { name: 'Duke',             domain: 'duke.edu' },
+  { name: 'USC',              domain: 'usc.edu' },
+  { name: 'Boston University',domain: 'bu.edu' },
+  { name: 'NYU',              domain: 'nyu.edu' },
+  { name: 'Notre Dame',       domain: 'nd.edu' },
+  { name: 'Georgetown',       domain: 'georgetown.edu' },
+  { name: 'Vanderbilt',       domain: 'vanderbilt.edu' },
+  { name: 'Cal Poly SLO',     domain: 'calpoly.edu' },
+  { name: 'Rice',             domain: 'rice.edu' },
 ]
 
 const DOT = (
@@ -15,7 +42,7 @@ const DOT = (
     height: 4,
     borderRadius: '50%',
     background: 'var(--accent)',
-    opacity: 0.5,
+    opacity: 0.4,
     flexShrink: 0,
     alignSelf: 'center',
   }} />
@@ -48,20 +75,39 @@ export default function CollegeMarquee() {
           gap: 0,
           width: 'max-content',
           willChange: 'transform',
-          animation: 'marquee-smooth 55s linear infinite',
+          animation: 'marquee-smooth 65s linear infinite',
         }}>
-          {items.map((name, i) => (
+          {items.map((college, i) => (
             <span key={i} style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
               <span style={{
-                fontSize: 17,
-                fontFamily: 'var(--font-sans-var)',
-                fontWeight: 500,
-                color: 'var(--ink-2)',
-                whiteSpace: 'nowrap',
-                letterSpacing: '0.01em',
-                padding: '0 36px',
+                display: 'inline-flex',
+                alignItems: 'center',
+                padding: '0 40px',
+                gap: 10,
               }}>
-                {name}
+                <img
+                  src={`https://logo.clearbit.com/${college.domain}`}
+                  alt={college.name}
+                  width={28}
+                  height={28}
+                  style={{
+                    width: 28,
+                    height: 28,
+                    objectFit: 'contain',
+                    filter: 'grayscale(1) opacity(0.55)',
+                    flexShrink: 0,
+                  }}
+                />
+                <span style={{
+                  fontSize: 15,
+                  fontFamily: 'var(--font-sans-var)',
+                  fontWeight: 500,
+                  color: 'var(--ink-2)',
+                  whiteSpace: 'nowrap',
+                  letterSpacing: '0.01em',
+                }}>
+                  {college.name}
+                </span>
               </span>
               {DOT}
             </span>
