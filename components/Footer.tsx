@@ -17,11 +17,23 @@ export default function Footer() {
             </p>
           </div>
 
-          {/* Navigate */}
+          {/* Navigate — left */}
           <div className="foot-col">
             <h5>Navigate</h5>
             <ul>
-              {NAV_LINKS.map(link => (
+              {NAV_LINKS.slice(0, 2).map(link => (
+                <li key={link.href}>
+                  <Link href={link.href}>{link.label}</Link>
+                </li>
+              ))}
+            </ul>
+          </div>
+
+          {/* Navigate — right */}
+          <div className="foot-col">
+            <h5>&nbsp;</h5>
+            <ul>
+              {NAV_LINKS.slice(2).map(link => (
                 <li key={link.href}>
                   <Link href={link.href}>{link.label}</Link>
                 </li>
