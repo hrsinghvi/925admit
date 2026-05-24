@@ -3,11 +3,11 @@ import { CALENDLY_URL } from '@/lib/constants'
 import CalendlyEmbed from '@/components/CalendlyEmbed'
 
 export const metadata: Metadata = {
-  title: 'Contact 925 Admit | Book a Free Consultation',
+  title: 'Contact 925Admit | Book a Free Consultation',
   description:
     'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
   openGraph: {
-    title: 'Contact 925 Admit | Book a Free Consultation',
+    title: 'Contact 925Admit | Book a Free Consultation',
     description:
       'Have questions? Book a free 30-minute consultation or send us a message. We typically respond within 24 hours.',
     url: 'https://925admit.com/contact',

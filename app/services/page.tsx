@@ -7,7 +7,7 @@ export const metadata: Metadata = {
   description:
     'Expert college essay coaching, college list building, and application strategy — personalized, 1-on-1, with unlimited revisions.',
   openGraph: {
-    title: 'College Essay Coaching Services | 925 Admit',
+    title: 'College Essay Coaching Services | 925Admit',
     description:
       'Expert college essay coaching, college list building, and application strategy — personalized, 1-on-1, with unlimited revisions.',
     url: 'https://925admit.com/services',
@@ -29,7 +29,7 @@ export default function ServicesPage() {
           <em className="italic" style={{ color: 'var(--accent)' }}>way.</em>
         </h1>
         <p className="lede">
-          From your first draft to your final submission, 925 Admit is in your corner.
+          From your first draft to your final submission, 925Admit is in your corner.
         </p>
       </div>
 
@@ -132,12 +132,12 @@ export default function ServicesPage() {
         </div>
       </section>
 
-      {/* Section 4 — Why 925 Admit */}
+      {/* Section 4 — Why 925Admit */}
       <section className="section">
         <div className="shell">
           <div className="section-head">
             <div>
-              <p className="eyebrow">Why 925 Admit</p>
+              <p className="eyebrow">Why 925Admit</p>
               <h2>
                 What makes us<br />
                 <em className="it">different.</em>

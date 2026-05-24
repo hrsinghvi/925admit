@@ -10,7 +10,7 @@ export default function Footer() {
           <div>
             <div className="brand" style={{ marginBottom: 16 }}>
               <span className="brand-mark" aria-hidden="true" />
-              925 Admit
+              925Admit
             </div>
             <p style={{ fontSize: 14, color: 'var(--muted)', maxWidth: '32ch', lineHeight: 1.5, margin: 0 }}>
               Bay Area college essay coaching and admissions counseling. Personal, expert, unlimited revisions.
@@ -57,7 +57,7 @@ export default function Footer() {
         </div>
 
         <div className="foot-bottom">
-          <div>© 2026 925 Admit. Serving students in the Bay Area.</div>
+          <div>© 2026 925Admit. Serving students in the Bay Area.</div>
         </div>
       </div>
     </footer>

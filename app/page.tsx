@@ -12,7 +12,7 @@ import {
 } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: '925 Admit | Bay Area College Essay Coaching',
+  title: '925Admit | Bay Area College Essay Coaching',
   description:
     "Bay Area's premier college essay coaching service. We help students find their voice, craft compelling narratives, and stand out in the admissions process.",
 }
@@ -125,7 +125,7 @@ export default function HomePage() {
                 </h2>
               </div>
               <p>
-                Real coaches. Real feedback. From your first draft to your final submission — 925 Admit is in your corner.
+                Real coaches. Real feedback. From your first draft to your final submission — 925Admit is in your corner.
               </p>
             </div>
           </RevealOnScroll>

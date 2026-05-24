@@ -20,7 +20,7 @@ export default function Nav() {
       <div className="shell nav-inner">
         {/* Logo */}
         <Link href="/" className="brand">
-          <Image src="/logo.png" alt="925 Admit" width={40} height={40} style={{ objectFit: 'contain' }} priority />
+          <Image src="/logo.png" alt="925Admit" width={40} height={40} style={{ objectFit: 'contain' }} priority />
           Admit
         </Link>
 

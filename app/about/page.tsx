@@ -47,13 +47,13 @@ function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties
 }
 
 export const metadata: Metadata = {
-  title: 'About 925 Admit',
+  title: 'About 925Admit',
   description:
-    'Meet the 925 Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+    'Meet the 925Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
   openGraph: {
-    title: 'About 925 Admit | Bay Area College Admissions Coaches',
+    title: 'About 925Admit | Bay Area College Admissions Coaches',
     description:
-      'Meet the 925 Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+      'Meet the 925Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
     url: 'https://925admit.com/about',
   },
 }
@@ -66,7 +66,7 @@ export default function AboutPage() {
         <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
         <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end' }}>
           <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 96px)', margin: 0 }}>
-            We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925 Admit.</em>
+            We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925Admit.</em>
           </h1>
           <div>
             <p className="lede" style={{ marginBottom: 20 }}>
@@ -74,7 +74,7 @@ export default function AboutPage() {
               student has a story worth telling.
             </p>
             <p style={{ fontSize: 16, color: 'var(--ink-2)', margin: 0, lineHeight: 1.65 }}>
-              925 Admit was founded with one belief: the college essay should not be stressful.
+              925Admit was founded with one belief: the college essay should not be stressful.
               We have helped students from Fremont to San Francisco find the words that got them
               noticed. We are not a factory. We are a small team that genuinely cares.
             </p>

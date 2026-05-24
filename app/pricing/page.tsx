@@ -8,7 +8,7 @@ export const metadata: Metadata = {
   description:
     'Simple, transparent pricing for college essay coaching. All packages include unlimited revisions. Choose the plan that fits your needs.',
   openGraph: {
-    title: 'Essay Coaching Pricing & Packages | 925 Admit',
+    title: 'Essay Coaching Pricing & Packages | 925Admit',
     description:
       'Simple, transparent pricing for college essay coaching. All packages include unlimited revisions.',
     url: 'https://925admit.com/pricing',
