@@ -33,7 +33,7 @@ function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties
             width: '100%',
             height: '100%',
             objectFit: 'cover',
-            objectPosition: member.name === 'Tej Bussannagari' ? 'center 5%' : 'center top',
+            objectPosition: 'center top',
           }}
         />
       </div>
