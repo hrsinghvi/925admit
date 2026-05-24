@@ -45,20 +45,21 @@ export default function CollegeMarquee() {
         <div style={{
           display: 'flex',
           alignItems: 'center',
-          gap: 28,
+          gap: 0,
           width: 'max-content',
           willChange: 'transform',
           animation: 'marquee-smooth 55s linear infinite',
         }}>
           {items.map((name, i) => (
-            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', gap: 28, flexShrink: 0 }}>
+            <span key={i} style={{ display: 'inline-flex', alignItems: 'center', flexShrink: 0 }}>
               <span style={{
-                fontSize: 15,
-                fontFamily: 'var(--font-display)',
+                fontSize: 17,
+                fontFamily: 'var(--font-sans-var)',
                 fontWeight: 500,
                 color: 'var(--ink-2)',
                 whiteSpace: 'nowrap',
                 letterSpacing: '0.01em',
+                padding: '0 36px',
               }}>
                 {name}
               </span>

@@ -66,7 +66,7 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
     if (!ref.current) return
     const rect = ref.current.getBoundingClientRect()
     setPos({
-      top: rect.top + window.scrollY - 10,
+      top: rect.top - 10,
       left: rect.left + rect.width / 2,
     })
   }
@@ -90,7 +90,7 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
       </span>
       {pos && (
         <span className="tooltip-popup" style={{
-          position: 'absolute',
+          position: 'fixed',
           top: pos.top,
           left: pos.left,
           transform: 'translate(-50%, -100%)',

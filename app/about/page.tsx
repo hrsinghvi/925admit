@@ -76,7 +76,7 @@ export default function AboutPage() {
             <p style={{ fontSize: 16, color: 'var(--ink-2)', margin: 0, lineHeight: 1.65 }}>
               925Admit was founded with one belief: the college essay should not be stressful.
               We have helped students from Fremont to San Francisco find the words that got them
-              noticed. We are not a factory. We are a small team that genuinely cares.
+              noticed.
             </p>
           </div>
         </div>
