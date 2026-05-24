@@ -1,6 +1,7 @@
 'use client'
 
 import { useState, useRef } from 'react'
+import { createPortal } from 'react-dom'
 
 type HighlightColor = 'red' | 'yellow' | 'green'
 
@@ -88,7 +89,7 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
       }}>
         {highlight.word}
       </span>
-      {pos && (
+      {pos && createPortal(
         <span className="tooltip-popup" style={{
           position: 'fixed',
           top: pos.top,
@@ -139,6 +140,7 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
             }} />
           </span>
         </span>
+        , document.body
       )}
     </span>
   )
