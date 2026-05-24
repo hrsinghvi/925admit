@@ -1,6 +1,7 @@
 'use client'
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import Link from 'next/link'
+import { usePathname, useRouter } from 'next/navigation'
 import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS, CALENDLY_URL } from '@/lib/constants'
@@ -8,6 +9,17 @@ import { NAV_LINKS, CALENDLY_URL } from '@/lib/constants'
 export default function Nav() {
   const [scrolled, setScrolled] = useState(false)
   const [open, setOpen] = useState(false)
+  const pathname = usePathname()
+  const router = useRouter()
+
+  const handleLogoClick = useCallback((e: React.MouseEvent) => {
+    e.preventDefault()
+    if (pathname === '/') {
+      window.scrollTo({ top: 0, behavior: 'smooth' })
+    } else {
+      router.push('/')
+    }
+  }, [pathname, router])
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 8)
@@ -19,10 +31,10 @@ export default function Nav() {
     <nav className={'nav' + (scrolled ? ' scrolled' : '')}>
       <div className="shell nav-inner">
         {/* Logo */}
-        <Link href="/" className="brand">
+        <a href="/" className="brand" onClick={handleLogoClick} style={{ cursor: 'pointer' }}>
           <Image src="/logo.png" alt="925Admit" width={40} height={40} style={{ objectFit: 'contain' }} priority />
           Admit
-        </Link>
+        </a>
 
         {/* Desktop links */}
         <div className="nav-links">
