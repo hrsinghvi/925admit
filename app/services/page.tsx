@@ -92,7 +92,7 @@ export default function ServicesPage() {
           <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
 
             {/* Activity List */}
-            <div style={{ ...cardBase }}>
+            <div style={{ ...cardBase, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p className="eyebrow" style={{ marginBottom: 12 }}>Activity List</p>
               <h2 className="display" style={{ fontSize: 'clamp(24px, 2.5vw, 36px)', marginBottom: 12 }}>
                 Make every activity<br /><em className="italic" style={{ color: 'var(--accent)' }}>count.</em>
@@ -115,7 +115,7 @@ export default function ServicesPage() {
             </div>
 
             {/* College List + Majors */}
-            <div style={{ ...cardBase }}>
+            <div style={{ ...cardBase, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
               <p className="eyebrow" style={{ marginBottom: 12 }}>College List + Majors</p>
               <h2 className="display" style={{ fontSize: 'clamp(24px, 2.5vw, 36px)', marginBottom: 12 }}>
                 Find the right<br /><em className="italic" style={{ color: 'var(--accent)' }}>fit.</em>
