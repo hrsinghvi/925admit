@@ -21,7 +21,7 @@ export default function Nav() {
         {/* Logo */}
         <Link href="/" className="brand">
           <Image src="/logo.png" alt="925 Admit" width={40} height={40} style={{ objectFit: 'contain' }} priority />
-          925 Admit
+          Admit
         </Link>
 
         {/* Desktop links */}
