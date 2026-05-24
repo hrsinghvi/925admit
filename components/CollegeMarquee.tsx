@@ -59,8 +59,8 @@ export default function CollegeMarquee() {
       overflow: 'hidden',
     }}>
       <div className="shell">
-        <div style={{ marginBottom: 20 }}>
-          <span className="eyebrow">Our students have been admitted to these schools.</span>
+        <div style={{ marginBottom: 20, textAlign: 'center' }}>
+          <span className="eyebrow">Our students have been admitted to these schools...</span>
         </div>
       </div>
 
