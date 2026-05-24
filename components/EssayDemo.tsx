@@ -1,55 +1,52 @@
 'use client'
 
 import { useState } from 'react'
-import { createPortal } from 'react-dom'
+
+type HighlightColor = 'red' | 'yellow' | 'green'
 
 interface Highlight {
   id: string
   word: string
   tag: string
   body: string
+  color: HighlightColor
 }
 
 type Segment = { type: 'text'; text: string } | { type: 'highlight'; highlight: Highlight }
+
+const HIGHLIGHT_STYLES: Record<HighlightColor, { bg: string; border: string }> = {
+  red:    { bg: 'rgba(239,68,68,0.18)',   border: 'rgba(239,68,68,0.6)' },
+  yellow: { bg: 'rgba(234,179,8,0.22)',   border: 'rgba(234,179,8,0.7)' },
+  green:  { bg: 'rgba(52,107,110,0.18)',  border: 'rgba(52,107,110,0.65)' },
+}
 
 const DRAFT1: { id: string; segments: Segment[] }[] = [
   {
     id: 'p1',
     segments: [
-      { type: 'highlight', highlight: { id: 'h1', word: 'My name is Krishang and I am a very good leader.', tag: 'Opening · Too Declarative', body: 'Admissions officers read thousands of essays. Starting with your name and a self-assessment gives them no reason to keep reading. Drop this — start with a scene.' } },
+      { type: 'highlight', highlight: { id: 'h1', color: 'red', word: 'My name is Krishang and I am a very good leader.', tag: 'Opening · Too Declarative', body: 'Admissions officers read thousands of essays. Starting with your name and a self-assessment gives them no reason to keep reading. Drop this — start with a scene.' } },
       { type: 'text', text: ' I have done a lot of leadership things in my life but this one is the best one. ' },
-      { type: 'highlight', highlight: { id: 'h2', word: 'Leadership is very important and I think everyone should be a leader.', tag: 'Voice · Generic Claim', body: 'This reads like a civics essay, not a college application. Avoid stating universal values — show what leadership means through what you specifically did.' } },
+      { type: 'highlight', highlight: { id: 'h2', color: 'yellow', word: 'Leadership is very important and I think everyone should be a leader.', tag: 'Voice · Generic Claim', body: 'Avoid stating universal values — show what leadership means through what you specifically did and felt. Any applicant could write this sentence.' } },
       { type: 'text', text: ' ' },
-      { type: 'highlight', highlight: { id: 'h3', word: 'I am going to tell you about the time I was a leader.', tag: 'Structure · Roadmap Sentence', body: 'Never announce what you\'re about to do. Just do it. This sentence delays the story and signals to the reader that nothing interesting has happened yet.' } },
+      { type: 'highlight', highlight: { id: 'h3', color: 'red', word: 'I am going to tell you about the time I was a leader.', tag: 'Structure · Roadmap Sentence', body: 'Never announce what you\'re about to do. Just do it. This signals to the reader that nothing interesting has happened yet.' } },
     ],
   },
   {
     id: 'p2',
     segments: [
       { type: 'text', text: 'I go to a martial arts gym. ' },
-      { type: 'highlight', highlight: { id: 'h4', word: 'Martial arts is when you fight people.', tag: 'Voice · Unnecessary Definition', body: 'You don\'t need to define martial arts. This makes you sound uncertain about your reader. Trust that they understand — and if they don\'t, the story will teach them.' } },
-      { type: 'text', text: ' One day I saw some families leave the gym. They left because it was expensive. I felt bad for them. This made me want to do something. ' },
-      { type: 'highlight', highlight: { id: 'h5', word: 'I am a very caring person who cares about others.', tag: 'Voice · Telling Not Showing', body: 'Telling the reader you\'re caring is the opposite of demonstrating it. The families leaving is your proof — let that moment speak for itself.' } },
+      { type: 'highlight', highlight: { id: 'h4', color: 'yellow', word: 'Martial arts is when you fight people.', tag: 'Voice · Unnecessary Definition', body: 'You don\'t need to define martial arts. This makes you sound uncertain. Trust your reader — and if they don\'t know the term, the story will teach them.' } },
+      { type: 'text', text: ' ' },
+      { type: 'highlight', highlight: { id: 'h5', color: 'green', word: 'One day I saw some families leave the gym. They left because it was expensive.', tag: 'Detail · Strong Observation', body: 'This is the best moment in the draft — specific and visual. The improved version builds the whole essay around this. Develop it more: what did the kids\' faces look like? What did you feel?' } },
+      { type: 'text', text: ' I felt bad for them. This made me want to do something. ' },
+      { type: 'highlight', highlight: { id: 'h6', color: 'red', word: 'I am a very caring person who cares about others.', tag: 'Voice · Telling Not Showing', body: 'This is the weakest sentence in the draft. Telling the reader you\'re caring is the opposite of demonstrating it. The families leaving is your proof — let that moment speak for itself.' } },
     ],
   },
   {
     id: 'p3',
     segments: [
-      { type: 'text', text: 'I have been doing Jiu-Jitsu for 8 years. ' },
-      { type: 'highlight', highlight: { id: 'h6', word: 'It changed my life completely.', tag: 'Voice · Vague Claim', body: 'This is the most important sentence in the paragraph but the least specific. How did it change your life? What can you do now that you couldn\'t before? Give the reader something concrete.' } },
-      { type: 'text', text: ' ' },
-      { type: 'highlight', highlight: { id: 'h7', word: 'I was shy before and now I am not shy anymore.', tag: 'Voice · State Don\'t Show', body: 'You\'re summarizing a transformation instead of letting the reader feel it. Show us one moment from before and one from after. The contrast will do the work this sentence is trying to do.' } },
-      { type: 'text', text: ' Jiu-Jitsu did that. ' },
-      { type: 'highlight', highlight: { id: 'h8', word: 'It is a very good sport and everyone should try it.', tag: 'Voice · Generic Endorsement', body: 'This is filler. It adds nothing to your story and reads like you ran out of things to say. Cut it entirely.' } },
-    ],
-  },
-  {
-    id: 'p4',
-    segments: [
-      { type: 'text', text: 'So me and my brother started a free program. It was hard. The gym owner did not want to let us at first but then he said yes. I wrote a proposal. ' },
-      { type: 'highlight', highlight: { id: 'h9', word: 'A proposal is a document that explains your idea.', tag: 'Voice · Unnecessary Definition', body: 'Same problem as defining martial arts earlier. The reader knows what a proposal is. Spend these words on what was actually in your proposal — that\'s the interesting part.' } },
-      { type: 'text', text: ' He read it and said okay. ' },
-      { type: 'highlight', highlight: { id: 'h10', word: 'This showed my leadership skills.', tag: 'Insight · Telling Not Showing', body: 'This is the weakest sentence to end on. You don\'t need to label what you demonstrated — if the story is told well, the reader already sees the leadership. Trust your narrative.' } },
+      { type: 'text', text: 'I decided to start a free program for kids who could not afford the lessons. I talked to the gym owner and wrote a proposal. He said yes. I organized everything and made a schedule. Now we have class every Sunday and kids come to learn. ' },
+      { type: 'highlight', highlight: { id: 'h7', color: 'red', word: 'I feel proud of what I did and I think I made a difference.', tag: 'Closing · Tells Instead of Shows', body: 'Ending with how proud you feel puts the focus on you rather than the impact. Close with a specific moment — a kid landing their first technique, a parent saying thank you — that makes the reader feel what you felt.' } },
     ],
   },
 ]
@@ -57,41 +54,43 @@ const DRAFT1: { id: string; segments: Segment[] }[] = [
 const DRAFT2_PARAGRAPHS = [
   'I started noticing something at my martial arts gym long before I ever thought about teaching. Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out. Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.',
   'The thought stayed with me because I knew what the training had done for me. When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.',
-  'So in my sophomore year, my twin brother and I came up with an idea to start a free program with one goal: to create a space where kids who could not afford martial arts would be welcomed.',
-  'It took three months to convince the gym owner, Professor Crispim, to let me use the space. I wrote a proposal explaining the purpose of the program, how every session would be supervised, and how the safety rules would be enforced. He had concerns, but after several adjustments, he agreed to a Sunday 2–4 pm slot.',
+  'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons. He had reservations, but I came back with a written plan covering safety protocols, supervision, and a structured curriculum. After a few weeks of back and forth, he gave me the 2–4 pm slot.',
 ]
 
 function TooltipHighlight({ highlight }: { highlight: Highlight }) {
-  const [rect, setRect] = useState<DOMRect | null>(null)
+  const [visible, setVisible] = useState(false)
+  const style = HIGHLIGHT_STYLES[highlight.color]
 
   return (
     <span
-      onMouseEnter={(e) => setRect(e.currentTarget.getBoundingClientRect())}
-      onMouseLeave={() => setRect(null)}
+      style={{ position: 'relative', display: 'inline' }}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
     >
       <span style={{
-        background: 'rgba(234, 179, 8, 0.25)',
-        borderBottom: '2px solid rgba(234, 179, 8, 0.7)',
+        background: style.bg,
+        borderBottom: `2px solid ${style.border}`,
         borderRadius: 2,
         cursor: 'default',
-        padding: '0 1px',
+        padding: '1px 1px 0',
+        transition: 'background 150ms',
       }}>
         {highlight.word}
       </span>
-
-      {rect && createPortal(
-        <div style={{
-          position: 'fixed',
-          left: Math.min(rect.left + rect.width / 2, window.innerWidth - 150),
-          top: rect.top - 8,
-          transform: 'translate(-50%, -100%)',
-          background: '#1a2e2f',
-          color: '#fff',
+      {visible && (
+        <span className="tooltip-popup" style={{
+          position: 'absolute',
+          bottom: 'calc(100% + 10px)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#FBF8F3',
+          color: '#15140F',
+          border: '1px solid #15140F',
           borderRadius: 10,
           padding: '10px 14px',
-          width: 260,
-          zIndex: 9999,
-          boxShadow: '0 4px 20px rgba(0,0,0,0.22)',
+          width: 268,
+          zIndex: 50,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
           pointerEvents: 'none',
         }}>
           <span style={{
@@ -100,12 +99,12 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
             fontFamily: 'var(--font-mono)',
             letterSpacing: '0.08em',
             textTransform: 'uppercase',
-            color: '#f59e0b',
+            color: highlight.color === 'red' ? '#dc2626' : highlight.color === 'yellow' ? '#b45309' : '#346b6e',
             marginBottom: 6,
           }}>
             {highlight.tag}
           </span>
-          <span style={{ fontSize: 12.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+          <span style={{ fontSize: 12.5, lineHeight: 1.55, color: '#15140F' }}>
             {highlight.body}
           </span>
           <span style={{
@@ -115,12 +114,20 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
             transform: 'translateX(-50%)',
             width: 12,
             height: 6,
-            background: '#1a2e2f',
-            clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
-            display: 'block',
-          }} />
-        </div>,
-        document.body
+            overflow: 'hidden',
+          }}>
+            <span style={{
+              position: 'absolute',
+              width: 10,
+              height: 10,
+              background: '#FBF8F3',
+              border: '1px solid #15140F',
+              transform: 'rotate(45deg)',
+              bottom: 2,
+              left: 1,
+            }} />
+          </span>
+        </span>
       )}
     </span>
   )
@@ -147,8 +154,7 @@ export default function EssayDemo() {
           ))}
         </div>
         <div className="demo-essay-footer">
-          <span>Student essay · 2024</span>
-          <span style={{ fontSize: 12, color: 'var(--muted)' }}>Yellow = needs revision</span>
+          <span>Student essay · 2026</span>
         </div>
       </div>
 
@@ -164,11 +170,8 @@ export default function EssayDemo() {
           ))}
         </div>
         <div className="demo-essay-footer">
-          <span>Student essay · 2024</span>
-          <span className="pill">
-            <span style={{ width: 8, height: 8, borderRadius: '50%', background: '#346b6e', display: 'inline-block' }} />
-            Feedback delivered · 48 hrs
-          </span>
+          <span>Student essay</span>
+          <span style={{ fontSize: 13, color: 'var(--muted)' }}>A week later</span>
         </div>
       </div>
     </div>
