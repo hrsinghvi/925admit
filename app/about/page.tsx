@@ -69,12 +69,9 @@ export default function AboutPage() {
             We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925Admit.</em>
           </h1>
           <div>
-            <p className="lede" style={{ marginBottom: 20 }}>
+            <p className="lede" style={{ marginBottom: 0 }}>
               A small, passionate team of writers, educators, and former applicants who believe every
-              student has a story worth telling.
-            </p>
-            <p style={{ fontSize: 16, color: 'var(--ink-2)', margin: 0, lineHeight: 1.65 }}>
-              925Admit was founded with one belief: the college essay should not be stressful.
+              student has a story worth telling. 925Admit was founded with one belief: the college essay should not be stressful.
               We have helped students from Fremont to San Francisco find the words that got them
               noticed.
             </p>
