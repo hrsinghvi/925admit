@@ -39,7 +39,7 @@ const saveBadge: CSSProperties = {
 }
 
 const featuredBorder: CSSProperties = {
-  border: '2px solid #1a1a1a',
+  border: '2px solid #3b82f6',
 }
 
 export default function PricingPage() {
