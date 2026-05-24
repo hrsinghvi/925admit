@@ -55,22 +55,70 @@ const DRAFT1: { id: string; segments: Segment[] }[] = [
   },
 ]
 
-type D2Segment = { text: string; highlight?: boolean }
+type D2Segment = { text: string; highlight?: boolean; tag?: string; body?: string }
 
 const DRAFT2: D2Segment[][] = [
   [
     { text: 'I started noticing something at my martial arts gym long before I ever thought about teaching. ' },
-    { text: 'Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out.', highlight: true },
+    {
+      text: 'Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out.',
+      highlight: true,
+      tag: 'Hook · Cinematic Opening',
+      body: 'This is your essay\'s strongest moment. The image of kids looking back at the mats is specific, visual, and quietly devastating — exactly the kind of detail admissions readers remember long after they close the file.',
+    },
     { text: ' Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.' },
   ],
   [
     { text: 'The thought stayed with me because I knew what the training had done for me. ' },
-    { text: 'When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.', highlight: true },
+    {
+      text: 'When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.',
+      highlight: true,
+      tag: 'Voice · Earned Vulnerability',
+      body: 'Showing real struggle before showing growth is the right move. This gives genuine weight to everything that follows — the reader now understands exactly why this program matters to you personally.',
+    },
   ],
   [
     { text: 'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons.' },
   ],
 ]
+
+function D2HighlightWithTooltip({ seg }: { seg: D2Segment }) {
+  return (
+    <span className="hl-wrap">
+      <span
+        className="hl-text"
+        style={{
+          background: 'rgba(52,107,110,0.15)',
+          borderBottom: '2px solid rgba(52,107,110,0.55)',
+          borderRadius: 2,
+          padding: '1px 1px 0',
+          cursor: 'default',
+        }}
+      >
+        {seg.text}
+      </span>
+      <span className="hl-tip">
+        <span
+          style={{
+            display: 'block',
+            fontSize: 10,
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: '#346b6e',
+            marginBottom: 6,
+          }}
+        >
+          {seg.tag}
+        </span>
+        <span style={{ fontSize: 13, lineHeight: 1.6, color: '#15140F' }}>
+          {seg.body}
+        </span>
+        <span className="hl-arrow" />
+      </span>
+    </span>
+  )
+}
 
 function HighlightWithTooltip({ highlight }: { highlight: Highlight }) {
   const s = HIGHLIGHT_BG[highlight.color]
@@ -138,17 +186,17 @@ export default function EssayDemo() {
       </div>
 
       {/* Right panel — Draft 2 */}
-      <div className="demo-card">
-        <div className="demo-essay">
+      <div className="demo-card" style={{ overflow: 'visible' }}>
+        <div className="demo-essay" style={{ overflow: 'visible' }}>
           <h4>Personal Statement — Draft 2</h4>
           <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
             After one coaching session.
           </p>
           {DRAFT2.map((para, i) => (
-            <p key={i} style={{ lineHeight: 1.75 }}>
+            <p key={i} style={{ lineHeight: 1.75, overflow: 'visible' }}>
               {para.map((seg, j) =>
                 seg.highlight
-                  ? <span key={j} style={{ background: 'rgba(74,222,128,0.28)', borderRadius: 3, padding: '1px 2px' }}>{seg.text}</span>
+                  ? <D2HighlightWithTooltip key={j} seg={seg} />
                   : <span key={j}>{seg.text}</span>
               )}
             </p>
