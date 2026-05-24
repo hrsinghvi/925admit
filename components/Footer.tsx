@@ -21,11 +21,9 @@ export default function Footer() {
           <div className="foot-col">
             <h5>Navigate</h5>
             <ul>
-              {NAV_LINKS.slice(0, 2).map(link => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
-              ))}
+              <li><Link href="/services">Services</Link></li>
+              <li><Link href="/about">About</Link></li>
+              <li><Link href="/testimonials">Testimonials</Link></li>
             </ul>
           </div>
 
@@ -33,11 +31,8 @@ export default function Footer() {
           <div className="foot-col">
             <h5>&nbsp;</h5>
             <ul>
-              {NAV_LINKS.slice(2).map(link => (
-                <li key={link.href}>
-                  <Link href={link.href}>{link.label}</Link>
-                </li>
-              ))}
+              <li><Link href="/pricing">Pricing</Link></li>
+              <li><Link href="/contact">Contact</Link></li>
             </ul>
           </div>
 
