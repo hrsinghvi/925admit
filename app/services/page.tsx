@@ -14,22 +14,6 @@ export const metadata: Metadata = {
   },
 }
 
-const comingSoonBadge = (
-  <span style={{
-    display: 'inline-block',
-    fontFamily: 'var(--font-mono)',
-    fontSize: 10,
-    letterSpacing: '0.1em',
-    textTransform: 'uppercase',
-    padding: '4px 10px',
-    borderRadius: 999,
-    background: 'var(--bg-elev)',
-    color: 'var(--muted)',
-    border: '1px solid var(--rule)',
-  }}>
-    Coming Soon
-  </span>
-)
 
 const cardBase: React.CSSProperties = {
   background: 'var(--paper)',
@@ -128,28 +112,23 @@ export default function ServicesPage() {
             </div>
 
             {/* College List + Majors */}
-            <div style={{ ...cardBase, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>
-              <div>
-                <div style={{ display: 'flex', alignItems: 'center', gap: 12, marginBottom: 12 }}>
-                  <p className="eyebrow" style={{ margin: 0 }}>College List + Majors</p>
-                  {comingSoonBadge}
-                </div>
-                <h2 className="display" style={{ fontSize: 'clamp(24px, 2.5vw, 36px)', marginBottom: 12 }}>
-                  Find the right<br /><em className="italic" style={{ color: 'var(--accent)' }}>fit.</em>
-                </h2>
-                <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.65, marginBottom: 24 }}>
-                  A balanced, strategic college list tailored to your GPA, test scores, interests, and goals — plus major exploration to make sure you apply to the right programs.
-                </p>
-                <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                  {['Reach, match, and safety balance', 'Major fit analysis', 'School-specific context', 'Ongoing list refinement'].map((f) => (
-                    <li key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                      <span style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
-                      <span style={{ fontSize: 14, color: 'var(--muted)' }}>{f}</span>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-              <p style={{ fontSize: 13, color: 'var(--muted)', margin: 0 }}>Available soon — book a consult to get notified.</p>
+            <div style={{ ...cardBase }}>
+              <p className="eyebrow" style={{ marginBottom: 12 }}>College List + Majors</p>
+              <h2 className="display" style={{ fontSize: 'clamp(24px, 2.5vw, 36px)', marginBottom: 12 }}>
+                Find the right<br /><em className="italic" style={{ color: 'var(--accent)' }}>fit.</em>
+              </h2>
+              <p style={{ fontSize: 15, color: 'var(--ink-2)', lineHeight: 1.65, marginBottom: 24 }}>
+                A balanced, strategic college list tailored to your GPA, test scores, interests, and goals — plus major exploration to make sure you apply to the right programs.
+              </p>
+              <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: 8 }}>
+                {['Reach, match, and safety balance', 'Major fit analysis', 'School-specific context', 'Ongoing list refinement'].map((f) => (
+                  <li key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
+                    <span style={{ color: 'var(--accent)', fontSize: 14, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
+                    <span style={{ fontSize: 14, color: 'var(--ink-2)' }}>{f}</span>
+                  </li>
+                ))}
+              </ul>
+              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
             </div>
 
           </div>
