@@ -76,17 +76,14 @@ export default function ServicesPage() {
                 {
                   title: 'Common App Essay',
                   desc: 'Your personal statement is the heart of your application. We help you find the story only you can tell and make every word count.',
-                  features: ['Brainstorming session', 'Unlimited revisions', 'Voice + structure coaching', '48-hr feedback turnaround'],
                 },
                 {
                   title: 'Supplemental Essays',
                   desc: 'Why this school? Why this major? We help you nail every prompt with tailored, school-specific answers that don\'t feel generic.',
-                  features: ['School-specific strategy', 'All prompts covered', 'Tone + fit alignment', '48-hr feedback turnaround'],
                 },
                 {
                   title: 'UC PIQs',
                   desc: 'The Personal Insight Questions require a different approach. We help you choose the right prompts and answer them with depth and authenticity.',
-                  features: ['Prompt selection guidance', 'All 8 PIQs available', 'UC-specific framing', '48-hr feedback turnaround'],
                 },
               ].map((service) => (
                 <div key={service.title} style={{
@@ -96,15 +93,7 @@ export default function ServicesPage() {
                   padding: 24,
                 }}>
                   <p style={{ fontSize: 15, fontWeight: 600, color: 'var(--ink)', marginBottom: 8 }}>{service.title}</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6, marginBottom: 16 }}>{service.desc}</p>
-                  <ul style={{ listStyle: 'none', padding: 0, margin: 0, display: 'flex', flexDirection: 'column', gap: 6 }}>
-                    {service.features.map((f) => (
-                      <li key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
-                        <span style={{ color: 'var(--accent)', fontSize: 14, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
-                        <span style={{ fontSize: 13, color: 'var(--ink-2)' }}>{f}</span>
-                      </li>
-                    ))}
-                  </ul>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', lineHeight: 1.6, margin: 0 }}>{service.desc}</p>
                 </div>
               ))}
             </div>
