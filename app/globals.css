@@ -628,6 +628,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   border: 1px solid var(--rule);
   border-radius: 16px;
   display: flex; flex-direction: column;
+  justify-content: space-between;
   gap: 24px;
 }
 .testimonial .quote {

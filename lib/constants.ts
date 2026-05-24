@@ -70,7 +70,6 @@ export const ESSAY_COACHING_FEATURES = [
   'One-on-one sessions with an expert coach',
   'Unlimited revisions on all packages',
   'Common App personal statement + supplemental essays',
-  'Feedback within 48 hours',
   'Available virtually across the Bay Area and beyond',
 ]
 
@@ -190,7 +189,6 @@ export const PRICING_TIERS: {
     features: [
       '1 essay (any type)',
       'Unlimited revisions',
-      '48-hour feedback turnaround',
       '1 coaching session',
     ],
   },
@@ -203,7 +201,6 @@ export const PRICING_TIERS: {
     features: [
       'Up to 5 essays',
       'Unlimited revisions',
-      '48-hour feedback',
       '3 coaching sessions',
       'Priority support',
     ],

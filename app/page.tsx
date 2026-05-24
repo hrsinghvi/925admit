@@ -151,7 +151,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Annotated Feedback</h3>
-              <p>Detailed coach notes on every paragraph, back within 48 hours</p>
+              <p>Detailed coach notes on every paragraph</p>
             </div>
 
             {/* Card 2 — Personal Statement */}

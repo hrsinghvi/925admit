@@ -101,14 +101,17 @@ export default function ServicesPage() {
                 150 characters per activity. We help you write descriptions that are punchy, specific, and strategically positioned — so your extracurriculars hit as hard as your essays.
               </p>
               <ul style={{ listStyle: 'none', padding: 0, margin: '0 0 28px', display: 'flex', flexDirection: 'column', gap: 8 }}>
-                {['All 10 Common App activities', 'Strategic framing + positioning', 'Tone calibrated to each school', '48-hr feedback turnaround'].map((f) => (
+                {['All 10 Common App activities', 'Strategic framing + positioning', 'Tone calibrated to each school'].map((f) => (
                   <li key={f} style={{ display: 'flex', gap: 8, alignItems: 'flex-start' }}>
                     <span style={{ color: 'var(--accent)', fontSize: 14, lineHeight: 1.4, flexShrink: 0 }}>✓</span>
                     <span style={{ fontSize: 14, color: 'var(--ink-2)' }}>{f}</span>
                   </li>
                 ))}
               </ul>
-              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
+              <div style={{ display: 'flex', gap: 12 }}>
+                <Button href="/pricing" variant="ghost">View Pricing</Button>
+                <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
+              </div>
             </div>
 
             {/* College List + Majors */}
@@ -128,7 +131,10 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
+              <div style={{ display: 'flex', gap: 12 }}>
+                <Button href="/pricing" variant="ghost">View Pricing</Button>
+                <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
+              </div>
             </div>
 
           </div>
