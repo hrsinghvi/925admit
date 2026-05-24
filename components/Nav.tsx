@@ -1,6 +1,7 @@
 'use client'
 import { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { Menu, X } from 'lucide-react'
 import { NAV_LINKS, CALENDLY_URL } from '@/lib/constants'
 
@@ -19,7 +20,7 @@ export default function Nav() {
       <div className="shell nav-inner">
         {/* Logo */}
         <Link href="/" className="brand">
-          <span className="brand-mark" aria-hidden="true" />
+          <Image src="/logo.png" alt="925 Admit" width={40} height={40} style={{ objectFit: 'contain' }} priority />
           925 Admit
         </Link>
 
