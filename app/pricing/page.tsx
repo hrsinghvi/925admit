@@ -70,7 +70,7 @@ export default function PricingPage() {
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Priced by word count — each includes 2 rounds of revision
             </p>
-            <div style={{ ...cardBase }}>
+            <div className="price-card" style={{ ...cardBase }}>
               <table style={{ width: '100%', borderCollapse: 'collapse' }}>
                 <tbody>
                   {[
@@ -114,19 +114,19 @@ export default function PricingPage() {
               350 words each — students answer 4 of 8 prompts
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
-              <div style={{ ...cardBase }}>
+              <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Single PIQ essay</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$40</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>per essay</p>
               </div>
-              <div style={{ ...cardBase, ...featuredBorder }}>
+              <div className="price-card" style={{ ...cardBase, ...featuredBorder }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
                   All 4 PIQ bundle<span style={saveBadge}>Save $20</span>
                 </p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$140</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>vs. $160 individually</p>
               </div>
-              <div style={{ ...cardBase }}>
+              <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Common App essay</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$50</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>650 words</p>
@@ -141,12 +141,12 @@ export default function PricingPage() {
               Curated school and major recommendations
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              <div style={{ ...cardBase }}>
+              <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>College list</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$20</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>personalized school list</p>
               </div>
-              <div style={{ ...cardBase, ...featuredBorder }}>
+              <div className="price-card" style={{ ...cardBase, ...featuredBorder }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
                   College list + majors<span style={saveBadge}>Save $5</span>
                 </p>
@@ -163,12 +163,12 @@ export default function PricingPage() {
               Crafting descriptions that highlight your involvement
             </p>
             <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
-              <div style={{ ...cardBase }}>
+              <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Common App activity list</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$35</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>10 activities · 150 chars each</p>
               </div>
-              <div style={{ ...cardBase }}>
+              <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>UC activity list</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$80</p>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>20 activities · 350 chars each</p>
