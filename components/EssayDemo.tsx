@@ -1,6 +1,6 @@
 'use client'
 
-import { useState } from 'react'
+import { useState, useRef } from 'react'
 
 type HighlightColor = 'red' | 'yellow' | 'green'
 
@@ -54,22 +54,33 @@ const DRAFT1: { id: string; segments: Segment[] }[] = [
 const DRAFT2_PARAGRAPHS = [
   'I started noticing something at my martial arts gym long before I ever thought about teaching. Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out. Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.',
   'The thought stayed with me because I knew what the training had done for me. When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.',
-  'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons. He had reservations, but I came back with a written plan covering safety protocols, supervision, and a structured curriculum. After a few weeks of back and forth, he gave me the 2–4 pm slot.',
+  'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons.',
 ]
 
 function TooltipHighlight({ highlight }: { highlight: Highlight }) {
-  const [visible, setVisible] = useState(false)
-  const style = HIGHLIGHT_STYLES[highlight.color]
+  const [pos, setPos] = useState<{ top: number; left: number } | null>(null)
+  const ref = useRef<HTMLSpanElement>(null)
+  const hStyle = HIGHLIGHT_STYLES[highlight.color]
+
+  function handleEnter() {
+    if (!ref.current) return
+    const rect = ref.current.getBoundingClientRect()
+    setPos({
+      top: rect.top + window.scrollY - 10,
+      left: rect.left + rect.width / 2,
+    })
+  }
 
   return (
     <span
-      style={{ position: 'relative', display: 'inline' }}
-      onMouseEnter={() => setVisible(true)}
-      onMouseLeave={() => setVisible(false)}
+      ref={ref}
+      style={{ display: 'inline' }}
+      onMouseEnter={handleEnter}
+      onMouseLeave={() => setPos(null)}
     >
       <span style={{
-        background: style.bg,
-        borderBottom: `2px solid ${style.border}`,
+        background: hStyle.bg,
+        borderBottom: `2px solid ${hStyle.border}`,
         borderRadius: 2,
         cursor: 'default',
         padding: '1px 1px 0',
@@ -77,19 +88,19 @@ function TooltipHighlight({ highlight }: { highlight: Highlight }) {
       }}>
         {highlight.word}
       </span>
-      {visible && (
+      {pos && (
         <span className="tooltip-popup" style={{
           position: 'absolute',
-          bottom: 'calc(100% + 10px)',
-          left: '50%',
-          transform: 'translateX(-50%)',
+          top: pos.top,
+          left: pos.left,
+          transform: 'translate(-50%, -100%)',
           background: '#FBF8F3',
           color: '#15140F',
           border: '1px solid #15140F',
           borderRadius: 10,
           padding: '10px 14px',
           width: 268,
-          zIndex: 50,
+          zIndex: 9999,
           boxShadow: '0 4px 20px rgba(0,0,0,0.10)',
           pointerEvents: 'none',
         }}>
