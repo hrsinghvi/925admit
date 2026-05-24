@@ -25,7 +25,7 @@ const DRAFT1: { id: string; segments: Segment[] }[] = [
   {
     id: 'p1',
     segments: [
-      { type: 'highlight', highlight: { id: 'h1', color: 'red', word: 'My name is Krishang and I am a very good leader.', tag: 'Opening · Too Declarative', body: 'Admissions officers read thousands of essays. Starting with your name and a self-assessment gives them no reason to keep reading. Drop this — start with a scene.' } },
+      { type: 'highlight', highlight: { id: 'h1', color: 'red', word: 'My name is Johnathan and I am a very good leader.', tag: 'Opening · Too Declarative', body: 'Admissions officers read thousands of essays. Starting with your name and a self-assessment gives them no reason to keep reading. Drop this — start with a scene.' } },
       { type: 'text', text: ' I have done a lot of leadership things in my life but this one is the best one. ' },
       { type: 'highlight', highlight: { id: 'h2', color: 'yellow', word: 'Leadership is very important and I think everyone should be a leader.', tag: 'Voice · Generic Claim', body: 'Avoid stating universal values — show what leadership means through what you specifically did and felt. Any applicant could write this sentence.' } },
       { type: 'text', text: ' ' },
@@ -52,10 +52,21 @@ const DRAFT1: { id: string; segments: Segment[] }[] = [
   },
 ]
 
-const DRAFT2_PARAGRAPHS = [
-  'I started noticing something at my martial arts gym long before I ever thought about teaching. Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out. Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.',
-  'The thought stayed with me because I knew what the training had done for me. When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.',
-  'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons.',
+type D2Segment = { text: string; highlight?: boolean }
+
+const DRAFT2: D2Segment[][] = [
+  [
+    { text: 'I started noticing something at my martial arts gym long before I ever thought about teaching. ' },
+    { text: 'Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out.', highlight: true },
+    { text: ' Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.' },
+  ],
+  [
+    { text: 'The thought stayed with me because I knew what the training had done for me. ' },
+    { text: 'When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.', highlight: true },
+  ],
+  [
+    { text: 'I approached Professor Jackson and asked if I could run a free class on Sunday afternoons.' },
+  ],
 ]
 
 function TooltipHighlight({ highlight }: { highlight: Highlight }) {
@@ -178,8 +189,14 @@ export default function EssayDemo() {
           <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
             After one coaching session.
           </p>
-          {DRAFT2_PARAGRAPHS.map((text, i) => (
-            <p key={i} style={{ lineHeight: 1.75 }}>{text}</p>
+          {DRAFT2.map((para, i) => (
+            <p key={i} style={{ lineHeight: 1.75 }}>
+              {para.map((seg, j) =>
+                seg.highlight
+                  ? <span key={j} style={{ background: 'rgba(74,222,128,0.28)', borderRadius: 3, padding: '1px 2px' }}>{seg.text}</span>
+                  : <span key={j}>{seg.text}</span>
+              )}
+            </p>
           ))}
         </div>
         <div className="demo-essay-footer">
