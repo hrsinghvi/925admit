@@ -1,82 +1,146 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState } from 'react'
 
-const ESSAY_PARAGRAPHS = [
+interface Highlight {
+  id: string
+  word: string
+  tag: string
+  body: string
+}
+
+type Segment = { type: 'text'; text: string } | { type: 'highlight'; highlight: Highlight }
+
+const DRAFT1: { id: string; segments: Segment[] }[] = [
   {
     id: 'p1',
-    text: 'My mother makes chai the wrong way. Too much ginger, cardamom so strong it numbs your tongue, and she never uses a timer — just instinct and the particular shade of brown she learned from her mother in Jaipur. For years I was ',
-    highlight: { id: 'p1-a', kind: 'weak' as const, word: 'embarrassed by this chai', tag: 'Voice · Dig Deeper', body: 'The word "embarrassed" is doing heavy lifting but not earning it. What did that embarrassment look like in practice? Did you hide the thermos? Refuse when friends came over? The specific behavior is stronger than the label.' },
-    after: '. I wanted the Starbucks cup my friends carried like a passport.',
+    segments: [
+      { type: 'highlight', highlight: { id: 'h1', word: 'My name is Krishang and I am a very good leader.', tag: 'Opening · Too Declarative', body: 'Admissions officers read thousands of essays. Starting with your name and a self-assessment gives them no reason to keep reading. Drop this — start with a scene.' } },
+      { type: 'text', text: ' I have done a lot of leadership things in my life but this one is the best one. ' },
+      { type: 'highlight', highlight: { id: 'h2', word: 'Leadership is very important and I think everyone should be a leader.', tag: 'Voice · Generic Claim', body: 'This reads like a civics essay, not a college application. Avoid stating universal values — show what leadership means through what you specifically did.' } },
+      { type: 'text', text: ' ' },
+      { type: 'highlight', highlight: { id: 'h3', word: 'I am going to tell you about the time I was a leader.', tag: 'Structure · Roadmap Sentence', body: 'Never announce what you\'re about to do. Just do it. This sentence delays the story and signals to the reader that nothing interesting has happened yet.' } },
+    ],
   },
   {
     id: 'p2',
-    text: 'When I left for debate camp the summer before junior year, she packed a thermos of it. I didn\'t open it for three days. On the fourth — homesick in a way I hadn\'t expected — I did. And ',
-    highlight: { id: 'p2-a', kind: 'strong' as const, word: 'the smell arrived before the taste', tag: 'Voice · Sensory', body: 'This is exactly right. Smell as memory-trigger earns its place here because of the specificity that follows. Don\'t cut it — make sure the next sentence pays it off with equal precision.' },
-    after: '. For a moment I wasn\'t in a dorm room in Ohio. I was in her kitchen.',
-  },
-  {
-    id: 'p3',
-    text: 'I had spent years ',
-    highlight: { id: 'p3-a', kind: 'weak' as const, word: 'trying to translate myself into something easier to explain', tag: 'Voice · Too Abstract', body: 'This is the essay\'s emotional core, but it\'s stated too generally. "Translate myself" is evocative but stays on the surface. Give us one scene — a moment you made this choice. The reader needs to see the decision, not just hear the conclusion.' },
-    after: ' — the kid who was good at debate, not the one who still took off his shoes at the door and touched his grandparents\' feet at every visit.',
-  },
-  {
-    id: 'p4',
-    text: 'My coach asked me to write about what I couldn\'t put on a résumé. I wrote about chai. Somewhere in the writing, I understood: I had been ',
-    highlight: { id: 'p4-a', kind: 'strong' as const, word: 'editing myself for the wrong audience my entire life', tag: 'Insight · Closer', body: 'Perfect. This is the sentence the whole essay builds to. The "editing" metaphor connects to writing, to the essay itself, to the translation theme — it earns its abstraction because everything before it was concrete. Don\'t over-explain. Let it land.' },
-    after: '.',
+    segments: [
+      { type: 'text', text: 'I go to a martial arts gym. ' },
+      { type: 'highlight', highlight: { id: 'h4', word: 'Martial arts is when you fight people.', tag: 'Voice · Unnecessary Definition', body: 'You don\'t need to define martial arts. This makes you sound uncertain about your reader. Trust that they understand — and if they don\'t, the story will teach them.' } },
+      { type: 'text', text: ' One day I saw some families leave the gym. They left because it was expensive. I felt bad for them. This made me want to do something. ' },
+      { type: 'highlight', highlight: { id: 'h5', word: 'I am a very caring person who cares about others.', tag: 'Voice · Telling Not Showing', body: 'This is the weakest sentence in the draft. Telling the reader you\'re caring is the opposite of demonstrating it. The families leaving is your proof — let that moment speak for itself.' } },
+    ],
   },
 ]
 
-const COACH_SCORES = [
-  { label: 'Authenticity', value: 4.9, max: 5 },
-  { label: 'Voice', value: 4.6, max: 5 },
-  { label: 'Specificity', value: 4.1, max: 5 },
-  { label: 'Structure', value: 4.3, max: 5 },
-  { label: 'Hook', value: 4.7, max: 5 },
-  { label: 'Reflection', value: 4.8, max: 5 },
+const DRAFT2_PARAGRAPHS = [
+  'I started noticing something at my martial arts gym long before I ever thought about teaching. Families would walk in, ask about enrollment, hear the price, and quietly leave. The kids always looked back at the mats before following their parents out. Seeing that happen over and over made me realize how many students never got the chance to practice martial arts because of the cost.',
+  'The thought stayed with me because I knew what the training had done for me. When I was younger, I struggled with confidence and rarely spoke up. Practicing Jiu-Jitsu for the last eight years changed that for me.',
 ]
 
-type Tab = 'review' | 'scores' | 'notes'
-
-export default function EssayDemo() {
-  const [tab, setTab] = useState<Tab>('review')
-  const [activeNote, setActiveNote] = useState<string | null>(null)
-  const [percent, setPercent] = useState(0)
-
-  useEffect(() => {
-    const timer = setTimeout(() => setPercent(1), 200)
-    return () => clearTimeout(timer)
-  }, [])
-
-  const allNotes = ESSAY_PARAGRAPHS.map((p) => p.highlight)
-  const activeNoteData = activeNote ? allNotes.find((n) => n.id === activeNote) ?? null : null
+function TooltipHighlight({ highlight }: { highlight: Highlight }) {
+  const [visible, setVisible] = useState(false)
 
   return (
+    <span
+      style={{ position: 'relative', display: 'inline' }}
+      onMouseEnter={() => setVisible(true)}
+      onMouseLeave={() => setVisible(false)}
+    >
+      <span
+        style={{
+          background: 'rgba(234, 179, 8, 0.25)',
+          borderBottom: '2px solid rgba(234, 179, 8, 0.7)',
+          borderRadius: 2,
+          cursor: 'default',
+          padding: '0 1px',
+        }}
+      >
+        {highlight.word}
+      </span>
+      {visible && (
+        <span style={{
+          position: 'absolute',
+          bottom: 'calc(100% + 8px)',
+          left: '50%',
+          transform: 'translateX(-50%)',
+          background: '#1a2e2f',
+          color: '#fff',
+          borderRadius: 10,
+          padding: '10px 14px',
+          width: 260,
+          zIndex: 50,
+          boxShadow: '0 4px 20px rgba(0,0,0,0.18)',
+          pointerEvents: 'none',
+        }}>
+          <span style={{
+            display: 'block',
+            fontSize: 10,
+            fontFamily: 'var(--font-mono)',
+            letterSpacing: '0.08em',
+            textTransform: 'uppercase',
+            color: '#f59e0b',
+            marginBottom: 6,
+          }}>
+            {highlight.tag}
+          </span>
+          <span style={{ fontSize: 12.5, lineHeight: 1.55, color: 'rgba(255,255,255,0.85)' }}>
+            {highlight.body}
+          </span>
+          {/* Arrow */}
+          <span style={{
+            position: 'absolute',
+            bottom: -6,
+            left: '50%',
+            transform: 'translateX(-50%)',
+            width: 12,
+            height: 6,
+            background: '#1a2e2f',
+            clipPath: 'polygon(0 0, 100% 0, 50% 100%)',
+          }} />
+        </span>
+      )}
+    </span>
+  )
+}
+
+export default function EssayDemo() {
+  return (
     <div className="demo-wrap">
-      {/* Left panel — essay */}
+      {/* Left panel — Draft 1 */}
       <div className="demo-card">
         <div className="demo-essay">
-          <h4>Personal Statement — Draft 3</h4>
-          {ESSAY_PARAGRAPHS.map((para) => (
-            <p key={para.id}>
-              {para.text}
-              <span
-                className={`highlight ${para.highlight.kind}`}
-                onClick={() => setActiveNote(activeNote === para.highlight.id ? null : para.highlight.id)}
-                role="button"
-                tabIndex={0}
-                onKeyDown={(e) => {
-                  if (e.key === 'Enter' || e.key === ' ') {
-                    setActiveNote(activeNote === para.highlight.id ? null : para.highlight.id)
-                  }
-                }}
-              >
-                {para.highlight.word}
-              </span>
-              {para.after}
+          <h4>Personal Statement — Draft 1</h4>
+          <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
+            Hover over highlighted text to see coach feedback.
+          </p>
+          {DRAFT1.map((para) => (
+            <p key={para.id} style={{ lineHeight: 1.75 }}>
+              {para.segments.map((seg, i) =>
+                seg.type === 'text'
+                  ? <span key={i}>{seg.text}</span>
+                  : <TooltipHighlight key={seg.highlight.id} highlight={seg.highlight} />
+              )}
             </p>
+          ))}
+        </div>
+        <div className="demo-essay-footer">
+          <span>Student essay · 2024</span>
+          <span style={{ fontSize: 12, color: 'var(--muted)' }}>
+            Yellow = needs revision
+          </span>
+        </div>
+      </div>
+
+      {/* Right panel — Draft 2 */}
+      <div className="demo-card">
+        <div className="demo-essay">
+          <h4>Personal Statement — Draft 2</h4>
+          <p style={{ fontSize: 12, color: 'var(--muted)', marginBottom: 16, marginTop: -4 }}>
+            After one coaching session.
+          </p>
+          {DRAFT2_PARAGRAPHS.map((text, i) => (
+            <p key={i} style={{ lineHeight: 1.75 }}>{text}</p>
           ))}
         </div>
         <div className="demo-essay-footer">
@@ -86,94 +150,6 @@ export default function EssayDemo() {
             Feedback delivered · 48 hrs
           </span>
         </div>
-      </div>
-
-      {/* Right panel — tabs */}
-      <div className="demo-card">
-        <div className="demo-tabs">
-          <button
-            className={`demo-tab${tab === 'review' ? ' active' : ''}`}
-            onClick={() => setTab('review')}
-          >
-            Review
-          </button>
-          <button
-            className={`demo-tab${tab === 'scores' ? ' active' : ''}`}
-            onClick={() => setTab('scores')}
-          >
-            Scores
-          </button>
-          <button
-            className={`demo-tab${tab === 'notes' ? ' active' : ''}`}
-            onClick={() => setTab('notes')}
-          >
-            Notes
-          </button>
-        </div>
-
-        {tab === 'review' && (
-          <div style={{ flex: 1 }}>
-            {activeNoteData ? (
-              <div
-                className="feedback-item active"
-                style={{ flexDirection: 'column', gap: 8, cursor: 'default' }}
-              >
-                <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <span className="tag">{activeNoteData.tag}</span>
-                  <span style={{ fontSize: 12, color: 'var(--muted)' }}>
-                    {activeNoteData.kind === 'strong' ? 'Strength' : 'Needs work'}
-                  </span>
-                </div>
-                <p style={{ margin: 0, fontSize: 14, lineHeight: 1.6, color: 'var(--ink-2)' }}>
-                  {activeNoteData.body}
-                </p>
-                <p style={{ margin: 0, fontSize: 12, color: 'var(--accent)', fontStyle: 'italic' }}>
-                  &ldquo;{activeNoteData.word}&rdquo;
-                </p>
-              </div>
-            ) : (
-              <div style={{ color: 'var(--muted)', fontSize: 14, lineHeight: 1.6 }}>
-                <p style={{ margin: '0 0 12px' }}>Click any highlighted passage in the essay to read the coach&apos;s note for that section.</p>
-                <p style={{ margin: 0, fontSize: 13 }}>Yellow = coach suggestion &nbsp;·&nbsp; Green = strong passage</p>
-              </div>
-            )}
-          </div>
-        )}
-
-        {tab === 'scores' && (
-          <div className="score-card" style={{ flex: 1 }}>
-            {COACH_SCORES.map((score) => (
-              <div key={score.label} className="score-row">
-                <div className="score-label">
-                  <span className="swatch" />
-                  {score.label}
-                </div>
-                <div className="score-bar">
-                  <span style={{ width: `${score.value / score.max * 100 * percent}%` }} />
-                </div>
-                <div className="score-num">{score.value}</div>
-              </div>
-            ))}
-          </div>
-        )}
-
-        {tab === 'notes' && (
-          <div className="feedback-list" style={{ flex: 1, marginTop: 0 }}>
-            {allNotes.slice(0, 3).map((note) => (
-              <div
-                key={note.id}
-                className={`feedback-item${activeNote === note.id ? ' active' : ''}`}
-                onClick={() => {
-                  setActiveNote(activeNote === note.id ? null : note.id)
-                  setTab('review')
-                }}
-              >
-                <span className="tag">{note.tag}</span>
-                <span>{note.body}</span>
-              </div>
-            ))}
-          </div>
-        )}
       </div>
     </div>
   )
