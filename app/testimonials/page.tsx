@@ -18,8 +18,8 @@ export const metadata: Metadata = {
 export default function TestimonialsPage() {
   return (
     <>
-      {/* Hero */}
-      <div className="shell" style={{ paddingTop: 80, paddingBottom: 64 }}>
+      {/* Hero + Testimonials Grid — combined */}
+      <div className="shell" style={{ paddingTop: 80, paddingBottom: 72 }}>
         <p className="eyebrow" style={{ marginBottom: 24 }}>Testimonials</p>
         <h1
           className="display"
@@ -28,46 +28,30 @@ export default function TestimonialsPage() {
           Real students.<br />
           <em className="italic" style={{ color: 'var(--accent)' }}>Real results.</em>
         </h1>
-        <p className="lede">
+        <p className="lede" style={{ marginBottom: 56 }}>
           Hear from the students and families we&apos;ve worked with.
         </p>
-      </div>
 
-      {/* Section 1 — Testimonials Grid */}
-      <section className="section">
-        <div className="shell">
-          <div className="section-head">
-            <div>
-              <p className="eyebrow">Stories</p>
-              <h2>
-                Students who found<br />
-                their <em className="it">voice.</em>
-              </h2>
-            </div>
-            <div />
-          </div>
-
-          <div className="testimonials">
-            {TESTIMONIALS.map((t) => (
-              <div key={t.name} className="testimonial">
-                <p className="quote">{t.quote}</p>
-                <div className="author">
-                  <div className="avatar">{t.name[0]}</div>
-                  <div>
-                    <p className="meta-name">{t.name}</p>
-                    <p className="meta-school">{t.result}</p>
-                  </div>
+        <div className="testimonials">
+          {TESTIMONIALS.map((t) => (
+            <div key={t.name} className="testimonial">
+              <p className="quote">{t.quote}</p>
+              <div className="author">
+                <div className="avatar">{t.name[0]}</div>
+                <div>
+                  <p className="meta-name">{t.name}</p>
+                  <p className="meta-school">{t.result}</p>
                 </div>
               </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
-      </section>
+      </div>
 
-      {/* Section 2 — Schools marquee */}
+      {/* Schools marquee */}
       <CollegeMarquee />
 
-      {/* Section 3 — CTA Band */}
+      {/* CTA Band */}
       <section className="cta-band">
         <div className="shell">
           <h2>
