@@ -61,26 +61,8 @@ export const metadata: Metadata = {
 export default function AboutPage() {
   return (
     <>
-      {/* Hero + Our Story — combined */}
-      <div className="shell" style={{ paddingTop: 80, paddingBottom: 72 }}>
-        <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end' }}>
-          <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 96px)', margin: 0 }}>
-            We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925Admit.</em>
-          </h1>
-          <div>
-            <p className="lede" style={{ marginBottom: 0 }}>
-              A small, passionate team of writers, educators, and former applicants who believe every
-              student has a story worth telling. 925Admit was founded with one belief: the college essay should not be stressful.
-              We have helped students from Fremont to San Francisco find the words that got them
-              noticed.
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Team */}
-      <section className="section">
+      <section className="section" style={{ paddingTop: 80 }}>
         <div className="shell">
           <div className="section-head">
             <div>
@@ -107,6 +89,24 @@ export default function AboutPage() {
           </div>
         </div>
       </section>
+
+      {/* About */}
+      <div className="shell" style={{ paddingTop: 56, paddingBottom: 72 }}>
+        <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
+        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end' }}>
+          <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 96px)', margin: 0 }}>
+            We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925Admit.</em>
+          </h1>
+          <div>
+            <p className="lede" style={{ marginBottom: 0 }}>
+              A small, passionate team of writers, educators, and former applicants who believe every
+              student has a story worth telling. 925Admit was founded with one belief: the college essay should not be stressful.
+              We have helped students from Fremont to San Francisco find the words that got them
+              noticed.
+            </p>
+          </div>
+        </div>
+      </div>
     </>
   )
 }
