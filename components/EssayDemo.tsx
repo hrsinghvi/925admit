@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useRef } from 'react'
+import { useState } from 'react'
 import { createPortal } from 'react-dom'
 
 type HighlightColor = 'red' | 'yellow' | 'green'
@@ -81,18 +81,14 @@ function HighlightSpan({
   onLeave,
 }: {
   highlight: Highlight
-  onEnter: (h: Highlight, rect: DOMRect) => void
+  onEnter: (h: Highlight, x: number, y: number) => void
   onLeave: () => void
 }) {
-  const ref = useRef<HTMLSpanElement>(null)
   const hStyle = HIGHLIGHT_STYLES[highlight.color]
 
   return (
     <span
-      ref={ref}
-      onMouseEnter={() => {
-        if (ref.current) onEnter(highlight, ref.current.getBoundingClientRect())
-      }}
+      onMouseEnter={(e) => onEnter(highlight, e.clientX, e.clientY)}
       onMouseLeave={onLeave}
       style={{
         background: hStyle.bg,
@@ -111,12 +107,8 @@ function HighlightSpan({
 export default function EssayDemo() {
   const [tooltip, setTooltip] = useState<TooltipState | null>(null)
 
-  function handleEnter(h: Highlight, rect: DOMRect) {
-    setTooltip({
-      highlight: h,
-      top: rect.top - 12,
-      left: rect.left + rect.width / 2,
-    })
+  function handleEnter(h: Highlight, x: number, y: number) {
+    setTooltip({ highlight: h, top: y - 12, left: x })
   }
 
   return (
