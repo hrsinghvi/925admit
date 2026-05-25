@@ -317,40 +317,29 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== HOW IT WORKS ===== */}
+      {/* ===== WHY US ===== */}
       <section className="section">
         <div className="shell">
           <RevealOnScroll>
             <div className="section-head">
               <div>
-                <span className="eyebrow">The process</span>
+                <span className="eyebrow">Why us</span>
                 <h2>
-                  Simple. Personalized. <em className="it">Effective.</em>
+                  We&apos;ve been where <em className="it">you are.</em>
                 </h2>
               </div>
             </div>
           </RevealOnScroll>
-          <div className="steps">
-            <div className="step">
-              <div className="step-num">1</div>
-              <h4>Book a Free Consultation</h4>
-              <p>We talk. Free 30 minutes. You don&apos;t need anything written. We just want to hear about you.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">2</div>
-              <h4>Draft Together</h4>
-              <p>You write. We read. Your coach goes through everything closely and tells you the truth. Not harshly, but honestly.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">3</div>
-              <h4>Refine &amp; Polish</h4>
-              <p>You rewrite. We stay. That&apos;s the job. We&apos;ll be there every round.</p>
-            </div>
-            <div className="step">
-              <div className="step-num">4</div>
-              <h4>Submit with Confidence</h4>
-              <p>You submit. Knowing the essay sounds like you. That part feels good.</p>
-            </div>
+          <div style={{ maxWidth: '72ch', display: 'flex', flexDirection: 'column', gap: 24 }}>
+            <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink-2)', margin: 0 }}>
+              Our parents spent thousands of dollars on professional college counselors. The ones who promised better essays, stronger applications, the whole package. And most of the time, they didn&apos;t do anything. They read our drafts and said &quot;looks good.&quot; They didn&apos;t push back. They didn&apos;t tell us when something was cliche, or when we sounded like every other applicant in the pile. They just agreed with whatever we wrote and cashed the check.
+            </p>
+            <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink-2)', margin: 0 }}>
+              We wrote the same generic essays thousands of kids write every year. And nobody stopped us. Nobody said &quot;this won&apos;t make you stand out.&quot; Nobody steered us toward something real. We had to figure that out ourselves, after the fact, after we&apos;d already wasted months and money on advice that wasn&apos;t worth it.
+            </p>
+            <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink)', margin: 0, fontWeight: 500 }}>
+              That&apos;s why we started 925Admit. We&apos;re the kids who just went through this. We know what actually works because we lived it last year. And we&apos;re not going to nod along when your essay needs work. We&apos;re going to tell you the truth, help you find the thing that makes you different, and make sure you don&apos;t blend in.
+            </p>
           </div>
         </div>
       </section>
