@@ -322,7 +322,7 @@ export default function HomePage() {
             <div className="section-head">
               <div>
                 <span className="eyebrow">Why us</span>
-                <h2>
+                <h2 style={{ whiteSpace: 'nowrap' }}>
                   We&apos;ve been where <em className="it">you are.</em>
                 </h2>
               </div>
