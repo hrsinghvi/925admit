@@ -2,13 +2,11 @@ import type { Metadata } from 'next'
 import Link from 'next/link'
 import Button from '@/components/Button'
 import EssayDemo from '@/components/EssayDemo'
-import FAQAccordion from '@/components/FAQAccordion'
 import CollegeMarquee from '@/components/CollegeMarquee'
 import RevealOnScroll from '@/components/RevealOnScroll'
 import {
   CALENDLY_URL,
   TESTIMONIALS,
-  FAQ_ITEMS,
 } from '@/lib/constants'
 
 export const metadata: Metadata = {
@@ -344,24 +342,7 @@ export default function HomePage() {
         </div>
       </section>
 
-      {/* ===== FAQ ===== */}
-      <section className="section" id="faq">
-        <div className="shell">
-          <RevealOnScroll>
-            <div className="section-head">
-              <div>
-                <span className="eyebrow">Questions</span>
-                <h2>
-                  Common <em className="it">questions.</em>
-                </h2>
-              </div>
-            </div>
-          </RevealOnScroll>
-          <FAQAccordion items={FAQ_ITEMS} />
-        </div>
-      </section>
-
-      {/* ===== CTA BAND ===== */}
+{/* ===== CTA BAND ===== */}
       <section className="cta-band">
         <div className="shell">
           <div className="eyebrow" style={{ marginBottom: 24 }}>
