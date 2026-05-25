@@ -141,19 +141,19 @@ export const TESTIMONIALS = [
     stars: 5,
   },
   {
-    quote: 'I kept writing what I thought admissions wanted to read. My coach helped me stop doing that. The final essay was so much more honest — and so much stronger.',
+    quote: 'I kept writing what I thought admissions wanted to read. My coach helped me stop doing that. The final essay was so much more honest and so much stronger.',
     name: 'Priya M.',
     result: 'Admitted to UCLA',
     stars: 5,
   },
   {
-    quote: 'The feedback came back faster than I expected — fully annotated, specific, and actually useful. It made the whole process feel manageable instead of overwhelming.',
+    quote: 'The feedback came back faster than I expected. Fully annotated, specific, and actually useful. It made the whole process feel manageable instead of overwhelming.',
     name: 'Kevin L.',
     result: 'Admitted to UC San Diego',
     stars: 5,
   },
   {
-    quote: 'My coach didn\'t just fix my essay — she helped me understand why it wasn\'t working. That made every revision faster and better. By draft four, it finally sounded like me.',
+    quote: 'My coach didn\'t just fix my essay. She helped me understand why it wasn\'t working. That made every revision faster and better. By draft four, it finally sounded like me.',
     name: 'Rohan K.',
     result: 'Admitted to USC',
     stars: 5,
@@ -225,7 +225,7 @@ export const FAQ_ITEMS = [
   {
     question: 'How does college essay coaching work?',
     answer:
-      'We start with a free 30-minute consultation to understand your story and goals. From there, your coach guides you through brainstorming, drafting, and refining your essay through as many rounds of feedback as you need — all the way to a final polished piece.',
+      'We start with a free 30-minute consultation to understand your story and goals. From there, your coach guides you through brainstorming, drafting, and refining your essay through as many rounds of feedback as you need, all the way to a final polished piece.',
   },
   {
     question: 'How many sessions will I need?',
@@ -235,12 +235,12 @@ export const FAQ_ITEMS = [
   {
     question: 'Do you offer unlimited revisions?',
     answer:
-      "Yes — every package includes unlimited revisions. We don't cut you off after one round of feedback. We work with you until your essay truly reflects your voice and story.",
+      "Yes. Every package includes unlimited revisions. We don't cut you off after one round of feedback. We work with you until your essay truly reflects your voice and story.",
   },
   {
     question: 'When should I start working on my college essays?',
     answer:
-      'The earlier the better. We recommend starting in the summer before senior year (June–August) to give yourself time without pressure. That said, we work with students at all stages — even late in the application season.',
+      'The earlier the better. We recommend starting in the summer before senior year (June through August) to give yourself time without pressure. That said, we work with students at all stages, even late in the application season.',
   },
   {
     question: 'Do you work with students outside the Bay Area?',
@@ -255,12 +255,12 @@ export const FAQ_ITEMS = [
   {
     question: "What's the difference between essay coaching and college counseling?",
     answer:
-      'Essay coaching focuses specifically on writing — brainstorming, drafting, and polishing your college essays. College counseling is broader and covers your full application strategy: college list, activities, recommendations, and timelines. We offer both (counseling coming soon).',
+      'Essay coaching focuses specifically on writing: brainstorming, drafting, and polishing your college essays. College counseling is broader and covers your full application strategy: college list, activities, recommendations, and timelines. We offer both (counseling coming soon).',
   },
   {
     question: 'How do I get started?',
     answer:
-      "Simple — book a free 30-minute consultation through our website. There's no commitment and no pressure. We'll get to know you and figure out the best path forward together.",
+      "Book a free 30-minute consultation through our website. There's no commitment and no pressure. We'll get to know you and figure out the best path forward together.",
   },
 ]
 
