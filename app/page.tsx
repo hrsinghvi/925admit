@@ -330,7 +330,7 @@ export default function HomePage() {
               </div>
             </div>
           </RevealOnScroll>
-          <div style={{ maxWidth: '72ch', display: 'flex', flexDirection: 'column', gap: 24 }}>
+          <div style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
             <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink-2)', margin: 0 }}>
               Our parents spent thousands of dollars on professional college counselors. The ones who promised better essays, stronger applications, the whole package. And most of the time, they didn&apos;t do anything. They read our drafts and said &quot;looks good.&quot; They didn&apos;t push back. They didn&apos;t tell us when something was cliche, or when we sounded like every other applicant in the pile. They just agreed with whatever we wrote and cashed the check.
             </p>
