@@ -43,7 +43,7 @@ export default function HomePage() {
               {/* Lede */}
               <RevealOnScroll delay={0.1}>
                 <p className="lede">
-                  Every essay coached by students and alumni at top-10 universities and the Ivy League.
+                  Every essay graded by students and alumni at top-10 universities and the Ivy League.
                 </p>
               </RevealOnScroll>
 
