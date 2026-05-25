@@ -43,12 +43,6 @@ export default function HomePage() {
               {/* Lede */}
               <RevealOnScroll delay={0.1}>
                 <p className="lede">
-                  Let&apos;s make sure it gets read. Your essay is the one part of the app that&apos;s actually yours. Most people waste it trying to sound impressive. Let&apos;s write something real instead.
-                </p>
-              </RevealOnScroll>
-
-              <RevealOnScroll delay={0.15}>
-                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: '0 0 8px', letterSpacing: '0.02em' }}>
                   Every essay coached by students and alumni at top-10 universities and the Ivy League.
                 </p>
               </RevealOnScroll>
