@@ -47,6 +47,12 @@ export default function HomePage() {
                 </p>
               </RevealOnScroll>
 
+              <RevealOnScroll delay={0.15}>
+                <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: '0 0 8px', letterSpacing: '0.02em' }}>
+                  Every essay coached by students and alumni at top-10 universities and the Ivy League.
+                </p>
+              </RevealOnScroll>
+
               {/* CTAs */}
               <RevealOnScroll delay={0.2}>
                 <div className="hero-ctas">
