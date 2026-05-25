@@ -35,7 +35,7 @@ export default function ServicesPage() {
             to <em className="italic" style={{ color: 'var(--accent)' }}>get in.</em>
           </h1>
           <p className="lede" style={{ margin: 0 }}>
-            From your first essay draft to your final college list — 925Admit has you covered with expert, personalized support.
+            Nobody teaches you how to write a college essay. They tell you to &apos;show don&apos;t tell&apos; and &apos;find your voice&apos; and then leave you alone with a blank doc at 11pm. That&apos;s what we fix.
           </p>
         </div>
       </div>

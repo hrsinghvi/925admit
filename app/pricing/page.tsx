@@ -183,11 +183,10 @@ export default function PricingPage() {
       <section className="cta-band">
         <div className="shell">
           <h2>
-            Ready to write your{' '}
-            <span className="accent" style={{ fontStyle: 'italic' }}>best</span>{' '}
-            essay?
+            You&apos;ve been putting this{' '}
+            <span className="accent" style={{ fontStyle: 'italic' }}>off.</span>
           </h2>
-          <p className="lede">Book a free 30-minute consultation.</p>
+          <p className="lede">That&apos;s fine, everyone does. First meeting is free. Let&apos;s just start.</p>
           <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
         </div>
       </section>

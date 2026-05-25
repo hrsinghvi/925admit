@@ -37,16 +37,15 @@ export default function HomePage() {
             <div>
               {/* Headline */}
               <h1 className="display" style={{ fontSize: 'clamp(56px, 9vw, 128px)', marginBottom: 32 }}>
-                Your story<br />
-                deserves to<br />
-                get <span className="italic" style={{ color: 'var(--accent)' }}>in</span>.
+                You have a<br />
+                story worth<br />
+                <span className="italic" style={{ color: 'var(--accent)' }}>telling.</span>
               </h1>
 
               {/* Lede */}
               <RevealOnScroll delay={0.1}>
                 <p className="lede">
-                  Bay Area&apos;s premier college essay coaching service. We help students find their voice,
-                  craft compelling narratives, and stand out in the admissions process.
+                  Let&apos;s make sure it gets read. Your essay is the one part of the app that&apos;s actually yours. Most people waste it trying to sound impressive. Let&apos;s write something real instead.
                 </p>
               </RevealOnScroll>
 
@@ -100,7 +99,7 @@ export default function HomePage() {
               <div>
                 <span className="eyebrow">Essay Coaching · Sample Feedback</span>
                 <h2>
-                  This is what your coach&apos;s <em className="it">feedback</em> looks like.
+                  This is what actually useful <em className="it">feedback</em> looks like.
                 </h2>
               </div>
             </div>
@@ -121,7 +120,7 @@ export default function HomePage() {
                 </h2>
               </div>
               <p>
-                Real coaches. Real feedback. From your first draft to your final submission — 925Admit is in your corner.
+                Nobody teaches you how to write a college essay. They tell you to &apos;show don&apos;t tell&apos; and &apos;find your voice&apos; and then leave you alone with a blank doc at 11pm. That&apos;s what we fix.
               </p>
             </div>
           </RevealOnScroll>
@@ -151,7 +150,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Annotated Feedback</h3>
-              <p>Detailed coach notes on every paragraph</p>
+              <p>Notes on every paragraph. Not &apos;this is great&apos; or &apos;needs work.&apos; Actual feedback: what&apos;s landing, what&apos;s not, and exactly why.</p>
             </div>
 
             {/* Card 2 — Personal Statement */}
@@ -179,7 +178,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Personal Statement</h3>
-              <p>Your story, built draft by draft until it sounds like you</p>
+              <p>You&apos;re going to write a lot of drafts. That&apos;s not a bad sign, that&apos;s just how it works. We stay in it with you until it sounds like you, not like what you thought they wanted to hear.</p>
             </div>
 
             {/* Card 3 — Voice Rewrite */}
@@ -203,7 +202,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Voice Coaching</h3>
-              <p>When it sounds like an essay instead of you, we show what it could be</p>
+              <p>If you&apos;ve ever read your own draft and thought &apos;I would never say this out loud,&apos; that&apos;s the problem. That&apos;s what we fix.</p>
             </div>
 
             {/* Card 4 — Pre-Submit Review */}
@@ -235,7 +234,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Pre-Submit Review</h3>
-              <p>One final coach pass before you hit submit</p>
+              <p>One last read before you close your laptop and actually let yourself breathe.</p>
             </div>
 
             {/* Card 5 — Supplement Essays */}
@@ -257,7 +256,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Supplement Essays</h3>
-              <p>Every &ldquo;Why us?&rdquo; and short answer, coached to stand out</p>
+              <p>&apos;Why do you want to attend X?&apos; is the worst prompt ever written. We&apos;ll help you answer it without copy-pasting from the school&apos;s Wikipedia page.</p>
             </div>
 
             {/* Card 6 — Brainstorming */}
@@ -279,7 +278,7 @@ export default function HomePage() {
                 </div>
               </div>
               <h3>Brainstorming</h3>
-              <p>Can&apos;t find your story? Your coach helps you dig it out</p>
+              <p>Stuck on what to write about? That&apos;s the most common place to get stuck. You have a story worth telling. We&apos;re good at finding it.</p>
             </div>
           </div>
         </div>
@@ -335,22 +334,22 @@ export default function HomePage() {
             <div className="step">
               <div className="step-num">1</div>
               <h4>Book a Free Consultation</h4>
-              <p>We learn about you, your goals, and your story. No commitment.</p>
+              <p>We talk. Free 30 minutes. You don&apos;t need anything written. We just want to hear about you.</p>
             </div>
             <div className="step">
               <div className="step-num">2</div>
               <h4>Draft Together</h4>
-              <p>Your counselor guides every draft with close, specific feedback.</p>
+              <p>You write. We read. Your coach goes through everything closely and tells you the truth. Not harshly, but honestly.</p>
             </div>
             <div className="step">
               <div className="step-num">3</div>
               <h4>Refine &amp; Polish</h4>
-              <p>Unlimited revisions until every sentence sounds like you.</p>
+              <p>You rewrite. We stay. That&apos;s the job. We&apos;ll be there every round.</p>
             </div>
             <div className="step">
               <div className="step-num">4</div>
               <h4>Submit with Confidence</h4>
-              <p>Walk into application season ready.</p>
+              <p>You submit. Knowing the essay sounds like you. That part feels good.</p>
             </div>
           </div>
         </div>
@@ -380,10 +379,10 @@ export default function HomePage() {
             Ready when you are, writer.
           </div>
           <h2>
-            Ready to write your <span className="accent">best</span> essay?
+            You&apos;ve been putting this <span className="accent">off.</span>
           </h2>
           <p className="lede">
-            Book a free 30-minute consultation — no commitment, no pressure.
+            That&apos;s fine, everyone does. Whether you&apos;re a junior just getting started or a senior staring at a blank doc, it doesn&apos;t matter. First meeting is free. Let&apos;s just start.
           </p>
           <div style={{ display: 'flex', justifyContent: 'center' }}>
             <Button href={CALENDLY_URL} external variant="primary">

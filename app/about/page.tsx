@@ -49,11 +49,11 @@ function TeamCard({ member, style }: { member: TeamMember; style?: CSSProperties
 export const metadata: Metadata = {
   title: 'About 925Admit',
   description:
-    'Meet the 925Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+    'Meet the 925Admit team — students who just went through the process themselves and remember exactly how it felt.',
   openGraph: {
     title: 'About 925Admit | Bay Area College Admissions Coaches',
     description:
-      'Meet the 925Admit team — a small group of writers, educators, and former applicants passionate about helping every student tell their story.',
+      'Meet the 925Admit team — students who just went through the process themselves and remember exactly how it felt.',
     url: 'https://925admit.com/about',
   },
 }
@@ -99,10 +99,7 @@ export default function AboutPage() {
           </h1>
           <div>
             <p className="lede" style={{ marginBottom: 0 }}>
-              A small, passionate team of writers, educators, and former applicants who believe every
-              student has a story worth telling. 925Admit was founded with one belief: the college essay should not be stressful.
-              We have helped students from Fremont to San Francisco find the words that got them
-              noticed.
+              A small team of students who just went through the application process ourselves and remember exactly how it felt. We&apos;re not consultants. We&apos;re not adults who vaguely recall applying. We&apos;re kids who got in last spring, still have our drafts saved, and know what the essays actually need. We started this because almost every STEM kid in the Bay hits the same wall. And most of them hit it alone. We&apos;re here so you don&apos;t have to.
             </p>
           </div>
         </div>
