@@ -76,13 +76,13 @@ export default function AboutPage() {
           </div>
 
           {/* Row 1 — 3 cards */}
-          <div style={{ display: 'flex', gap: 24, marginBottom: 24 }}>
+          <div className="team-row" style={{ marginBottom: 24 }}>
             {TEAM.slice(0, 3).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
           </div>
           {/* Row 2 — 2 cards spanning full row width */}
-          <div style={{ display: 'flex', gap: 24 }}>
+          <div className="team-row">
             {TEAM.slice(3).map((member) => (
               <TeamCard key={member.name} member={member} />
             ))}
@@ -93,7 +93,7 @@ export default function AboutPage() {
       {/* About */}
       <div className="shell" style={{ paddingTop: 56, paddingBottom: 72 }}>
         <p className="eyebrow" style={{ marginBottom: 24 }}>About</p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 64, alignItems: 'end' }}>
+        <div className="grid-hero-2col" style={{ gap: 64 }}>
           <h1 className="display" style={{ fontSize: 'clamp(48px, 6vw, 96px)', margin: 0 }}>
             We&apos;re <em className="italic" style={{ color: 'var(--accent)' }}>925Admit.</em>
           </h1>

@@ -322,7 +322,7 @@ export default function HomePage() {
             <div className="section-head">
               <div>
                 <span className="eyebrow">Why us</span>
-                <h2 style={{ whiteSpace: 'nowrap' }}>
+                <h2 className="why-us-heading" style={{ whiteSpace: 'nowrap' }}>
                   We&apos;ve been where <em className="it">you are.</em>
                 </h2>
               </div>
@@ -335,7 +335,7 @@ export default function HomePage() {
             <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink-2)', margin: 0 }}>
               We wrote the same generic essays thousands of kids write every year. And nobody stopped us. Nobody said &quot;this won&apos;t make you stand out.&quot; Nobody steered us toward something real. We had to figure that out ourselves, after the fact, after we&apos;d already wasted months and money on advice that wasn&apos;t worth it.
             </p>
-            <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink)', margin: 0, fontWeight: 500 }}>
+            <p style={{ fontSize: 18, lineHeight: 1.75, color: 'var(--ink)', margin: 0 }}>
               That&apos;s why we started 925Admit. We&apos;re the kids who just went through this. We know what actually works because we lived it last year. And we&apos;re not going to nod along when your essay needs work. We&apos;re going to tell you the truth, help you find the thing that makes you different, and make sure you don&apos;t blend in.
             </p>
           </div>

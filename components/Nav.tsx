@@ -47,7 +47,7 @@ export default function Nav() {
 
         {/* CTA + Mobile hamburger */}
         <div className="nav-actions">
-          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+          <a href={CALENDLY_URL} target="_blank" rel="noopener noreferrer" className="btn btn-primary nav-cta-desktop">
             Book Free Consultation
           </a>
           <button
@@ -61,45 +61,28 @@ export default function Nav() {
       </div>
 
       {/* Mobile drawer */}
-      {open && (
-        <div style={{
-          position: 'fixed',
-          inset: 0,
-          top: 68,
-          background: 'var(--bg)',
-          zIndex: 40,
-          padding: '24px var(--gutter)',
-          display: 'flex',
-          flexDirection: 'column',
-          gap: 24,
-          fontSize: 22,
-          fontFamily: 'var(--font-display)',
-        }}>
-          {NAV_LINKS.map(link => (
-            <Link
-              key={link.href}
-              href={link.href}
-              onClick={() => setOpen(false)}
-              style={{
-                color: 'var(--ink)',
-                borderBottom: '1px solid var(--rule)',
-                paddingBottom: 16,
-              }}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <a
-            href={CALENDLY_URL}
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn btn-primary"
-            style={{ width: 'fit-content' }}
+      <div className={`mobile-drawer${open ? ' mobile-drawer-open' : ''}`}>
+        {NAV_LINKS.map((link, i) => (
+          <Link
+            key={link.href}
+            href={link.href}
+            onClick={() => setOpen(false)}
+            className="mobile-drawer-link"
+            style={{ transitionDelay: open ? `${i * 40}ms` : '0ms' }}
           >
-            Book Free Consultation
-          </a>
-        </div>
-      )}
+            {link.label}
+          </Link>
+        ))}
+        <a
+          href={CALENDLY_URL}
+          target="_blank"
+          rel="noopener noreferrer"
+          className="btn btn-primary"
+          style={{ width: 'fit-content', transitionDelay: open ? `${NAV_LINKS.length * 40}ms` : '0ms', opacity: open ? 1 : 0, transform: open ? 'none' : 'translateY(8px)', transition: 'opacity 300ms, transform 300ms' }}
+        >
+          Book Free Consultation
+        </a>
+      </div>
     </nav>
   )
 }

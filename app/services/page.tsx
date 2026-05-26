@@ -29,7 +29,7 @@ export default function ServicesPage() {
       {/* Hero */}
       <div className="shell" style={{ paddingTop: 80, paddingBottom: 56 }}>
         <p className="eyebrow" style={{ marginBottom: 24 }}>Services</p>
-        <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 48, alignItems: 'end' }}>
+        <div className="services-hero-grid">
           <h1 className="display" style={{ fontSize: 'clamp(40px, 5vw, 80px)', margin: 0 }}>
             Everything you need<br />
             to <em className="italic" style={{ color: 'var(--accent)' }}>get in.</em>
@@ -55,7 +55,7 @@ export default function ServicesPage() {
             </p>
 
             {/* 3 essay sub-cards */}
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16, marginBottom: 32 }}>
+            <div className="grid-3col" style={{ gap: 16, marginBottom: 32 }}>
               {[
                 {
                   title: 'Common App Essay',
@@ -89,7 +89,7 @@ export default function ServicesPage() {
           </div>
 
           {/* Row 2 — Activity List + College List side by side */}
-          <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 24 }}>
+          <div className="grid-2col" style={{ gap: 24 }}>
 
             {/* Activity List */}
             <div style={{ ...cardBase, display: 'flex', flexDirection: 'column', justifyContent: 'space-between' }}>

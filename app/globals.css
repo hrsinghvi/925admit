@@ -848,7 +848,49 @@ footer {
 
 /* ===== Mobile nav toggle ===== */
 .nav-mobile-toggle { display: none; }
-@media (max-width: 820px) { .nav-mobile-toggle { display: flex; } }
+.nav-cta-desktop { }
+
+/* ===== Mobile drawer ===== */
+.mobile-drawer {
+  position: fixed;
+  inset: 0;
+  top: 68px;
+  background: var(--bg);
+  z-index: 40;
+  padding: 24px var(--gutter);
+  display: none;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 22px;
+  font-family: var(--font-display);
+  opacity: 0;
+  transform: translateY(-12px);
+  pointer-events: none;
+  transition: opacity 300ms cubic-bezier(.2,.7,.2,1), transform 300ms cubic-bezier(.2,.7,.2,1);
+}
+.mobile-drawer-open {
+  opacity: 1;
+  transform: none;
+  pointer-events: auto;
+}
+.mobile-drawer-link {
+  color: var(--ink);
+  border-bottom: 1px solid var(--rule);
+  padding-bottom: 16px;
+  opacity: 0;
+  transform: translateY(8px);
+  transition: opacity 300ms, transform 300ms;
+}
+.mobile-drawer-open .mobile-drawer-link {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 820px) {
+  .nav-mobile-toggle { display: flex; }
+  .nav-cta-desktop { display: none; }
+  .mobile-drawer { display: flex; }
+}
 
 /* ===== Hero 2-col responsive ===== */
 @media (max-width: 900px) {
@@ -940,4 +982,50 @@ input, textarea, select {
 }
 .tooltip-popup {
   animation: tooltip-in 0.18s cubic-bezier(.2,.7,.2,1) both;
+}
+
+/* ===== Responsive helpers ===== */
+
+/* 2-col → 1-col */
+.grid-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+@media (max-width: 820px) { .grid-2col { grid-template-columns: 1fr; } }
+
+/* 3-col → 1-col */
+.grid-3col {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+@media (max-width: 920px) { .grid-3col { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 600px) { .grid-3col { grid-template-columns: 1fr; } }
+
+/* Hero-style 2-col with alignment */
+.grid-hero-2col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: end;
+}
+@media (max-width: 820px) { .grid-hero-2col { grid-template-columns: 1fr; } }
+
+/* Team row — flex that wraps */
+.team-row {
+  display: flex;
+  gap: 24px;
+}
+@media (max-width: 820px) { .team-row { flex-direction: column; } }
+
+/* Services hero 2-col */
+.services-hero-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 48px;
+  align-items: end;
+}
+@media (max-width: 820px) { .services-hero-grid { grid-template-columns: 1fr; gap: 24px; } }
+
+/* Why Us heading nowrap override */
+@media (max-width: 820px) {
+  .why-us-heading { white-space: normal !important; }
 }

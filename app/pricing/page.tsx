@@ -113,7 +113,7 @@ export default function PricingPage() {
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               350 words each — students answer 4 of 8 prompts
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: 'repeat(3, 1fr)', gap: 16 }}>
+            <div className="grid-3col" style={{ gap: 16 }}>
               <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Single PIQ essay</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$40</p>
@@ -140,7 +140,7 @@ export default function PricingPage() {
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Curated school and major recommendations
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="grid-2col" style={{ gap: 16 }}>
               <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>College list</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$20</p>
@@ -162,7 +162,7 @@ export default function PricingPage() {
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Crafting descriptions that highlight your involvement
             </p>
-            <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 16 }}>
+            <div className="grid-2col" style={{ gap: 16 }}>
               <div className="price-card" style={{ ...cardBase }}>
                 <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Common App activity list</p>
                 <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$35</p>
