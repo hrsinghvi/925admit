@@ -60,7 +60,7 @@ export default function Nav() {
                             <div key={item.href} className="nav-dropdown-item" style={{ opacity: 0.5, cursor: 'default' }}>
                               <Icon size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
                               <div>
-                                <span className="nav-dropdown-title">
+                                <span className="nav-dropdown-title" style={{ whiteSpace: 'nowrap' }}>
                                   {item.label}
                                   <span style={{
                                     fontSize: 9,
@@ -74,6 +74,7 @@ export default function Nav() {
                                     marginLeft: 8,
                                     verticalAlign: 'middle',
                                     fontWeight: 500,
+                                    whiteSpace: 'nowrap',
                                   }}>Coming Soon</span>
                                 </span>
                                 <span className="nav-dropdown-desc">{item.desc}</span>
