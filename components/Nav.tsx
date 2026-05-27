@@ -7,9 +7,9 @@ import { Menu, X, PenLine, ListChecks, Briefcase } from 'lucide-react'
 import { NAV_LINKS, CALENDLY_URL } from '@/lib/constants'
 
 const SERVICES_DROPDOWN = [
-  { label: 'All Services', desc: 'Everything we offer.', href: '/services', icon: Briefcase },
-  { label: 'Essay Review', desc: 'Get feedback on your college essay.', href: '/services/essay-review', icon: PenLine },
-  { label: 'Activities List Review', desc: 'Get feedback on your activities list.', href: '/services/activities-list', icon: ListChecks },
+  { label: 'All Services', desc: 'Everything we offer.', href: '/services', icon: Briefcase, comingSoon: false },
+  { label: 'Essay Review', desc: 'Get feedback on your college essay.', href: '/services/essay-review', icon: PenLine, comingSoon: true },
+  { label: 'Activities List Review', desc: 'Get feedback on your activities list.', href: '/services/activities-list', icon: ListChecks, comingSoon: true },
 ]
 
 export default function Nav() {
@@ -55,6 +55,32 @@ export default function Nav() {
                     <div className="nav-dropdown-inner">
                       {SERVICES_DROPDOWN.map(item => {
                         const Icon = item.icon
+                        if (item.comingSoon) {
+                          return (
+                            <div key={item.href} className="nav-dropdown-item" style={{ opacity: 0.5, cursor: 'default' }}>
+                              <Icon size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
+                              <div>
+                                <span className="nav-dropdown-title">
+                                  {item.label}
+                                  <span style={{
+                                    fontSize: 9,
+                                    fontFamily: 'var(--font-mono)',
+                                    letterSpacing: '0.08em',
+                                    textTransform: 'uppercase',
+                                    padding: '2px 6px',
+                                    borderRadius: 999,
+                                    background: 'var(--rule)',
+                                    color: 'var(--ink-2)',
+                                    marginLeft: 8,
+                                    verticalAlign: 'middle',
+                                    fontWeight: 500,
+                                  }}>Coming Soon</span>
+                                </span>
+                                <span className="nav-dropdown-desc">{item.desc}</span>
+                              </div>
+                            </div>
+                          )
+                        }
                         return (
                           <Link key={item.href} href={item.href} className="nav-dropdown-item">
                             <Icon size={18} style={{ color: 'var(--accent)', flexShrink: 0, marginTop: 2 }} />
@@ -109,21 +135,35 @@ export default function Nav() {
                 </Link>
                 <div style={{ display: 'flex', flexDirection: 'column', gap: 8, paddingLeft: 16, marginTop: 8 }}>
                   {SERVICES_DROPDOWN.filter(s => s.href !== '/services').map(item => (
-                    <Link
+                    <span
                       key={item.href}
-                      href={item.href}
-                      onClick={() => setOpen(false)}
                       style={{
                         fontSize: 16,
                         color: 'var(--ink-2)',
-                        opacity: open ? 1 : 0,
+                        opacity: open ? (item.comingSoon ? 0.5 : 1) : 0,
                         transform: open ? 'none' : 'translateY(8px)',
                         transition: 'opacity 300ms, transform 300ms',
                         transitionDelay: open ? `${(i + 1) * 40}ms` : '0ms',
+                        cursor: item.comingSoon ? 'default' : 'pointer',
                       }}
+                      onClick={() => { if (!item.comingSoon) { setOpen(false); window.location.href = item.href } }}
                     >
                       {item.label}
-                    </Link>
+                      {item.comingSoon && (
+                        <span style={{
+                          fontSize: 9,
+                          fontFamily: 'var(--font-mono)',
+                          letterSpacing: '0.08em',
+                          textTransform: 'uppercase',
+                          padding: '2px 6px',
+                          borderRadius: 999,
+                          background: 'var(--rule)',
+                          color: 'var(--ink-2)',
+                          marginLeft: 8,
+                          verticalAlign: 'middle',
+                        }}>Coming Soon</span>
+                      )}
+                    </span>
                   ))}
                 </div>
               </div>
