@@ -4,8 +4,8 @@ import { useState } from 'react'
 import Link from 'next/link'
 
 const LIST_TYPES = [
-  { value: 'common-app', label: 'Common App Activities List', maxActivities: 10, price: 35 },
-  { value: 'uc', label: 'UC Activities List', maxActivities: 20, price: 80 },
+  { value: 'common-app', label: 'Common App Activities List', maxActivities: 10, pricePerActivity: 3.5 },
+  { value: 'uc', label: 'UC Activities List', maxActivities: 20, pricePerActivity: 4 },
 ]
 
 const TURNAROUND_OPTIONS = [
@@ -33,8 +33,8 @@ function emptyActivity(): Activity {
 export default function ActivitiesListPage() {
   const [type, setType] = useState('common-app')
   const [turnaround, setTurnaround] = useState('1-week')
-  const [numActivities, setNumActivities] = useState(1)
-  const [activities, setActivities] = useState<Activity[]>([emptyActivity()])
+  const [numActivities, setNumActivities] = useState(10)
+  const [activities, setActivities] = useState<Activity[]>(Array.from({ length: 10 }, () => emptyActivity()))
   const [comments, setComments] = useState('')
   const [name, setName] = useState('')
   const [email, setEmail] = useState('')
@@ -43,7 +43,7 @@ export default function ActivitiesListPage() {
 
   const listType = LIST_TYPES.find(t => t.value === type)!
 
-  const price = listType.price
+  const price = (numActivities * listType.pricePerActivity).toFixed(2).replace(/\.00$/, '')
 
   const handleNumChange = (n: number) => {
     setNumActivities(n)
@@ -51,6 +51,12 @@ export default function ActivitiesListPage() {
       if (n > prev.length) return [...prev, ...Array(n - prev.length).fill(null).map(() => emptyActivity())]
       return prev.slice(0, n)
     })
+  }
+
+  const handleTypeChange = (newType: string) => {
+    setType(newType)
+    const newListType = LIST_TYPES.find(t => t.value === newType)!
+    handleNumChange(newListType.maxActivities)
   }
 
   const updateActivity = (index: number, field: keyof Activity, value: string | string[]) => {
@@ -160,7 +166,7 @@ export default function ActivitiesListPage() {
           {/* Type */}
           <div>
             <label style={labelStyle}>Type</label>
-            <select value={type} onChange={e => { setType(e.target.value); handleNumChange(1) }} style={selectStyle}>
+            <select value={type} onChange={e => handleTypeChange(e.target.value)} style={selectStyle}>
               {LIST_TYPES.map(t => (
                 <option key={t.value} value={t.value}>{t.label}</option>
               ))}
