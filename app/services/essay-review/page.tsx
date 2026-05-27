@@ -20,10 +20,10 @@ const WORD_COUNT_OPTIONS = [
 ]
 
 const TURNAROUND_OPTIONS = [
-  { value: '1-week', label: '1 week', multiplier: 1 },
-  { value: '5-days', label: '5 days', multiplier: 1.2 },
-  { value: '3-days', label: '3 days', multiplier: 1.5 },
-  { value: '1-day', label: '1 day', multiplier: 2 },
+  { value: '1-week', label: '1 week' },
+  { value: '5-days', label: '5 days' },
+  { value: '3-days', label: '3 days' },
+  { value: '1-day', label: '1 day' },
 ]
 
 const BASE_PRICES: Record<string, number> = {
@@ -31,14 +31,12 @@ const BASE_PRICES: Record<string, number> = {
   'uc-piq': 40,
 }
 
-function getPrice(type: string, wordCount: string, turnaround: string): number {
-  let base = BASE_PRICES[type] ?? 0
+function getPrice(type: string, wordCount: string): number {
   if (type === 'supplemental' || type === 'letter') {
     const wc = WORD_COUNT_OPTIONS.find(w => w.value === wordCount)
-    base = wc?.price ?? 10
+    return wc?.price ?? 10
   }
-  const ta = TURNAROUND_OPTIONS.find(t => t.value === turnaround)
-  return Math.round(base * (ta?.multiplier ?? 1))
+  return BASE_PRICES[type] ?? 0
 }
 
 const showWordCount = (type: string) => type === 'supplemental' || type === 'letter'
@@ -57,7 +55,7 @@ export default function EssayReviewPage() {
   const [submitting, setSubmitting] = useState(false)
   const [submitted, setSubmitted] = useState(false)
 
-  const price = useMemo(() => getPrice(type, wordCount, turnaround), [type, wordCount, turnaround])
+  const price = useMemo(() => getPrice(type, wordCount), [type, wordCount])
   const isLetter = type === 'letter'
 
   const handleSubmit = async (e: React.FormEvent) => {

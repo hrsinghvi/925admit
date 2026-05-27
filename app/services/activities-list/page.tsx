@@ -1,18 +1,18 @@
 'use client'
 
-import { useState, useMemo } from 'react'
+import { useState } from 'react'
 import Link from 'next/link'
 
 const LIST_TYPES = [
-  { value: 'common-app', label: 'Common App Activities List', maxActivities: 10, pricePerActivity: 5 },
-  { value: 'uc', label: 'UC Activities List', maxActivities: 20, pricePerActivity: 5 },
+  { value: 'common-app', label: 'Common App Activities List', maxActivities: 10, price: 35 },
+  { value: 'uc', label: 'UC Activities List', maxActivities: 20, price: 80 },
 ]
 
 const TURNAROUND_OPTIONS = [
-  { value: '1-week', label: '1 week', multiplier: 1 },
-  { value: '5-days', label: '5 days', multiplier: 1.2 },
-  { value: '3-days', label: '3 days', multiplier: 1.5 },
-  { value: '1-day', label: '1 day', multiplier: 2 },
+  { value: '1-week', label: '1 week' },
+  { value: '5-days', label: '5 days' },
+  { value: '3-days', label: '3 days' },
+  { value: '1-day', label: '1 day' },
 ]
 
 const GRADES = ['9th', '10th', '11th', '12th']
@@ -42,11 +42,8 @@ export default function ActivitiesListPage() {
   const [submitted, setSubmitted] = useState(false)
 
   const listType = LIST_TYPES.find(t => t.value === type)!
-  const ta = TURNAROUND_OPTIONS.find(t => t.value === turnaround)!
 
-  const price = useMemo(() => {
-    return Math.round(numActivities * listType.pricePerActivity * ta.multiplier)
-  }, [numActivities, listType, ta])
+  const price = listType.price
 
   const handleNumChange = (n: number) => {
     setNumActivities(n)
@@ -82,7 +79,7 @@ export default function ActivitiesListPage() {
           name,
           email,
           type: listType.label,
-          turnaround: ta.label,
+          turnaround: TURNAROUND_OPTIONS.find(t => t.value === turnaround)?.label,
           numActivities,
           activities,
           comments,
