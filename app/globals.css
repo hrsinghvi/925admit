@@ -1041,6 +1041,19 @@ input, textarea, select {
   transition: border-color 200ms, box-shadow 200ms;
 }
 
+/* ===== Page transitions ===== */
+.page-transition {
+  transition: opacity 200ms cubic-bezier(.2,.7,.2,1), transform 200ms cubic-bezier(.2,.7,.2,1);
+}
+.page-enter {
+  opacity: 1;
+  transform: none;
+}
+.page-exit {
+  opacity: 0;
+  transform: translateY(8px);
+}
+
 @keyframes tooltip-in {
   from { opacity: 0; transform: translateX(-50%) translateY(6px); }
   to   { opacity: 1; transform: translateX(-50%) translateY(0); }

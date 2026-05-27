@@ -3,6 +3,7 @@ import { DM_Sans, Instrument_Serif, JetBrains_Mono } from 'next/font/google'
 import './globals.css'
 import Nav from '@/components/Nav'
 import Footer from '@/components/Footer'
+import PageTransition from '@/components/PageTransition'
 
 const dm_sans = DM_Sans({
   subsets: ['latin'],
@@ -45,7 +46,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
     <html lang="en" className={`${dm_sans.variable} ${instrument_serif.variable} ${jetbrains_mono.variable}`}>
       <body>
         <Nav />
-        <main>{children}</main>
+        <main><PageTransition>{children}</PageTransition></main>
         <Footer />
       </body>
     </html>
