@@ -44,6 +44,43 @@ export default function ServicesPage() {
       <section className="section">
         <div className="shell" style={{ display: 'flex', flexDirection: 'column', gap: 24 }}>
 
+          {/* Row 0 — Hourly Counseling (full width) */}
+          <div style={{ ...cardBase }}>
+            <p className="eyebrow" style={{ marginBottom: 12 }}>Live 1-on-1 Sessions</p>
+            <h2 className="display" style={{ fontSize: 'clamp(28px, 3vw, 44px)', marginBottom: 12 }}>
+              Buy hours. Use them for<br /><em className="italic" style={{ color: 'var(--accent)' }}>anything.</em>
+            </h2>
+            <p style={{ fontSize: 16, color: 'var(--ink-2)', maxWidth: '60ch', marginBottom: 24, lineHeight: 1.65 }}>
+              Class selection, SAT/AP prep, essay ideation, live essay grading, college list building, Common App &amp; UC strategy, filling out applications on call — or any written service done live. Hours are valid until you graduate. No extra fees on top of the package.
+            </p>
+
+            <div className="grid-3col" style={{ gap: 16, marginBottom: 32 }}>
+              {[
+                { title: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
+                { title: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
+                { title: 'Growth', hours: '20 hrs', price: '$1,700', rate: '$85/hr' },
+                { title: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
+                { title: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
+              ].map((pkg) => (
+                <div key={pkg.title} style={{
+                  background: 'var(--bg)',
+                  border: '1px solid var(--rule)',
+                  borderRadius: 14,
+                  padding: 24,
+                }}>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
+                  <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
+                </div>
+              ))}
+            </div>
+
+            <div style={{ display: 'flex', gap: 12 }}>
+              <Button href="/pricing" variant="ghost">View Pricing</Button>
+              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
+            </div>
+          </div>
+
           {/* Row 1 — Essay Grading (full width) */}
           <div style={{ ...cardBase }}>
             <p className="eyebrow" style={{ marginBottom: 12 }}>Essay Grading</p>

@@ -4,9 +4,9 @@ import Button from '@/components/Button'
 import { CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
-  title: 'Essay Coaching Pricing & Packages',
+  title: 'Counseling & Essay Coaching Pricing',
   description:
-    'Simple, transparent pricing for college essay coaching. All packages include unlimited revisions. Choose the plan that fits your needs.',
+    'Hourly counseling packages and essay coaching pricing. Live 1-on-1 sessions, unlimited revisions, transparent pricing.',
   openGraph: {
     title: 'Essay Coaching Pricing & Packages | 925Admit',
     description:
@@ -63,6 +63,43 @@ export default function PricingPage() {
       {/* Pricing Sections */}
       <section className="section">
         <div className="shell" style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
+
+          {/* Hourly Counseling */}
+          <div>
+            <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>Hourly counseling packages</h3>
+            <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
+              Live 1-on-1 sessions — use hours for anything. Valid until graduation.
+            </p>
+            <div className="grid-3col" style={{ gap: 16 }}>
+              <div className="price-card" style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Starter · 5 hrs</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$550</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$110/hr</p>
+              </div>
+              <div className="price-card" style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Standard · 10 hrs</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,000</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$100/hr</p>
+              </div>
+              <div className="price-card" style={{ ...cardBase, ...featuredBorder }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
+                  Growth · 20 hrs<span style={saveBadge}>Best Value</span>
+                </p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr</p>
+              </div>
+              <div className="price-card" style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Pro · 30 hrs</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$2,400</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$80/hr</p>
+              </div>
+              <div className="price-card" style={{ ...cardBase }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Elite · 40 hrs</p>
+                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$3,000</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$75/hr</p>
+              </div>
+            </div>
+          </div>
 
           {/* Supplemental Essays */}
           <div>
