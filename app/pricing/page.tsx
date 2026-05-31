@@ -85,12 +85,20 @@ export default function PricingPage() {
                 </div>
               </div>
               {/* Row 2: Growth (full width, featured) */}
-              <div className="price-card" style={{ ...cardBase, ...featuredBorder }}>
-                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
-                  Growth · 20 hrs<span style={saveBadge}>Best Value</span>
-                </p>
-                <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
-                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr</p>
+              <div className="price-card" style={{ ...cardBase, ...featuredBorder, padding: '28px 28px' }}>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
+                  <div>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
+                      Growth · 20 hrs
+                      <span style={{ ...saveBadge, background: '#346B6E', color: '#fff', border: 'none' }}>Best Deal</span>
+                    </p>
+                    <p className="display" style={{ fontSize: 36, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
+                    <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>$85/hr · Save $500 vs. paying hourly</p>
+                  </div>
+                  <p style={{ fontSize: 13, color: '#346B6E', fontWeight: 600, margin: 0, paddingTop: 4 }}>
+                    Most popular package
+                  </p>
+                </div>
               </div>
               {/* Row 3: Pro + Elite */}
               <div className="grid-2col" style={{ gap: 16 }}>

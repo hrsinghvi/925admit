@@ -78,11 +78,33 @@ export default function ServicesPage() {
                 background: 'var(--bg)',
                 border: '2px solid #346B6E',
                 borderRadius: 14,
-                padding: 24,
+                padding: '28px 24px',
               }}>
-                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>Growth · 20 hrs</p>
-                <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
-                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr</p>
+                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
+                  <div>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>
+                      Growth · 20 hrs
+                      <span style={{
+                        display: 'inline-block',
+                        fontFamily: 'var(--font-mono)',
+                        fontSize: 10,
+                        letterSpacing: '0.08em',
+                        textTransform: 'uppercase',
+                        padding: '3px 8px',
+                        borderRadius: 999,
+                        background: '#346B6E',
+                        color: '#fff',
+                        marginLeft: 10,
+                        verticalAlign: 'middle',
+                      }}>Best Deal</span>
+                    </p>
+                    <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr · Save $500 vs. paying hourly</p>
+                  </div>
+                  <p style={{ fontSize: 13, color: '#346B6E', fontWeight: 600, margin: 0, paddingTop: 4 }}>
+                    Most popular package
+                  </p>
+                </div>
               </div>
               {/* Row 3: Pro + Elite */}
               <div className="grid-2col" style={{ gap: 16 }}>
