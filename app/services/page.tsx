@@ -54,25 +54,54 @@ export default function ServicesPage() {
               Class selection, SAT/AP prep, essay ideation, live essay grading, college list building, Common App &amp; UC strategy, filling out applications on call — or any written service done live. Hours are valid until you graduate. No extra fees on top of the package.
             </p>
 
-            <div className="grid-3col" style={{ gap: 16, marginBottom: 32 }}>
-              {[
-                { title: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
-                { title: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
-                { title: 'Growth', hours: '20 hrs', price: '$1,700', rate: '$85/hr' },
-                { title: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
-                { title: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
-              ].map((pkg) => (
-                <div key={pkg.title} style={{
-                  background: 'var(--bg)',
-                  border: '1px solid var(--rule)',
-                  borderRadius: 14,
-                  padding: 24,
-                }}>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
-                  <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
-                </div>
-              ))}
+            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
+              {/* Row 1: Starter + Standard */}
+              <div className="grid-2col" style={{ gap: 16 }}>
+                {[
+                  { title: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
+                  { title: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
+                ].map((pkg) => (
+                  <div key={pkg.title} style={{
+                    background: 'var(--bg)',
+                    border: '1px solid var(--rule)',
+                    borderRadius: 14,
+                    padding: 24,
+                  }}>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
+                    <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
+                  </div>
+                ))}
+              </div>
+              {/* Row 2: Growth (full width, featured) */}
+              <div style={{
+                background: 'var(--bg)',
+                border: '2px solid #346B6E',
+                borderRadius: 14,
+                padding: 24,
+              }}>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>Growth · 20 hrs</p>
+                <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
+                <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr</p>
+              </div>
+              {/* Row 3: Pro + Elite */}
+              <div className="grid-2col" style={{ gap: 16 }}>
+                {[
+                  { title: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
+                  { title: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
+                ].map((pkg) => (
+                  <div key={pkg.title} style={{
+                    background: 'var(--bg)',
+                    border: '1px solid var(--rule)',
+                    borderRadius: 14,
+                    padding: 24,
+                  }}>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
+                    <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
+                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
+                  </div>
+                ))}
+              </div>
             </div>
 
             <div style={{ display: 'flex', gap: 12 }}>
