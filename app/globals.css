@@ -114,6 +114,7 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: var(--ink);
   color: var(--bg);
   border-color: var(--ink);
+  align-self: flex-start;
 }
 .btn-dark:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
 .btn-arrow { transition: transform 200ms; display: inline-block; }
