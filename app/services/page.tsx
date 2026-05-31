@@ -1,6 +1,5 @@
 import type { Metadata } from 'next'
 import Button from '@/components/Button'
-import { CALENDLY_URL } from '@/lib/constants'
 
 export const metadata: Metadata = {
   title: 'College Essay Coaching Services',
@@ -54,82 +53,44 @@ export default function ServicesPage() {
               Class selection, SAT/AP prep, essay ideation, live essay grading, college list building, Common App &amp; UC strategy, filling out applications on call — or any written service done live. Hours are valid until you graduate. No extra fees on top of the package.
             </p>
 
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16, marginBottom: 32 }}>
-              {/* Row 1: Starter + Standard */}
-              <div className="grid-2col" style={{ gap: 16 }}>
-                {[
-                  { title: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
-                  { title: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
-                ].map((pkg) => (
-                  <div key={pkg.title} style={{
-                    background: 'var(--bg)',
-                    border: '1px solid var(--rule)',
-                    borderRadius: 14,
-                    padding: 24,
-                  }}>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
-                    <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
-                  </div>
-                ))}
-              </div>
-              {/* Row 2: Growth (full width, featured) */}
-              <div style={{
-                background: 'var(--bg)',
-                border: '2px solid #346B6E',
-                borderRadius: 14,
-                padding: '28px 24px',
-              }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
-                  <div>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>
-                      Growth · 20 hrs
-                      <span style={{
-                        display: 'inline-block',
-                        fontFamily: 'var(--font-mono)',
-                        fontSize: 10,
-                        letterSpacing: '0.08em',
-                        textTransform: 'uppercase',
-                        padding: '3px 8px',
-                        borderRadius: 999,
-                        background: '#346B6E',
-                        color: '#fff',
-                        marginLeft: 10,
-                        verticalAlign: 'middle',
-                      }}>Best Deal</span>
-                    </p>
-                    <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$85/hr · Save $500 vs. paying hourly</p>
-                  </div>
-                  <p style={{ fontSize: 13, color: '#346B6E', fontWeight: 600, margin: 0, paddingTop: 4 }}>
-                    Most popular package
+            <div className="grid-5col" style={{ gap: 16, marginBottom: 32 }}>
+              {[
+                { title: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
+                { title: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
+                { title: 'Growth', hours: '20 hrs', price: '$1,700', rate: '$85/hr', featured: true },
+                { title: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
+                { title: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
+              ].map((pkg) => (
+                <div key={pkg.title} style={{
+                  background: 'var(--bg)',
+                  border: pkg.featured ? '2px solid #346B6E' : '1px solid var(--rule)',
+                  borderRadius: 14,
+                  padding: 24,
+                }}>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>
+                    {pkg.title} · {pkg.hours}
+                    {pkg.featured && <span style={{
+                      display: 'inline-block',
+                      fontFamily: 'var(--font-mono)',
+                      fontSize: 10,
+                      letterSpacing: '0.08em',
+                      textTransform: 'uppercase',
+                      padding: '3px 8px',
+                      borderRadius: 999,
+                      background: '#346B6E',
+                      color: '#fff',
+                      marginLeft: 10,
+                      verticalAlign: 'middle',
+                    }}>Best Deal</span>}
                   </p>
+                  <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
+                  {pkg.featured && <p style={{ fontSize: 12, color: '#346B6E', fontWeight: 600, margin: '8px 0 0' }}>Most popular</p>}
                 </div>
-              </div>
-              {/* Row 3: Pro + Elite */}
-              <div className="grid-2col" style={{ gap: 16 }}>
-                {[
-                  { title: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
-                  { title: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
-                ].map((pkg) => (
-                  <div key={pkg.title} style={{
-                    background: 'var(--bg)',
-                    border: '1px solid var(--rule)',
-                    borderRadius: 14,
-                    padding: 24,
-                  }}>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 4 }}>{pkg.title} · {pkg.hours}</p>
-                    <p className="display" style={{ fontSize: 28, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
-                  </div>
-                ))}
-              </div>
+              ))}
             </div>
 
-            <div style={{ display: 'flex', gap: 12 }}>
-              <Button href="/pricing" variant="ghost">View Pricing</Button>
-              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
-            </div>
+            <Button href="/pricing#counseling" variant="dark">View Pricing</Button>
           </div>
 
           {/* Row 1 — Essay Grading (full width) */}
@@ -170,10 +131,7 @@ export default function ServicesPage() {
               ))}
             </div>
 
-            <div style={{ display: 'flex', gap: 12 }}>
-              <Button href="/pricing" variant="ghost">View Pricing</Button>
-              <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
-            </div>
+            <Button href="/pricing#essays" variant="dark">View Pricing</Button>
           </div>
 
           {/* Row 2 — Activity List + College List side by side */}
@@ -196,10 +154,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <div style={{ display: 'flex', gap: 12 }}>
-                <Button href="/pricing" variant="ghost">View Pricing</Button>
-                <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
-              </div>
+              <Button href="/pricing#activities" variant="dark">View Pricing</Button>
             </div>
 
             {/* College List + Majors */}
@@ -219,10 +174,7 @@ export default function ServicesPage() {
                   </li>
                 ))}
               </ul>
-              <div style={{ display: 'flex', gap: 12 }}>
-                <Button href="/pricing" variant="ghost">View Pricing</Button>
-                <Button href={CALENDLY_URL} external variant="primary">Book Free Consultation</Button>
-              </div>
+              <Button href="/pricing#college-list" variant="dark">View Pricing</Button>
             </div>
 
           </div>

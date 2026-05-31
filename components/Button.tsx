@@ -3,7 +3,7 @@ import Link from 'next/link'
 interface ButtonProps {
   children: React.ReactNode
   href?: string
-  variant?: 'primary' | 'ghost' | 'outlined' | 'white'
+  variant?: 'primary' | 'ghost' | 'outlined' | 'white' | 'dark'
   external?: boolean
   className?: string
   type?: 'button' | 'submit' | 'reset'
@@ -11,7 +11,8 @@ interface ButtonProps {
 }
 
 export default function Button({ children, href, variant = 'primary', external, className = '', type = 'button', onClick }: ButtonProps) {
-  const cls = `btn ${variant === 'ghost' || variant === 'outlined' ? 'btn-ghost' : 'btn-primary'} ${className}`
+  const variantClass = variant === 'ghost' || variant === 'outlined' ? 'btn-ghost' : variant === 'dark' ? 'btn-dark' : 'btn-primary'
+  const cls = `btn ${variantClass} ${className}`
 
   if (href && external) {
     return <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>

@@ -110,6 +110,12 @@ button { font-family: inherit; cursor: pointer; border: none; background: none; 
   background: transparent;
 }
 .btn-ghost:hover { background: var(--ink); color: var(--bg); border-color: var(--ink); }
+.btn-dark {
+  background: var(--ink);
+  color: var(--bg);
+  border-color: var(--ink);
+}
+.btn-dark:hover { background: var(--accent); border-color: var(--accent); transform: translateY(-1px); }
 .btn-arrow { transition: transform 200ms; display: inline-block; }
 .btn:hover .btn-arrow { transform: translateX(3px); }
 
@@ -1078,6 +1084,14 @@ input, textarea, select {
 }
 @media (max-width: 920px) { .grid-3col { grid-template-columns: repeat(2, 1fr); } }
 @media (max-width: 600px) { .grid-3col { grid-template-columns: 1fr; } }
+
+.grid-5col {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+@media (max-width: 1080px) { .grid-5col { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 700px) { .grid-5col { grid-template-columns: repeat(2, 1fr); } }
+@media (max-width: 480px) { .grid-5col { grid-template-columns: 1fr; } }
 
 /* Hero-style 2-col with alignment */
 .grid-hero-2col {

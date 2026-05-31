@@ -65,59 +65,37 @@ export default function PricingPage() {
         <div className="shell" style={{ display: 'flex', flexDirection: 'column', gap: 56 }}>
 
           {/* Hourly Counseling */}
-          <div>
+          <div id="counseling">
             <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>Hourly counseling packages</h3>
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Live 1-on-1 sessions — use hours for anything. Valid until graduation.
             </p>
-            <div style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-              {/* Row 1: Starter + Standard */}
-              <div className="grid-2col" style={{ gap: 16 }}>
-                <div className="price-card" style={{ ...cardBase }}>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Starter · 5 hrs</p>
-                  <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$550</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$110/hr</p>
-                </div>
-                <div className="price-card" style={{ ...cardBase }}>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Standard · 10 hrs</p>
-                  <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$1,000</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$100/hr</p>
-                </div>
-              </div>
-              {/* Row 2: Growth (full width, featured) */}
-              <div className="price-card" style={{ ...cardBase, ...featuredBorder, padding: '28px 28px' }}>
-                <div style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'flex-start', flexWrap: 'wrap', gap: 16 }}>
-                  <div>
-                    <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
-                      Growth · 20 hrs
-                      <span style={{ ...saveBadge, background: '#346B6E', color: '#fff', border: 'none' }}>Best Deal</span>
-                    </p>
-                    <p className="display" style={{ fontSize: 36, margin: '0 0 4px', color: 'var(--ink)' }}>$1,700</p>
-                    <p style={{ fontSize: 14, color: 'var(--ink-2)', margin: 0 }}>$85/hr · Save $500 vs. paying hourly</p>
-                  </div>
-                  <p style={{ fontSize: 13, color: '#346B6E', fontWeight: 600, margin: 0, paddingTop: 4 }}>
-                    Most popular package
+            <div className="grid-5col" style={{ gap: 16 }}>
+              {[
+                { name: 'Starter', hours: '5 hrs', price: '$550', rate: '$110/hr' },
+                { name: 'Standard', hours: '10 hrs', price: '$1,000', rate: '$100/hr' },
+                { name: 'Growth', hours: '20 hrs', price: '$1,700', rate: '$85/hr', featured: true },
+                { name: 'Pro', hours: '30 hrs', price: '$2,400', rate: '$80/hr' },
+                { name: 'Elite', hours: '40 hrs', price: '$3,000', rate: '$75/hr' },
+              ].map((pkg) => (
+                <div key={pkg.name} className="price-card" style={{
+                  ...cardBase,
+                  ...(pkg.featured ? featuredBorder : {}),
+                }}>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>
+                    {pkg.name} · {pkg.hours}
+                    {pkg.featured && <span style={{ ...saveBadge, background: '#346B6E', color: '#fff', border: 'none' }}>Best Deal</span>}
                   </p>
+                  <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>{pkg.price}</p>
+                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>{pkg.rate}</p>
+                  {pkg.featured && <p style={{ fontSize: 12, color: '#346B6E', fontWeight: 600, margin: '8px 0 0' }}>Most popular</p>}
                 </div>
-              </div>
-              {/* Row 3: Pro + Elite */}
-              <div className="grid-2col" style={{ gap: 16 }}>
-                <div className="price-card" style={{ ...cardBase }}>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Pro · 30 hrs</p>
-                  <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$2,400</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$80/hr</p>
-                </div>
-                <div className="price-card" style={{ ...cardBase }}>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', marginBottom: 8 }}>Elite · 40 hrs</p>
-                  <p className="display" style={{ fontSize: 32, margin: '0 0 4px', color: 'var(--ink)' }}>$3,000</p>
-                  <p style={{ fontSize: 13, color: 'var(--ink-2)', margin: 0 }}>$75/hr</p>
-                </div>
-              </div>
+              ))}
             </div>
           </div>
 
           {/* Supplemental Essays */}
-          <div>
+          <div id="essays">
             <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>Supplemental essays</h3>
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Priced by word count — each includes 2 rounds of revision
@@ -160,7 +138,7 @@ export default function PricingPage() {
           </div>
 
           {/* UC PIQs + Common App */}
-          <div>
+          <div id="piqs">
             <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>UC Personal Insight Questions (PIQ)</h3>
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               350 words each — students answer 4 of 8 prompts
@@ -187,7 +165,7 @@ export default function PricingPage() {
           </div>
 
           {/* College List & Majors */}
-          <div>
+          <div id="college-list">
             <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>College list &amp; majors</h3>
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Curated school and major recommendations
@@ -209,7 +187,7 @@ export default function PricingPage() {
           </div>
 
           {/* Activity Lists */}
-          <div>
+          <div id="activities">
             <h3 className="display" style={{ fontSize: 24, marginBottom: 6, color: 'var(--ink)' }}>Activity lists</h3>
             <p style={{ fontSize: 14, marginBottom: 20, color: 'var(--ink-2)' }}>
               Crafting descriptions that highlight your involvement
