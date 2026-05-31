@@ -17,6 +17,9 @@ export default function Button({ children, href, variant = 'primary', external, 
   if (href && external) {
     return <a href={href} target="_blank" rel="noopener noreferrer" className={cls}>{children}</a>
   }
+  if (href && href.includes('#')) {
+    return <a href={href} className={cls}>{children}</a>
+  }
   if (href) {
     return <Link href={href} className={cls}>{children}</Link>
   }
