@@ -86,14 +86,14 @@ export const TEAM = [
     role: 'Lead Essay Coach',
     initials: 'HS',
     image: '/team/hritvik.png',
-    bio: 'Studying Computer Science at UIUC\'s Grainger College of Engineering, a top-5 CS program. Also admitted to UCSD, UCSB, NYU, UCI, UMD, and Purdue. Specializes in narrative structure and making technical experiences feel human.',
+    bio: 'Studying Computer Science + Philosophy at UIUC, a top-5 CS school. Also admitted to UCSD, UCSB, NYU, UCI, UMD, and Purdue. Specializes in narrative structure and making technical experiences feel human.',
   },
   {
     name: 'Krishang Singhvi',
     role: 'Activities List Specialist',
     initials: 'KS',
     image: '/team/krishang.png',
-    bio: 'Studying Finance at Indiana University\'s Kelley School of Business, one of the top business programs in the world. Also admitted to UCSB, Emory University, BU, UIUC Gies, and UCSD. Expert at crafting compelling activity descriptions and strategic positioning.',
+    bio: 'Studying Finance at Indiana University\'s Kelley School of Business, one of the top business programs in the world. Also admitted to UCSB and Emory University. Expert at crafting compelling activity descriptions and strategic positioning.',
   },
   {
     name: 'Sriram Karthik',
